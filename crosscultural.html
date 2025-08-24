@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cross-Cultural Path — Everyday Magic</title>
-  <link rel="stylesheet" href="main-optimized.css" />
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="components.css" />
+  <link rel="stylesheet" href="themes.css" />
+  <link rel="stylesheet" href="animations.css" />
+  <link rel="stylesheet" href="theme-switcher.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Rye&family=Josefin+Sans:wght@400;600&family=Montserrat:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
@@ -26,9 +30,10 @@
       <nav>
         <ul class="nav-links">
           <li><a href="index.html#home">Home</a></li>
-          <li><a href="index.html#experience">Experience</a></li>
-          <li><a href="index.html#paths">Paths</a></li>
           <li><a href="museum-map.html">Museum</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
         </ul>
       </nav>
     </div>
@@ -41,56 +46,7 @@
         <h2 class="intro-text">A Cross-Cultural Journey Through Esoteric Systems</h2>
         <p class="subtitle-text">Dive deep into the sacred texts, rituals, and philosophies of five civilizations — from Egypt to Japan. Examine protective symbols, mystic traditions, and systems of spiritual defense across space and time.</p>
         
-        <!-- Тестовые функции прямо в HTML -->
-        <script>
-          // CSS стили для правильного скрытия секций
-          const style = document.createElement('style');
-          style.textContent = `
-            .culture-section[style*="display: none"] {
-              display: none !important;
-              visibility: hidden !important;
-              opacity: 0 !important;
-              height: 0 !important;
-              overflow: hidden !important;
-              margin: 0 !important;
-              padding: 0 !important;
-              position: absolute !important;
-              left: -9999px !important;
-            }
-            
-            .culture-section[style*="display: block"] {
-              display: block !important;
-              visibility: visible !important;
-              opacity: 1 !important;
-              height: auto !important;
-              overflow: visible !important;
-              position: relative !important;
-              left: auto !important;
-            }
-            
-            .close-button {
-              background: var(--gold) !important;
-              color: #000 !important;
-              border: none !important;
-              padding: 0.5rem 1rem !important;
-              border-radius: 8px !important;
-              cursor: pointer !important;
-              font-weight: 600 !important;
-              transition: all 0.3s ease !important;
-              box-shadow: 0 2px 8px rgba(245,231,195,0.3) !important;
-            }
-            
-            .close-button:hover {
-              background: #fff !important;
-              color: #000 !important;
-              transform: translateY(-2px) !important;
-              box-shadow: 0 4px 12px rgba(245,231,195,0.5) !important;
-            }
-            
 
-          `;
-          document.head.appendChild(style);
-        </script>
         
 
       </div>
@@ -113,9 +69,9 @@
                   <div class="story-content">
                     <h4 class="story-title">The Faceless Guardian: Slavic Protective Dolls</h4>
                     <div class="text-controls">
-                      <button onclick="setNarrativeLevel('slavic', 'brief')" class="text-level-btn">General</button>
-                      <button onclick="setNarrativeLevel('slavic', 'medium')" class="text-level-btn">Expert</button>
-                      <button onclick="setNarrativeLevel('slavic', 'long')" class="text-level-btn">Scholar</button>
+                      <button onclick="setNarrativeLevel('slavic', 'brief')" class="text-level-btn">Beginner</button>
+                      <button onclick="setNarrativeLevel('slavic', 'medium')" class="text-level-btn">Casual</button>
+                      <button onclick="setNarrativeLevel('slavic', 'long')" class="text-level-btn">Expert</button>
                     </div>
                     <div class="story-text-container">
                       <p id="slavic-text" class="story-text">
@@ -145,9 +101,9 @@ Today, motanki have experienced a revival. Artisans, folklorists, and spiritual 
                   <div class="story-content">
                     <h4 class="story-title">The All-Seeing Eye: Turkish Nazar Boncuk</h4>
                     <div class="text-controls">
-                      <button onclick="setNarrativeLevel('turkish', 'brief')" class="text-level-btn">General</button>
-                      <button onclick="setNarrativeLevel('turkish', 'medium')" class="text-level-btn">Expert</button>
-                      <button onclick="setNarrativeLevel('turkish', 'long')" class="text-level-btn">Scholar</button>
+                      <button onclick="setNarrativeLevel('turkish', 'brief')" class="text-level-btn">Beginner</button>
+                      <button onclick="setNarrativeLevel('turkish', 'medium')" class="text-level-btn">Casual</button>
+                      <button onclick="setNarrativeLevel('turkish', 'long')" class="text-level-btn">Expert</button>
                     </div>
                     <div class="story-text-container">
                       <p id="turkish-text" class="story-text">
@@ -179,9 +135,9 @@ In the digital age, the nazar is more than a physical charm; it's an emoji, a me
                   <div class="story-content">
                     <h4 class="story-title">The Sun Roller: Egyptian Scarab Beetle</h4>
                     <div class="text-controls">
-                      <button onclick="setNarrativeLevel('egyptian', 'brief')" class="text-level-btn">General</button>
-                      <button onclick="setNarrativeLevel('egyptian', 'medium')" class="text-level-btn">Expert</button>
-                      <button onclick="setNarrativeLevel('egyptian', 'long')" class="text-level-btn">Scholar</button>
+                      <button onclick="setNarrativeLevel('egyptian', 'brief')" class="text-level-btn">Beginner</button>
+                      <button onclick="setNarrativeLevel('egyptian', 'medium')" class="text-level-btn">Casual</button>
+                      <button onclick="setNarrativeLevel('egyptian', 'long')" class="text-level-btn">Expert</button>
                     </div>
                     <div class="story-text-container">
                       <p id="egyptian-text" class="story-text">
@@ -528,6 +484,23 @@ Even today, the image of the scarab endures. It's found in museums, jewelry, fil
                   They said the scarab rolled the sun across the sky — not just light, but fate itself. In tombs hidden beneath sand and stars, these amulets rested on silent chests, whispering spells into eternity. The flat side bore hieroglyphs, the names of kings and the pleas of lovers. It was not just protection — it was resurrection written in stone.
                 </div>
               </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('egypt')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="egypt-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="egypt-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
             </section>
             <!-- Япония -->
             <section class="culture-section" data-region="japan" style="display:none;">
@@ -543,6 +516,23 @@ Even today, the image of the scarab endures. It's found in museums, jewelry, fil
                   In a quiet mountain shrine, a monk stitched a charm by candlelight. Inside the silk pouch, a single word — hand-written — waited like a spell. Omamori are never opened; their magic is private. Each one listens in silence: to your footsteps, to your fears, to your heartbeat in traffic. And somehow, it knows what to protect before you do.
                 </div>
               </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('japan')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="japan-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="japan-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
             </section>
             <!-- Мексика -->
             <section class="culture-section" data-region="mexico" style="display:none;">
@@ -558,6 +548,23 @@ Even today, the image of the scarab endures. It's found in museums, jewelry, fil
                   They say deer see spirits in the trees. Their eyes never blink when danger comes. Worn by children and elders alike, the "eye of the deer" watches without judgment. Hung on car mirrors, cribs, and backpacks, it deflects the gaze of envy and the sting of gossip. You won't notice it working — until the harm never arrives.
                 </div>
               </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('mexico')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="mexico-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="mexico-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
             </section>
             <!-- Африка -->
             <section class="culture-section" data-region="africa" style="display:none;">
@@ -573,6 +580,23 @@ Even today, the image of the scarab endures. It's found in museums, jewelry, fil
                   A fetish is not a toy, nor a trinket. It is a house for something older than names. In Bantu ceremonies, it's fed with smoke, with oil, with the breath of a song. Some say it speaks through dreams. Others claim it moves when no one is looking. It is protection, but it demands respect — because what it holds is alive.
                 </div>
               </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('africa')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="africa-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="africa-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
             </section>
             <!-- Корея -->
             <section class="culture-section" data-region="korea" style="display:none;">
@@ -588,6 +612,23 @@ Even today, the image of the scarab endures. It's found in museums, jewelry, fil
                   Carved with symbols and dipped in salt, the ritual knife hung by the doorframe. Not to cut flesh, but to slice shadows. In old village tales, the blade flashed when spirits came too close. Some say the knife hummed during eclipses. Others believe it still glows faintly on certain nights — when it remembers the demons it banished.
                 </div>
               </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('korea')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="korea-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="korea-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
             </section>
             <!-- Европа: Католицизм и Славянство -->
             <section class="culture-section" data-region="europe-catholic" style="display:none;">
@@ -603,6 +644,23 @@ Even today, the image of the scarab endures. It's found in museums, jewelry, fil
                   They called it a silent exorcist. The medal was small, cold to the touch, etched with Latin letters that burned if you understood them. Monks wore it near their hearts. Farmers nailed it into barn doors. Soldiers hid it under armor. Even today, people say it's more than metal — it's a boundary line. Evil knows not to cross.
                 </div>
               </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('europe-catholic')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="europe-catholic-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="europe-catholic-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
             </section>
             <section class="culture-section" data-region="europe-slavic" style="display:none;">
               <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
@@ -617,6 +675,23 @@ Even today, the image of the scarab endures. It's found in museums, jewelry, fil
                   She has no face, because fate changes. Hand-twisted from linen and thread, she watched over cradles and ovens, always silent, always near. In some stories, she caught bad dreams in her skirts. In others, she left offerings for the spirits of the house. Never throw her away — only bury or burn her, with thanks.
                 </div>
               </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('europe-slavic')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="europe-slavic-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="europe-slavic-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
             </section>
             <!-- Скандинавия -->
             <section class="culture-section" data-region="nordic" style="display:none;">
@@ -632,6 +707,23 @@ Even today, the image of the scarab endures. It's found in museums, jewelry, fil
                   Forged from runes, the Helm of Awe was painted on warriors' foreheads before battle. It didn't block swords — it bent fear. Vikings claimed that with the symbol drawn between your eyes, no enemy could meet your gaze. Today, it hides in tattoos, in keychains, in code — still humming with frost and fire.
                 </div>
               </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('nordic')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="nordic-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="nordic-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
             </section>
             <!-- Современность -->
             <section class="culture-section" data-region="modern-digital" style="display:none;">
@@ -647,6 +739,23 @@ Even today, the image of the scarab endures. It's found in museums, jewelry, fil
                   Once, amulets were carved in stone. Now, they shimmer on screens. In the blockchain mist, someone minted a symbol — unique, encrypted, eternal. They called it protection for your digital soul. It can't break, can't burn, can't fade. It exists between belief and bandwidth — a guardian for the virtual you.
                 </div>
               </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('modern-digital')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="modern-digital-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="modern-digital-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
             </section>
             <section class="culture-section" data-region="modern-fantasy" style="display:none;">
               <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
@@ -661,6 +770,23 @@ Even today, the image of the scarab endures. It's found in museums, jewelry, fil
                   You found it in the chest. Or maybe won it after defeating the ice giant. Glowing faintly, the amulet pulsed with mana — or was it just your imagination? In games, this token boosts stats. But in real life, it reminds you: magic never left. It just respawned in stories, controllers, and dreams. Equip it wisely.
                 </div>
               </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('modern-fantasy')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="modern-fantasy-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="modern-fantasy-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
             </section>
           </div>
         </div>
@@ -669,23 +795,26 @@ Even today, the image of the scarab endures. It's found in museums, jewelry, fil
   </section>
 
   <div class="navigation-buttons">
-    <a href="magic.html" class="nav-btn">
+    <a href="#" onclick="navigateWithTheme('index.html')" class="nav-btn">
       <i class="fas fa-chevron-left"></i>
     </a>
-    <a href="chrono.html" class="nav-btn">
+    <a href="#" onclick="navigateWithTheme('museum-map.html')" class="nav-btn">
       <i class="fas fa-chevron-right"></i>
     </a>
   </div>
 
-  <footer>
+  <footer class="main-footer">
     <div class="footer-content">
-      <h1>ABOUT THE GROUP</h1>
-      <p>Digital Humanities Project<br>University of Bologna — DHDK</p>
-      <div class="contacts">
-        <p>Contacts:<br>
-        alice.museum@example.com<br>
-        bruno.researcher@example.com<br>
-        carla.curator@example.com</p>
+      <div class="footer-section">
+        <h3>Everyday Magic</h3>
+        <p>Digital Humanities Project<br>University of Bologna — DHDK</p>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>© 2025 Everyday Magic. All rights reserved.</p>
+          <p>Contact: <a href="mailto:arina.gracheva@studio.unibo.it">arina.gracheva@studio.unibo.it</a> | <a href="mailto:arina.samylova@studio.unibo.it">arina.samylova@studio.unibo.it</a></p>
+        </div>
       </div>
     </div>
   </footer>

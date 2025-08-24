@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>QR Labels – Everyday Magic</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --cell: 50mm; --gap: 6mm; }
+  body{ margin:0; font-family:system-ui, ui-sans-serif, sans-serif; }
+  .sheet{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--cell), 1fr));
+    gap: var(--gap);
+    padding: var(--gap);
+    background:#fff;
+  }
+  .card{
+    border:1px solid #000; border-radius:3mm; padding:4mm;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    page-break-inside: avoid;
+  }
+  .qr{ width:34mm; height:34mm; margin-bottom:3mm; }
+  .title{ font-size:10pt; text-align:center; line-height:1.2; margin:1mm 0 0; }
+  .id{ font-size:8pt; opacity:.9; }
+  .loc{ font-size:8pt; opacity:.9; }
+  @media print {
+    @page { size: A4; margin: 6mm; }
+    a{ color:#000; text-decoration:none }
+  }
+</style>
+</head>
+<body>
+<div class="sheet" id="sheet"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+<script>
+// Заполните список по вашим идентификаторам и размещению
+const ORIGIN = "https://arinnee.github.io/MMM"; // замените на ваш домен
+const items = [
+  { id:"AEGISH-001",         title:"Ægishjálmr",              loc:"Floor 0 · Room A · Pos 1" },
+  { id:"BANTU-001",          title:"Bantu Tribal Fetish",     loc:"Floor 0 · Room B · Pos 2" },
+  { id:"KOREAN-001",         title:"Korean Shamanic Knife",   loc:"Floor 0 · Room C · Pos 3" },
+  { id:"NFT-001",            title:"NFT Digital Amulet",      loc:"Floor 1 · Room A · Pos 4" },
+  { id:"OMAMORI-001",        title:"Japanese Omamori",        loc:"Floor 1 · Room B · Pos 5" },
+  { id:"OJO-001",            title:"Mexican Ojo de Venado",   loc:"Floor 1 · Room C · Pos 6" },
+  { id:"RPG-001",            title:"RPG Magic Amulet",        loc:"Floor 1 · Room D · Pos 7" },
+  { id:"SLAVIC-001",         title:"Slavic Protective Doll",  loc:"Floor 1 · Room E · Pos 8" },
+  { id:"BENEDICT-001",       title:"St. Benedict Medal",      loc:"Floor 2 · Room A · Pos 9" },
+  { id:"SCARAB-001",         title:"Egyptian Scarab",         loc:"Floor 2 · Room B · Pos 10" },
+  { id:"AMULET-TURKISH-001", title:"Turkish Evil Eye",        loc:"Floor 2 · Room C · Pos 13" }
+];
+
+const sheet = document.getElementById('sheet');
+
+items.forEach(obj => {
+  // Generate URL based on artifact type
+  let url;
+  if (obj.id.includes('AMULET')) {
+    // Most amulets go to magic.html
+    url = `${ORIGIN}/magic.html?artifact=${obj.id}&src=qr`;
+  } else {
+    // Other artifacts go to chrono.html
+    url = `${ORIGIN}/chrono.html?artifact=${obj.id}&src=qr`;
+  }
+  
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="qr" aria-label="QR for ${obj.title}"></div>
+    <div class="title">${obj.title}</div>
+    <div class="id">${obj.id}</div>
+    <div class="loc">${obj.loc}</div>
+  `;
+  sheet.appendChild(card);
+  new QRCode(card.querySelector('.qr'), {
+    text: url, width: 340, height: 340, // пиксели, масштабируются в CSS до 34мм
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+  });
+});
+</script>
+</body>
+</html> 

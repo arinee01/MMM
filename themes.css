@@ -355,49 +355,36 @@ body.theme-late20c p {
   margin-bottom: 10px;
 }
 
-.hero-helper-input {
-  width: 100%;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(191, 167, 106, 0.3);
-  border-radius: 8px;
-  padding: 10px;
-  color: white;
-  font-size: 0.9rem;
-  resize: none;
-}
-
-.hero-helper-input:focus {
-  outline: none;
-  border-color: var(--gold);
-  box-shadow: 0 0 10px rgba(191, 167, 106, 0.2);
-}
-
 /* Кнопки с готовыми вопросами */
 .hero-questions {
   margin-bottom: 15px;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .hero-question-btn {
   display: block;
   width: 100%;
-  background: rgba(191, 167, 106, 0.1);
-  border: 1px solid rgba(191, 167, 106, 0.3);
-  border-radius: 6px;
-  padding: 6px 10px;
-  margin-bottom: 6px;
-  color: rgba(255,255,255,0.9);
-  font-size: 0.8rem;
+  background: rgba(191, 167, 106, 0.15);
+  border: 1px solid rgba(191, 167, 106, 0.4);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  color: rgba(255,255,255,0.95);
+  font-size: 0.85rem;
   text-align: left;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   font-family: 'Helvetica Neue', sans-serif;
-  line-height: 1.3;
+  line-height: 1.4;
+  font-weight: 500;
 }
 
 .hero-question-btn:hover {
-  background: rgba(191, 167, 106, 0.2);
+  background: rgba(191, 167, 106, 0.25);
   border-color: var(--gold);
   transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(191, 167, 106, 0.2);
 }
 
 .hero-question-btn:active {
@@ -420,66 +407,69 @@ body.theme-late20c p {
 
 /* === ТЕМА ПАНЕЛЬ - ВСЕГДА ЗОЛОТАЯ === */
 body[class*="theme-"] .theme-panel {
-  background: rgba(30,30,30,0.78) !important;
-  border: 2px solid var(--gold) !important;
-  border-radius: 16px !important;
-  box-shadow: 0 2px 24px 0 rgba(191, 167, 106, 0.2), 0 2px 24px rgba(0,0,0,0.18) !important;
-  /* Фиксированные размеры как на главной странице */
+  position: fixed !important;
+  top: 5rem !important;
+  right: 2rem !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 2px solid #f5e7c3 !important;
+  border-radius: 12px !important;
+  padding: 1rem !important;
+  z-index: 1000 !important;
+  backdrop-filter: blur(10px) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(-10px) !important;
+  transition: all 0.3s ease !important;
   min-width: 170px !important;
   max-width: 170px !important;
   width: 170px !important;
-  padding: 1.1rem 1.2rem 1rem 1.2rem !important;
-  gap: 0.7rem !important;
-  /* Z-index как на главной странице */
-  z-index: 1002 !important;
+}
+
+/* === АКТИВНОЕ СОСТОЯНИЕ ПАНЕЛИ ТЕМ === */
+body[class*="theme-"] .theme-panel.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
 }
 
 body[class*="theme-"] .theme-panel button {
+  display: block !important;
+  width: 100% !important;
   background: transparent !important;
-  border: 1px solid var(--gold) !important;
-  color: var(--gold) !important;
-  font-family: 'Cinzel', serif !important;
-  border-radius: 5px !important;
-  transition: all 0.3s ease !important;
-  box-shadow: none !important;
+  border: 1px solid #f5e7c3 !important;
+  color: #f5e7c3 !important;
   padding: 0.5rem 1rem !important;
-  font-weight: 500 !important;
-  font-size: 0.9rem !important;
-  letter-spacing: 0.5px !important;
-  /* Фиксированные размеры как на главной странице */
-  min-width: 140px !important;
-  max-width: 140px !important;
-  width: 140px !important;
+  margin-bottom: 0.5rem !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.3px !important;
+  transition: all 0.3s ease !important;
   text-align: center !important;
 }
 
-body[class*="theme-"] .theme-panel button:hover {
-  background: rgba(245,231,195,0.13) !important;
-  color: #000 !important;
-  border-color: var(--gold) !important;
-  transform: none !important;
-  box-shadow: none !important;
+/* === ПОСЛЕДНЯЯ КНОПКА В ПАНЕЛИ === */
+body[class*="theme-"] .theme-panel button:last-child {
+  margin-bottom: 0 !important;
 }
 
-body[class*="theme-"] .theme-fab {
-  background: rgba(255,255,255,0.18) !important;
-  border: 1.5px solid rgba(255,255,255,0.25) !important;
-  color: var(--gold) !important;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.13) !important;
-  /* Z-index как на главной странице */
-  z-index: 1003 !important;
+body[class*="theme-"] .theme-panel button:hover {
+  background: rgba(245, 231, 195, 0.1) !important;
+  transform: translateX(5px) !important;
 }
+
+/* Удалено - дублирующиеся стили */
 
 body[class*="theme-"] .theme-fab:hover {
-  background: rgba(255,255,255,0.32) !important;
-  color: var(--gold) !important;
+  background: rgba(245, 231, 195, 0.2) !important;
   transform: scale(1.1) !important;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18) !important;
+  box-shadow: 0 4px 20px rgba(245, 231, 195, 0.3) !important;
 }
 
 /* Заголовок панели тем - точные размеры */
 body[class*="theme-"] .theme-panel .theme-panel-title {
-  color: var(--gold) !important;
+  color: #f5e7c3 !important;
   font-size: 1.08rem !important;
   font-family: 'Cinzel', serif !important;
   margin-bottom: 0.3rem !important;
@@ -873,8 +863,10 @@ body.theme-late20c .book-spread[data-story="egyptian"] .main-image {
 /* === RESPONSIVE ДЛЯ ВИРТУАЛЬНОГО ПОМОЩНИКА === */
 @media (max-width: 768px) {
   .hero-helper {
-    top: 90px;
+    top: 100px;
     left: 20px;
+    position: fixed;
+    z-index: 1000;
   }
   
   .hero-helper-btn {
@@ -888,33 +880,30 @@ body.theme-late20c .book-spread[data-story="egyptian"] .main-image {
   }
   
   .hero-helper-panel {
-    top: 150px;
+    top: 160px;
     left: 20px;
     width: 280px;
     max-height: 70vh;
   }
   
-  /* Панель тем на мобильных */
-  body[class*="theme-"] .theme-panel {
-    min-width: 150px !important;
-    max-width: 150px !important;
-    width: 150px !important;
-    padding: 1rem !important;
+  .hero-questions {
+    max-height: 200px;
   }
   
-  body[class*="theme-"] .theme-panel button {
-    min-width: 120px !important;
-    max-width: 120px !important;
-    width: 120px !important;
-    font-size: 0.8rem !important;
-    padding: 0.4rem 0.8rem !important;
+  .hero-question-btn {
+    font-size: 0.8rem;
+    padding: 7px 10px;
   }
+  
+  /* Панель тем на мобильных - используем единый стиль как в chrono */
 }
 
 @media (max-width: 480px) {
   .hero-helper {
-    top: 70px;
+    top: 90px;
     left: 15px;
+    position: fixed;
+    z-index: 1000;
   }
   
   .hero-helper-btn {
@@ -928,28 +917,210 @@ body.theme-late20c .book-spread[data-story="egyptian"] .main-image {
   }
   
   .hero-helper-panel {
-    top: 120px;
+    top: 140px;
     left: 15px;
     width: 260px;
     max-height: 60vh;
   }
   
-  /* Панель тем на маленьких экранах */
-  body[class*="theme-"] .theme-panel {
-    min-width: 130px !important;
-    max-width: 130px !important;
-    width: 130px !important;
-    padding: 0.8rem !important;
+  .hero-questions {
+    max-height: 180px;
   }
   
-  body[class*="theme-"] .theme-panel button {
-    min-width: 100px !important;
-    max-width: 100px !important;
-    width: 100px !important;
-    font-size: 0.75rem !important;
-    padding: 0.3rem 0.6rem !important;
+  .hero-question-btn {
+    font-size: 0.75rem;
+    padding: 6px 8px;
   }
-} 
+  
+  /* Панель тем на маленьких экранах - используем единый стиль как в chrono */
+}
+
+/* === СПЕЦИАЛЬНЫЕ СТИЛИ ДЛЯ ОЧЕНЬ ШИРОКИХ IPHONE ЭКРАНОВ === */
+@media (max-width: 500px) {
+  .hero-helper {
+    top: 100px;
+    left: 30px;
+    position: fixed;
+    z-index: 1000;
+  }
+  
+  .hero-helper-btn {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .hero-helper-btn img {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .hero-helper-panel {
+    top: 165px;
+    left: 30px;
+    width: 300px;
+    max-height: 70vh;
+  }
+  
+  .hero-questions {
+    max-height: 200px;
+  }
+  
+  .hero-question-btn {
+    font-size: 0.8rem;
+    padding: 8px 11px;
+  }
+}
+
+/* === СПЕЦИАЛЬНЫЕ СТИЛИ ДЛЯ ШИРОКИХ IPHONE ЭКРАНОВ === */
+@media (max-width: 428px) {
+  .hero-helper {
+    top: 95px;
+    left: 25px;
+    position: fixed;
+    z-index: 1000;
+  }
+  
+  .hero-helper-btn {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .hero-helper-btn img {
+    width: 34px;
+    height: 34px;
+  }
+  
+  .hero-helper-panel {
+    top: 155px;
+    left: 25px;
+    width: 290px;
+    max-height: 68vh;
+  }
+  
+  .hero-questions {
+    max-height: 190px;
+  }
+  
+  .hero-question-btn {
+    font-size: 0.78rem;
+    padding: 7px 10px;
+  }
+}
+
+/* === УНИВЕРСАЛЬНЫЕ СТИЛИ ДЛЯ ВСЕХ МОБИЛЬНЫХ УСТРОЙСТВ === */
+@media (max-width: 390px) {
+  .hero-helper {
+    top: 95px;
+    left: 25px;
+    position: fixed;
+    z-index: 1000;
+  }
+  
+  .hero-helper-btn {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .hero-helper-btn img {
+    width: 34px;
+    height: 34px;
+  }
+  
+  .hero-helper-panel {
+    top: 155px;
+    left: 25px;
+    width: 290px;
+    max-height: 68vh;
+  }
+  
+  .hero-questions {
+    max-height: 190px;
+  }
+  
+  .hero-question-btn {
+    font-size: 0.78rem;
+    padding: 7px 10px;
+  }
+}
+
+/* === УНИВЕРСАЛЬНЫЕ СТИЛИ ДЛЯ ВСЕХ МОБИЛЬНЫХ УСТРОЙСТВ === */
+@media (max-width: 375px) {
+  .hero-helper {
+    top: 95px;
+    left: 25px;
+    position: fixed;
+    z-index: 1000;
+    transform: translateZ(0);
+  }
+  
+  .hero-helper-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-helper-btn img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .hero-helper-panel {
+    top: 155px;
+    left: 25px;
+    width: 290px;
+    max-height: 68vh;
+  }
+  
+  .hero-questions {
+    max-height: 190px;
+  }
+  
+  .hero-question-btn {
+    font-size: 0.78rem;
+    padding: 7px 10px;
+  }
+}
+
+/* === УНИВЕРСАЛЬНЫЕ СТИЛИ ДЛЯ ВСЕХ МОБИЛЬНЫХ УСТРОЙСТВ === */
+@media (max-width: 320px) {
+  .hero-helper {
+    top: 95px;
+    left: 25px;
+    position: fixed;
+    z-index: 1000;
+  }
+  
+  .hero-helper-btn {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .hero-helper-btn img {
+    width: 34px;
+    height: 34px;
+  }
+  
+  .hero-helper-panel {
+    top: 155px;
+    left: 25px;
+    width: 290px;
+    max-height: 68vh;
+  }
+  
+  .hero-questions {
+    max-height: 190px;
+  }
+  
+  .hero-question-btn {
+    font-size: 0.78rem;
+    padding: 7px 10px;
+  }
+}
 
 /* === СТИЛИ ДЛЯ ИЗМЕНЕНИЯ ТЕКСТОВ В СЕКЦИИ EXPERIENCE === */
 body[class*="theme-"] .experience-block::before {
@@ -1020,6 +1191,18 @@ body.theme-1500 .user-card::before {
   z-index: 1;
 }
 
+/* Активное состояние для темы 1500 */
+body.theme-1500 .user-card.active-user {
+  border-color: #D4AF37;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+  transform: scale(1.1);
+}
+
+body.theme-1500 .user-card.active-user::after {
+  border-color: #D4AF37;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
 /* ТЕМА XIX ВЕКА: Квадратная сетка 3x1 */
 body.theme-19c .user-types {
   display: grid;
@@ -1051,6 +1234,18 @@ body.theme-19c .user-card::before {
   background-size: cover;
   opacity: 0.3;
   z-index: 1;
+}
+
+/* Активное состояние для темы XIX века */
+body.theme-19c .user-card.active-user {
+  border-color: #d3b261;
+  box-shadow: 0 0 25px rgba(211, 178, 97, 0.7);
+  transform: scale(1.05);
+}
+
+body.theme-19c .user-card.active-user::after {
+  border-color: #d3b261;
+  box-shadow: 0 0 15px rgba(211, 178, 97, 0.5);
 }
 
 /* ТЕМА РАННЕГО XX ВЕКА: Геометрические формы */
@@ -1086,9 +1281,19 @@ body.theme-early20c .user-card::before {
   z-index: 1;
   transform: rotate(-45deg);
   width: 141.4%;
-  height: 141.4%;
-  top: -20.7%;
-  left: -20.7%;
+}
+
+/* Активное состояние для темы раннего XX века */
+body.theme-early20c .user-card.active-user {
+  border-color: #58c5c5;
+  box-shadow: 0 0 35px rgba(88, 197, 197, 0.8);
+  transform: rotate(45deg) scale(1.1);
+}
+
+body.theme-early20c .user-card.active-user::after {
+  border-color: #58c5c5;
+  box-shadow: 0 0 20px rgba(88, 197, 197, 0.6);
+  transform: rotate(-45deg);
 }
 
 body.theme-early20c .user-card img {
@@ -1145,6 +1350,18 @@ body.theme-late20c .user-card::before {
   background-size: cover;
   opacity: 0.3;
   z-index: 1;
+}
+
+/* Активное состояние для темы позднего XX века */
+body.theme-late20c .user-card.active-user {
+  border-color: #00FFFF;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+  transform: scale(1.08);
+}
+
+body.theme-late20c .user-card.active-user::after {
+  border-color: #00FFFF;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
 }
 
 /* Общие стили для всех карточек */
@@ -1246,9 +1463,24 @@ body[class*="theme-"] .user-card p {
 
 .footer-bottom p {
   color: var(--text-muted);
-  margin: 0;
+  margin: 0 0 0.5rem 0;
   font-size: 0.9rem;
   opacity: 0.6;
+}
+
+.footer-bottom p:last-child {
+  margin-bottom: 0;
+}
+
+.footer-bottom a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: var(--accent-glow);
+  text-decoration: underline;
 }
 
 /* Адаптивность для футера */
@@ -1420,4 +1652,33 @@ body.theme-late20c .lupa-hint:hover {
   max-width: 1200px;
   box-shadow: 0 8px 25px var(--theme-shadow);
   backdrop-filter: blur(10px);
+} 
+
+/* === МОБИЛЬНЫЕ СТИЛИ ДЛЯ ПАНЕЛИ ТЕМ === */
+/* Используем единый стиль как в chrono.css для всех размеров экрана */ 
+
+body[class*="theme-"] .theme-fab {
+  position: fixed !important;
+  top: 2rem !important;
+  right: 2rem !important;
+  width: 60px !important;
+  height: 60px !important;
+  background: rgba(245, 231, 195, 0.1) !important;
+  border: 2px solid #f5e7c3 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  font-size: 1.5rem !important;
+  z-index: 1000 !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.3s ease !important;
+  color: #f5e7c3 !important;
+}
+
+body[class*="theme-"] .theme-fab:hover {
+  background: rgba(245, 231, 195, 0.2) !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 20px rgba(245, 231, 195, 0.3) !important;
 } 

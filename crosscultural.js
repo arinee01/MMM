@@ -29,24 +29,155 @@
     ];
 
     function createCustomIcon(imagePath) {
+      // Определяем размер маркера в зависимости от размера экрана
+      const isMobile = window.innerWidth <= 768;
+      const isSmallMobile = window.innerWidth <= 480;
+      const isVerySmallMobile = window.innerWidth <= 375;
+      
+      let markerSize, iconSize;
+      
+      if (isVerySmallMobile) {
+        markerSize = '30px';
+        iconSize = [30, 30];
+      } else if (isSmallMobile) {
+        markerSize = '35px';
+        iconSize = [35, 35];
+      } else if (isMobile) {
+        markerSize = '40px';
+        iconSize = [40, 40];
+      } else {
+        markerSize = '45px';
+        iconSize = [45, 45];
+      }
+      
       return L.divIcon({
-        html: `<img src="${imagePath}" style="width: 45px; height: 45px; border-radius: 50%; border: 3px solid var(--gold); background: #000; box-shadow: 0 0 15px rgba(245,231,195,0.5), 0 0 30px rgba(245,231,195,0.3); object-fit: cover;">`,
+        html: `<img src="${imagePath}" style="width: ${markerSize}; height: ${markerSize}; border-radius: 50%; border: 3px solid var(--gold); background: #000; box-shadow: 0 0 15px rgba(245,231,195,0.5), 0 0 30px rgba(245,231,195,0.3); object-fit: cover;">`,
         className: 'custom-marker',
-        iconSize: [45, 45],
-        iconAnchor: [22.5, 22.5]
+        iconSize: iconSize,
+        iconAnchor: [iconSize[0]/2, iconSize[1]/2]
       });
     }
 
     amulets.forEach(function(amulet) {
       var marker = L.marker([amulet.lat, amulet.lng], { icon: createCustomIcon(amulet.image) }).addTo(map);
+      
+      // Определяем размеры попапа в зависимости от размера экрана
+      const isMobile = window.innerWidth <= 768;
+      const isSmallMobile = window.innerWidth <= 480;
+      const isVerySmallMobile = window.innerWidth <= 375;
+      
+      let popupWidth, imageSize, titleSize, textSize;
+      
+      if (isVerySmallMobile) {
+        popupWidth = '140px';
+        imageSize = '50px';
+        titleSize = '0.8rem';
+        textSize = '0.7rem';
+      } else if (isSmallMobile) {
+        popupWidth = '180px';
+        imageSize = '70px';
+        titleSize = '1rem';
+        textSize = '0.8rem';
+      } else if (isMobile) {
+        popupWidth = '220px';
+        imageSize = '80px';
+        titleSize = '1.1rem';
+        textSize = '0.9rem';
+      } else {
+        popupWidth = '220px';
+        imageSize = '90px';
+        titleSize = '1.1rem';
+        textSize = '0.9rem';
+      }
+      
       var popupContent = `
-        <div style="text-align: center; min-width: 220px; background: rgba(0,0,0,0.9); border-radius: 12px; padding: 15px; box-shadow: 0 0 20px rgba(245,231,195,0.3);">
-          <img src="${amulet.image}" style="width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 12px; object-fit: cover; box-shadow: 0 0 15px rgba(245,231,195,0.4);">
-          <h3 style="color: var(--gold); margin: 8px 0; font-size: 1.1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">${amulet.name}</h3>
-          <p style="color: var(--gold); font-size: 0.9rem; margin: 0; line-height: 1.4; opacity: 0.9;">${amulet.description}</p>
+        <div style="text-align: center; min-width: ${popupWidth}; background: rgba(0,0,0,0.9); border-radius: 12px; padding: 15px; box-shadow: 0 0 20px rgba(245,231,195,0.3);">
+          <img src="${amulet.image}" style="width: ${imageSize}; height: ${imageSize}; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 12px; object-fit: cover; box-shadow: 0 0 15px rgba(245,231,195,0.4);">
+          <h3 style="color: var(--gold); margin: 8px 0; font-size: ${titleSize}; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">${amulet.name}</h3>
+          <p style="color: var(--gold); font-size: ${textSize}; margin: 0; line-height: 1.4; opacity: 0.9;">${amulet.description}</p>
         </div>`;
       marker.bindPopup(popupContent);
     });
+    
+    // Добавляем обработчик изменения размера окна для адаптации карты
+    window.addEventListener('resize', function() {
+      // Обновляем размеры маркеров при изменении размера окна
+      map.invalidateSize();
+      
+      // Пересоздаем маркеры с новыми размерами
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.Marker) {
+          map.removeLayer(layer);
+        }
+      });
+      
+      // Добавляем маркеры заново с обновленными размерами
+      amulets.forEach(function(amulet) {
+        var marker = L.marker([amulet.lat, amulet.lng], { icon: createCustomIcon(amulet.image) }).addTo(map);
+        
+        // Определяем размеры попапа в зависимости от нового размера экрана
+        const isMobile = window.innerWidth <= 768;
+        const isSmallMobile = window.innerWidth <= 480;
+        const isVerySmallMobile = window.innerWidth <= 375;
+        
+        let popupWidth, imageSize, titleSize, textSize;
+        
+        if (isVerySmallMobile) {
+          popupWidth = '140px';
+          imageSize = '50px';
+          titleSize = '0.8rem';
+          textSize = '0.7rem';
+        } else if (isSmallMobile) {
+          popupWidth = '180px';
+          imageSize = '70px';
+          titleSize = '1rem';
+          textSize = '0.8rem';
+        } else if (isMobile) {
+          popupWidth = '220px';
+          imageSize = '80px';
+          titleSize = '1.1rem';
+          textSize = '0.9rem';
+        } else {
+          popupWidth = '220px';
+          imageSize = '90px';
+          titleSize = '1.1rem';
+          textSize = '0.9rem';
+        }
+        
+        var popupContent = `
+          <div style="text-align: center; min-width: ${popupWidth}; background: rgba(0,0,0,0.9); border-radius: 12px; padding: 15px; box-shadow: 0 0 20px rgba(245,231,195,0.3);">
+            <img src="${amulet.image}" style="width: ${imageSize}; height: ${imageSize}; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 12px; object-fit: cover; box-shadow: 0 0 15px rgba(245,231,195,0.4);">
+            <h3 style="color: var(--gold); margin: 8px 0; font-size: ${titleSize}; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">${amulet.name}</h3>
+            <p style="color: var(--gold); font-size: ${textSize}; margin: 0; line-height: 1.4; opacity: 0.9;">${amulet.description}</p>
+          </div>`;
+        marker.bindPopup(popupContent);
+      });
+    });
+    
+    // Добавляем функциональность закрытия попапов при клике вне их области на мобильных
+    if (window.innerWidth <= 768) {
+      map.on('click', function() {
+        map.closePopup();
+      });
+      
+      // Добавляем обработчик для закрытия попапов при свайпе
+      let startY = 0;
+      let endY = 0;
+      
+      map.getContainer().addEventListener('touchstart', function(e) {
+        startY = e.touches[0].clientY;
+      });
+      
+      map.getContainer().addEventListener('touchend', function(e) {
+        endY = e.changedTouches[0].clientY;
+        const diffY = Math.abs(endY - startY);
+        
+        // Если свайп больше 50px, закрываем попап
+        if (diffY > 50) {
+          map.closePopup();
+        }
+      });
+    }
   });
 })();
 
@@ -147,28 +278,56 @@
     console.log('Инициализация текстов...');
     console.log('Доступные тексты:', Object.keys(window.narrativeTexts || {}));
     
+    // Получаем выбранный уровень пользователя из localStorage
+    const userLevel = localStorage.getItem('magicUserType') || 'beginner';
+    console.log('Выбранный уровень пользователя:', userLevel);
+    
+    // Маппинг уровней пользователя на уровни текста
+    const levelMapping = {
+      'beginner': 'brief',
+      'casual': 'medium', 
+      'expert': 'long'
+    };
+    
+    const targetLevel = levelMapping[userLevel] || 'brief';
+    console.log('Целевой уровень текста:', targetLevel);
+    
     Object.keys(window.narrativeTexts || {}).forEach(story => {
       console.log('Инициализирую историю:', story);
       
       const textElement = document.getElementById(`${story}-text`);
       if (textElement) {
-        // Устанавливаем текст по умолчанию (brief)
-        const defaultText = window.narrativeTexts[story].brief;
-        if (defaultText) {
-          textElement.textContent = defaultText;
-          console.log('Установлен текст по умолчанию для истории:', story);
+        // Устанавливаем текст в зависимости от уровня пользователя
+        const targetText = window.narrativeTexts[story][targetLevel];
+        if (targetText) {
+          textElement.textContent = targetText;
+          console.log(`Установлен текст уровня ${targetLevel} для истории:`, story);
+        } else {
+          // Fallback на brief если целевой уровень недоступен
+          const defaultText = window.narrativeTexts[story].brief;
+          if (defaultText) {
+            textElement.textContent = defaultText;
+            console.log('Установлен текст по умолчанию (brief) для истории:', story);
+          }
         }
       } else {
         console.error('Элемент текста не найден для истории:', story);
       }
       
-      // Активируем первую кнопку (General)
-      const firstButton = document.querySelector(`[data-story="${story}"] .text-level-btn:first-child`);
-      if (firstButton) {
-        firstButton.classList.add('active');
-        console.log('Активирована первая кнопка для истории:', story);
+      // Активируем соответствующую кнопку
+      const targetButton = document.querySelector(`[data-story="${story}"] .text-level-btn[onclick*="${targetLevel}"]`);
+      if (targetButton) {
+        targetButton.classList.add('active');
+        console.log(`Активирована кнопка уровня ${targetLevel} для истории:`, story);
       } else {
-        console.error('Кнопка не найдена для истории:', story);
+        // Fallback на первую кнопку
+        const firstButton = document.querySelector(`[data-story="${story}"] .text-level-btn:first-child`);
+        if (firstButton) {
+          firstButton.classList.add('active');
+          console.log('Активирована первая кнопка для истории:', story);
+        } else {
+          console.error('Кнопка не найдена для истории:', story);
+        }
       }
     });
     
@@ -324,9 +483,9 @@ Remember: If you ever feel stuck, whisper to a scarab, "Help me roll through thi
     buttons.forEach(btn => {
       btn.classList.remove('active');
       if (btn.textContent.toLowerCase().includes(level) || 
-          (level === 'brief' && btn.textContent === 'General') ||
-          (level === 'medium' && btn.textContent === 'Expert') ||
-          (level === 'long' && btn.textContent === 'Scholar')) {
+          (level === 'brief' && btn.textContent === 'Beginner') ||
+          (level === 'medium' && btn.textContent === 'Casual') ||
+          (level === 'long' && btn.textContent === 'Expert')) {
         btn.classList.add('active');
       }
     });
@@ -916,3 +1075,314 @@ Remember: If you ever feel stuck, whisper to a scarab, "Help me roll through thi
     }
   });
 })(); 
+
+// === Функция для обновления уровня текста в зависимости от выбранного уровня пользователя ===
+window.updateTextLevelByUserType = function() {
+  const userLevel = localStorage.getItem('magicUserType') || 'beginner';
+  console.log('Обновление уровня текста для пользователя:', userLevel);
+  
+  // Маппинг уровней пользователя на уровни текста
+  const levelMapping = {
+    'beginner': 'brief',
+    'casual': 'medium', 
+    'expert': 'long'
+  };
+  
+  const targetLevel = levelMapping[userLevel] || 'brief';
+  console.log('Целевой уровень текста:', targetLevel);
+  
+  // Обновляем текст для всех историй
+  Object.keys(window.narrativeTexts || {}).forEach(story => {
+    const textElement = document.getElementById(`${story}-text`);
+    if (textElement) {
+      const targetText = window.narrativeTexts[story][targetLevel];
+      if (targetText) {
+        textElement.textContent = targetText;
+        console.log(`Обновлен текст уровня ${targetLevel} для истории:`, story);
+      }
+    }
+    
+    // Обновляем активную кнопку
+    const buttons = document.querySelectorAll(`[data-story="${story}"] .text-level-btn`);
+    buttons.forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.textContent.toLowerCase().includes(targetLevel) || 
+          (targetLevel === 'brief' && btn.textContent === 'Beginner') ||
+          (targetLevel === 'medium' && btn.textContent === 'Casual') ||
+          (targetLevel === 'long' && btn.textContent === 'Expert')) {
+        btn.classList.add('active');
+      }
+    });
+  });
+};
+
+// Слушаем изменения в localStorage для автоматического обновления
+window.addEventListener('storage', function(e) {
+  if (e.key === 'magicUserType') {
+    console.log('Обнаружено изменение уровня пользователя:', e.newValue);
+    window.updateTextLevelByUserType();
+  }
+});
+
+// === Функция для изменения уровня пользователя на странице crosscultural ===
+window.setUserLevel = function(level) {
+  console.log('Изменение уровня пользователя на:', level);
+  
+  // Сохраняем новый уровень в localStorage
+  localStorage.setItem('magicUserType', level);
+  
+  // Обновляем текст и кнопки
+  window.updateTextLevelByUserType();
+  
+  // Показываем уведомление
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--gold);
+    color: #000;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  `;
+  notification.textContent = `Content level changed to: ${level.charAt(0).toUpperCase() + level.slice(1)}`;
+  
+  document.body.appendChild(notification);
+  
+  // Анимация появления
+  setTimeout(() => {
+    notification.style.transform = 'translateX(0)';
+  }, 100);
+  
+  // Автоматическое скрытие через 3 секунды
+  setTimeout(() => {
+    notification.style.transform = 'translateX(100%)';
+    setTimeout(() => {
+      if (notification.parentNode) {
+        notification.parentNode.removeChild(notification);
+      }
+    }, 300);
+  }, 3000);
+};
+
+// === МЕТАДАННЫЕ ДЛЯ CROSSCULTURAL АМУЛЕТОВ ===
+// Данные метаданных для каждого амулета
+const crossculturalAmuletData = {
+  'egypt': {
+    metadata: {
+      identifier: "AMULET-EGYPT-001",
+      period: "3000 BCE - 30 BCE",
+      culture: "Ancient Egyptian",
+      origin: "Nile Valley",
+      material: "Stone, Faience",
+      technique: "Carved, Glazed",
+      function: "Protection, Rebirth",
+      context: "Funerary, Religious"
+    }
+  },
+  'japan': {
+    metadata: {
+      identifier: "AMULET-JAPAN-001",
+      period: "660 BCE - Present",
+      culture: "Japanese",
+      origin: "Shinto Shrines",
+      material: "Cloth, Paper",
+      technique: "Hand-stitched, Written",
+      function: "Protection, Luck",
+      context: "Religious, Personal"
+    }
+  },
+  'mexico': {
+    metadata: {
+      identifier: "AMULET-MEXICO-001",
+      period: "2000 BCE - 1521 CE",
+      culture: "Mesoamerican",
+      origin: "Aztec, Maya",
+      material: "Seed, Natural",
+      technique: "Natural, Collected",
+      function: "Evil Eye Protection",
+      context: "Domestic, Personal"
+    }
+  },
+  'africa': {
+    metadata: {
+      identifier: "AMULET-AFRICA-001",
+      period: "Ancient - Present",
+      culture: "Bantu",
+      origin: "Central Africa",
+      material: "Wood, Bone, Metal",
+      technique: "Carved, Ritual",
+      function: "Spirit Housing, Protection",
+      context: "Ceremonial, Community"
+    }
+  },
+  'korea': {
+    metadata: {
+      identifier: "AMULET-KOREA-001",
+      period: "2333 BCE - Present",
+      culture: "Korean",
+      origin: "Shamanic Tradition",
+      material: "Metal, Wood",
+      technique: "Forged, Carved",
+      function: "Evil Spirit Warding",
+      context: "Ritual, Domestic"
+    }
+  },
+  'europe-catholic': {
+    metadata: {
+      identifier: "AMULET-EUROPE-CATH-001",
+      period: "6th Century - Present",
+      culture: "European Catholic",
+      origin: "Monastic Tradition",
+      material: "Metal, Alloy",
+      technique: "Cast, Engraved",
+      function: "Evil Protection, Exorcism",
+      context: "Religious, Personal"
+    }
+  },
+  'europe-slavic': {
+    metadata: {
+      identifier: "AMULET-EUROPE-SLAV-001",
+      period: "6th Century - Present",
+      culture: "Slavic",
+      origin: "Eastern Europe",
+      material: "Cloth, Thread, Straw",
+      technique: "Hand-woven, Twisted",
+      function: "Child Protection, Home Guarding",
+      context: "Domestic, Family"
+    }
+  },
+  'nordic': {
+    metadata: {
+      identifier: "AMULET-NORDIC-001",
+      period: "8th - 11th Century",
+      culture: "Norse",
+      origin: "Scandinavia",
+      material: "Pigment, Surface",
+      technique: "Painted, Carved",
+      function: "Battle Protection, Fear Induction",
+      context: "Warrior, Military"
+    }
+  },
+  'modern-digital': {
+    metadata: {
+      identifier: "AMULET-MODERN-DIG-001",
+      period: "2008 - Present",
+      culture: "Digital Global",
+      origin: "Blockchain Technology",
+      material: "Digital Code",
+      technique: "Minted, Encrypted",
+      function: "Digital Identity Protection",
+      context: "Virtual, Online"
+    }
+  },
+  'modern-fantasy': {
+    metadata: {
+      identifier: "AMULET-MODERN-FAN-001",
+      period: "1970s - Present",
+      culture: "Global Pop Culture",
+      origin: "Gaming Industry",
+      material: "Plastic, Metal, Digital",
+      technique: "Manufactured, Designed",
+      function: "Entertainment, Symbolic",
+      context: "Gaming, Collectible"
+    }
+  }
+};
+
+// Функция для отображения метаданных амулета
+function displayCrossculturalMetadata(region) {
+  const amulet = crossculturalAmuletData[region];
+  
+  if (!amulet || !amulet.metadata) {
+    return `
+      <div class="metadata-error">
+        <p>Metadata not available for this amulet.</p>
+        <p>Please check the amulet configuration.</p>
+      </div>
+    `;
+  }
+  
+  const metadata = amulet.metadata;
+  
+  const metadataHTML = `
+    <div class="metadata-grid">
+      <div class="metadata-item">
+        <span class="metadata-label">Identifier:</span>
+        <span class="metadata-value">${metadata.identifier || 'N/A'}</span>
+      </div>
+      <div class="metadata-item">
+        <span class="metadata-label">Period:</span>
+        <span class="metadata-value">${metadata.period || 'N/A'}</span>
+      </div>
+      <div class="metadata-item">
+        <span class="metadata-label">Culture:</span>
+        <span class="metadata-value">${metadata.culture || 'N/A'}</span>
+      </div>
+      <div class="metadata-item">
+        <span class="metadata-label">Origin:</span>
+        <span class="metadata-value">${metadata.origin || 'N/A'}</span>
+      </div>
+      <div class="metadata-item">
+        <span class="metadata-label">Material:</span>
+        <span class="metadata-value">${metadata.material || 'N/A'}</span>
+      </div>
+      <div class="metadata-item">
+        <span class="metadata-label">Technique:</span>
+        <span class="metadata-value">${metadata.technique || 'N/A'}</span>
+      </div>
+      <div class="metadata-item">
+        <span class="metadata-label">Function:</span>
+        <span class="metadata-value">${metadata.function || 'N/A'}</span>
+      </div>
+      <div class="metadata-item">
+        <span class="metadata-label">Context:</span>
+        <span class="metadata-value">${metadata.context || 'N/A'}</span>
+      </div>
+    </div>
+  `;
+  
+  return metadataHTML;
+}
+
+// Функция для обновления метаданных амулета
+function updateCrossculturalMetadata(region) {
+  const metadataContainer = document.getElementById(`${region}-metadata`);
+  
+  if (metadataContainer) {
+    // Show loading state briefly for smooth transition
+    metadataContainer.innerHTML = '<div class="metadata-loading">Loading metadata...</div>';
+    
+    // Small delay for smooth animation
+    setTimeout(() => {
+      const metadataHTML = displayCrossculturalMetadata(region);
+      metadataContainer.innerHTML = metadataHTML;
+    }, 100);
+  } else {
+    console.error('Metadata container not found for region:', region);
+  }
+}
+
+// Функция для переключения панели метаданных
+window.toggleCrossculturalMetadata = function(region) {
+  const section = document.getElementById(`${region}-metadata-section`);
+  const toggleBtn = document.querySelector(`[onclick="toggleCrossculturalMetadata('${region}')"]`);
+  
+  if (section.classList.contains('open')) {
+    // Close section
+    section.classList.remove('open');
+    if (toggleBtn) toggleBtn.classList.remove('active');
+  } else {
+    // Open section
+    section.classList.add('open');
+    if (toggleBtn) toggleBtn.classList.add('active');
+    
+    // Update metadata
+    updateCrossculturalMetadata(region);
+  }
+};

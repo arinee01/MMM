@@ -6,6 +6,13 @@
   --black: #0d0d0d;           /* Темно-черный цвет для фона */
   --gray: #888;                /* Серый цвет для второстепенного текста */
   --grid-line: rgba(255, 255, 255, 0.07); /* Полупрозрачные линии сетки */
+  
+  /* Дополнительные переменные */
+  --accent: #e08aff;          /* Акцентный цвет */
+  --gold: #f5e7c3;            /* Золотистый цвет */
+  --text-soft: #ccc;          /* Мягкий цвет текста */
+  --ui-font: 'Helvetica Neue', sans-serif; /* Шрифт для UI элементов */
+  --magic-font: 'Cinzel', serif; /* Магический шрифт */
 }
 
 /* === ОСНОВНЫЕ СТИЛИ === */
@@ -17,6 +24,261 @@ body {
   background-color: var(--black);              /* Темный фон */
   color: var(--offwhite);                      /* Светлый цвет текста */
   line-height: 1.6;                            /* Межстрочный интервал для читаемости */
+}
+
+/* === ARTIFACT HEADER === */
+.artifact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.metadata-toggle-btn {
+  background: transparent;
+  color: var(--gold, #FFD700);
+  border: 2px solid var(--gold, #FFD700);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  line-height: 1;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  background-image: none !important;
+}
+
+.metadata-toggle-btn:hover {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: var(--gold, #FFD700);
+  color: var(--gold, #FFD700);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  transform: scale(1.1);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.metadata-toggle-btn.active {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: var(--gold, #FFD700);
+  color: var(--gold, #FFD700);
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+}
+
+/* === EXPANDABLE METADATA SECTION === */
+.metadata-section {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 0;
+  opacity: 0;
+  border-top: 0px solid var(--grid-line);
+  background: var(--theme-bg, rgba(0, 0, 0, 0.05));
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-image: none !important;
+}
+
+.metadata-section.open {
+  max-height: 1200px;
+  opacity: 1;
+  margin-top: 1.5rem;
+  border-top: 2px solid var(--theme-text, #fff);
+  background: var(--theme-bg, rgba(0, 0, 0, 0.05));
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  background-image: none !important;
+}
+
+.metadata-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--theme-bg, rgba(255, 255, 255, 0.1));
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 1rem;
+  border: 1px solid var(--theme-text, #fff);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  background-image: none !important;
+}
+
+.metadata-header h4 {
+  color: var(--theme-text, #fff);
+  font-family: var(--magic-font);
+  font-size: 1.1rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.artifact-metadata-content {
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: 600px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease 0.2s;
+  background: var(--theme-bg, rgba(255, 255, 255, 0.05));
+  border-radius: 0 0 8px 8px;
+  min-height: 200px;
+  background-image: none !important;
+}
+
+.metadata-section.open .artifact-metadata-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === METADATA GRID === */
+.metadata-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.metadata-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--grid-line);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(20px);
+  background-image: none !important;
+}
+
+.metadata-section.open .metadata-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.metadata-item:nth-child(1) { transition-delay: 0.3s; }
+.metadata-item:nth-child(2) { transition-delay: 0.35s; }
+.metadata-item:nth-child(3) { transition-delay: 0.4s; }
+.metadata-item:nth-child(4) { transition-delay: 0.45s; }
+.metadata-item:nth-child(5) { transition-delay: 0.5s; }
+.metadata-item:nth-child(6) { transition-delay: 0.55s; }
+.metadata-item:nth-child(7) { transition-delay: 0.6s; }
+.metadata-item:nth-child(8) { transition-delay: 0.65s; }
+.metadata-item:nth-child(9) { transition-delay: 0.7s; }
+
+.metadata-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent);
+  transform: translateX(5px);
+  box-shadow: 0 0 15px rgba(224, 138, 255, 0.2);
+}
+
+.metadata-label {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.metadata-value {
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  font-family: var(--ui-font);
+  line-height: 1.4;
+}
+
+.metadata-loading {
+  text-align: center;
+  color: var(--accent);
+  font-style: italic;
+  padding: 2rem;
+  font-size: 1rem;
+  background: var(--theme-bg, rgba(0, 0, 0, 0.05));
+  border-radius: 8px;
+  border: 1px solid var(--grid-line);
+  background-image: none !important;
+}
+
+.metadata-error {
+  text-align: center;
+  color: var(--accent);
+  padding: 2rem;
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background-image: none !important;
+}
+
+.metadata-error p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+/* QR Widget Styles */
+.qr-widget {
+  max-width: 320px;
+  margin: 16px 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(191, 167, 106, 0.2);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.qr-widget h3 {
+  color: var(--gold);
+  margin: 0 0 0.5rem 0;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.qr-widget #qr {
+  margin: 1rem auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.qr-widget .qr-link-text {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0.5rem 0 0 0;
+  color: var(--text-soft);
+}
+
+.qr-widget .qr-link-text a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.qr-widget .qr-link-text a:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  .metadata-section {
+    max-height: 50vh;
+  }
+  
+  .metadata-toggle-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
 }
 
 /* === ЗАГОЛОВКИ СЕКЦИЙ / ВВОДНЫЙ ТЕКСТ === */
@@ -116,12 +378,12 @@ header.navbar {
 .timeline-scale {
   position: relative;                      /* Относительное позиционирование */
   background: rgba(44, 24, 16, 0.3);      /* Полупрозрачный темный фон */
-  border: 2px solid #bfa76a;               /* Золотистая граница */
+  border: 2px solid var(--light-gold);     /* Золотистая граница */
   border-radius: 50px;                     /* Сильно скругленные углы */
   padding: 1rem 2rem;                      /* Внутренние отступы */
   margin: 0 auto 2rem auto;                /* Центрирование и отступ снизу */
-  max-width: 600px;                        /* Максимальная ширина */
-  box-shadow: 0 4px 20px rgba(191, 167, 106, 0.2); /* Тень */
+  max-width: 800px;                        /* Максимальная ширина */
+  box-shadow: 0 4px 20px rgba(245, 231, 195, 0.2); /* Тень */
   display: flex;                            /* Флекс-контейнер */
   justify-content: space-between;           /* Распределение маркеров по краям */
   align-items: center;                      /* Выравнивание по центру по вертикали */
@@ -129,26 +391,29 @@ header.navbar {
 
 .timeline-marker {
   position: relative;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1rem;
   letter-spacing: 0.5px;
   border-radius: 20px;
   background: transparent;
   z-index: 3;
+  min-width: 120px;
+  text-align: center;
 }
 
 .timeline-marker:hover {
   color: #fff;
   background: rgba(245, 231, 195, 0.1);
+  transform: translateY(-2px);
 }
 
 .timeline-marker.active {
-  color: var(--accent);
-  background: rgba(224, 138, 255, 0.1);
-  box-shadow: 0 0 15px rgba(224, 138, 255, 0.3);
+  color: var(--light-gold);
+  background: rgba(245, 231, 195, 0.1);
+  box-shadow: 0 0 15px rgba(245, 231, 195, 0.3);
   transform: scale(1.05);
 }
 
@@ -159,11 +424,11 @@ header.navbar {
   transform: translateY(-50%);
   width: 4px;
   height: 30px;
-  background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
+  background: linear-gradient(180deg, var(--light-gold) 0%, transparent 100%);
   border-radius: 2px;
   transition: left 0.5s ease;
   z-index: 2;
-  box-shadow: 0 0 10px var(--accent);
+  box-shadow: 0 0 10px var(--light-gold);
 }
 
 .timeline-indicator::before {
@@ -173,23 +438,29 @@ header.navbar {
   left: -4px;
   width: 12px;
   height: 12px;
-  background: var(--accent);
+  background: var(--light-gold);
   border-radius: 50%;
-  box-shadow: 0 0 15px var(--accent);
+  box-shadow: 0 0 15px var(--light-gold);
 }
 
 .era-label {
   text-align: center;
   margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--light-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .era-period {
   display: block;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gray);
   margin-bottom: 0.5rem;
-  font-family: var(--ui-font);
+  text-transform: none;
+  letter-spacing: 0.5px;
 }
 
 /* === АРТЕФАКТЫ === */
@@ -318,6 +589,7 @@ header.navbar {
   border-radius: 8px;
   padding: 2rem;
   backdrop-filter: blur(10px);
+  position: relative;
 }
 
 .artifact-info h2 {
@@ -579,54 +851,40 @@ footer {
 /* Адаптация временной шкалы для маленьких экранов */
 @media (max-width: 480px) {
   .timeline-scale {
-    padding: 0.5rem 0.3rem;                 /* Уменьшенные отступы */
-    max-width: 98vw;                        /* Максимальная ширина по экрану */
-    gap: 0.2rem;                            /* Минимальное расстояние между маркерами */
+    padding: 0.5rem 0.3rem;
+    max-width: 98vw;
+    gap: 0.2rem;
   }
   .timeline-marker {
-    font-size: 0.75rem;                     /* Уменьшенный размер шрифта */
-    padding: 0.3rem 0.5rem;                 /* Уменьшенные внутренние отступы */
-    min-width: 0;                            /* Минимальная ширина */
-    word-break: break-word;                  /* Перенос длинных слов */
+    font-size: 0.75rem;
+    padding: 0.3rem 0.5rem;
+    min-width: 0;
+    word-break: break-word;
   }
 }
 
 /* === АДАПТАЦИЯ ТЕКСТА ДЛЯ МОБИЛЬНЫХ === */
-/* Оптимизация текстовых элементов для маленьких экранов */
 @media (max-width: 480px) {
   .section-heading,
   .intro-text,
   .artifact-info,
   #text-block {
-    max-width: 85vw;                        /* Максимальная ширина по экрану */
-    margin-left: auto;                      /* Автоматический отступ слева */
-    margin-right: auto;                     /* Автоматический отступ справа */
-    padding: 0 0.8rem;                      /* Внутренние отступы */
-    line-height: 1.8;                       /* Увеличенный межстрочный интервал */
-    text-align: left;                       /* Выравнивание по левому краю */
+    max-width: 85vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0.8rem;
+    line-height: 1.8;
+    text-align: left;
   }
   .artifact-info {
-    padding: 1rem 0.8rem;                   /* Отступы для информационного блока */
+    padding: 1rem 0.8rem;
   }
   .audio-wrapper {
-    max-width: 95vw;                        /* Ширина аудио плеера по экрану */
+    max-width: 95vw;
   }
 }
 
 /* === ТЕМАТИЧЕСКИЕ СТИЛИ === */
-/* Перенесены в themes.css (Chrono-specific adjustments) */
-
-/* === ТЕМА XIX ВЕКА (РОМАНТИЗМ) === */
-/* Перенесены в themes.css (Chrono-specific adjustments) */
-
-/* === ТЕМА НАЧАЛА XX ВЕКА (МОДЕРН) === */
-/* Перенесены в themes.css (Chrono-specific adjustments) */
-
-/* === ТЕМА КОНЦА XX ВЕКА (ЦИФРОВАЯ ЭПОХА) === */
-/* Перенесены в themes.css (Chrono-specific adjustments) */
-
-/* === ТЕМАТИЧЕСКИЕ СТИЛИ === */
-/* Стили для каждой темы */
 
 /* === ТЕМА 1500 (ДРЕВНОСТЬ) === */
 body.theme-1500 .timeline-scale {
@@ -801,39 +1059,19 @@ body.theme-late20c .intro-text {
 }
 
 /* === ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ ТЕМ === */
-/* Кнопки управления текстом */
-body.theme-1500 .text-controls button,
-body.theme-19c .text-controls button,
-body.theme-early20c .text-controls button,
-body.theme-late20c .text-controls button {
+/* Кнопки управления текстом и стрелки навигации */
+body[class*="theme-"] .text-controls button,
+body[class*="theme-"] .arrow-button {
   border-color: inherit;
   color: inherit;
 }
 
-body.theme-1500 .text-controls button:hover,
-body.theme-19c .text-controls button:hover,
-body.theme-early20c .text-controls button:hover,
-body.theme-late20c .text-controls button:hover {
+body[class*="theme-"] .text-controls button:hover,
+body[class*="theme-"] .arrow-button:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Стрелки навигации */
-body.theme-1500 .arrow-button,
-body.theme-19c .arrow-button,
-body.theme-early20c .arrow-button,
-body.theme-late20c .arrow-button {
-  border-color: inherit;
-  color: inherit;
-}
-
-body.theme-1500 .arrow-button:hover,
-body.theme-19c .arrow-button:hover,
-body.theme-early20c .arrow-button:hover,
-body.theme-late20c .arrow-button:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Индикаторы временной шкалы */
+/* Индикаторы временной шкалы для разных тем */
 body.theme-1500 .timeline-indicator {
   background: linear-gradient(180deg, #bfa76a 0%, transparent 100%);
   box-shadow: 0 0 10px #bfa76a;

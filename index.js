@@ -2,10 +2,28 @@
 function selectUser(user) {
   const cards = document.querySelectorAll(".user-card");
   const sections = document.querySelectorAll(".user-content");
+  
+  // Убираем активный класс со всех карточек
   cards.forEach(card => card.classList.remove("active-user"));
+  
+  // Скрываем все секции контента
   sections.forEach(section => section.style.display = "none");
-  document.querySelector(`#${user}-content`).style.display = "block";
-  document.querySelector(`.user-card[onclick=\"selectUser('${user}')\"]`).classList.add("active-user");
+  
+  // Показываем нужную секцию (если она существует)
+  const targetSection = document.querySelector(`#${user}-content`);
+  if (targetSection) {
+    targetSection.style.display = "block";
+  }
+  
+  // Добавляем активный класс к выбранной карточке
+  const selectedCard = document.querySelector(`.user-card[data-user="${user}"]`);
+  if (selectedCard) {
+    selectedCard.classList.add("active-user");
+  }
+  
+  // Сохраняем выбранный уровень в localStorage
+  localStorage.setItem('magicUserType', user);
+  console.log('Выбран уровень пользователя:', user);
 }
 
 function flipCard(card) {
@@ -25,7 +43,9 @@ function autoFlipCards() {
 }
 
 window.onload = () => {
-  selectUser("beginner");
+  // Загружаем сохраненного пользователя или устанавливаем beginner по умолчанию
+  const savedUser = localStorage.getItem('magicUserType') || 'beginner';
+  selectUser(savedUser);
   autoFlipCards();
 };
 
@@ -35,18 +55,11 @@ userCards.forEach(card => {
     const user = card.getAttribute('data-user');
     if (user) {
       localStorage.setItem('magicUserType', user);
+      console.log('Уровень пользователя сохранен:', user);
     }
   });
 });
 
 // === Тема теперь управляется theme-switcher.js ===
-
-// === Navigation with Theme Preservation ===
-function navigateWithTheme(url) {
-  // Сохраняем текущую тему перед переходом
-  const currentTheme = localStorage.getItem('museumTheme') || 'theme-1500';
-  localStorage.setItem('museumTheme', currentTheme);
-  window.location.href = url;
-}
 
 // === Тема теперь управляется theme-switcher.js === 

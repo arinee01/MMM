@@ -1,5 +1,17 @@
 /* === MUSEUM MAP PAGE STYLES === */
 
+/* === ARTIFACT METADATA STYLES === */
+.artifact-metadata {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-family: var(--ui-font);
+}
+
+/* Metadata styles removed - simplified popup display */
+
 /* === INTRO TEXT === */
 .intro-text {
   font-size: 1.5rem;
@@ -237,6 +249,25 @@
   color: var(--gold);
   text-align: center;
   text-shadow: 0 0 8px rgba(245, 231, 195, 0.3);
+}
+
+/* QR Code styles in popup */
+#popup-content h4 {
+  color: var(--gold);
+  font-family: var(--magic-font);
+  font-size: 1.1rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+#popup-content a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#popup-content a:hover {
+  color: var(--gold);
+  text-decoration: underline;
 }
 
 /* === MAP LEGEND === */

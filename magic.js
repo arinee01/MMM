@@ -12,7 +12,19 @@ document.addEventListener("DOMContentLoaded", () => {
  
   Its porous texture absorbs emotional residue — anger, doubt, confusion — and its dark color symbolizes both absorption and the mystery of the unseen. In the modern world, where overstimulation is constant (notifications, bright screens, emotional content), this amulet serves as a buffering agent.
  
-  Worn near the body or placed near digital devices, it is said to create a psychic firewall, allowing the wearer to move through digital noise without losing their center.`
+  Worn near the body or placed near digital devices, it is said to create a psychic firewall, allowing the wearer to move through digital noise without losing their center.`,
+      
+      // Metadata for Amulet 1
+      metadata: {
+        identifier: "AMULET-001",
+        period: "Ancient",
+        culture: "Universal",
+        origin: "Volcanic Regions",
+        material: "Volcanic Stone",
+        technique: "Carved, Polished",
+        function: "Protection, Grounding",
+        context: "Spiritual, Personal"
+      }
     },
  
     2: {
@@ -28,7 +40,19 @@ document.addEventListener("DOMContentLoaded", () => {
  
   Placed on phones, worn as jewelry, or pinned to clothing, the amulet is believed to **mirror back** jealousy, gossip, and unconscious projections. It's especially powerful when worn during high-visibility moments — launches, performances, first dates, or interviews.
  
-  In digital life, it works symbolically: protecting your attention, your confidence, and your glow. The eye reminds you — your light doesn't need shrinking. It only needs shielding.`
+  In digital life, it works symbolically: protecting your attention, your confidence, and your glow. The eye reminds you — your light doesn't need shrinking. It only needs shielding.`,
+      
+      // Metadata for Amulet 2
+      metadata: {
+        identifier: "AMULET-002",
+        period: "Traditional",
+        culture: "Mediterranean",
+        origin: "Turkey",
+        material: "Glass, Metal",
+        technique: "Glass Blowing, Metalwork",
+        function: "Protection, Evil Eye",
+        context: "Personal, Domestic"
+      }
     },
  
     3: {
@@ -42,7 +66,19 @@ document.addEventListener("DOMContentLoaded", () => {
  
   Before battles or performances, wearers would whisper personal intentions into the token. Archaeologists have found similar items near riverbeds and cliffside camps, often engraved with directional glyphs or paired with boots worn thin by long journeys.
  
-  Today, the feather has returned in symbolic form on tattoos, logos, and charms worn by creators, freelancers, and digital nomads — anyone who needs to leap before they're sure. It's not just a token of action, but of **momentum** in uncertain terrain.`
+  Today, the feather has returned in symbolic form on tattoos, logos, and charms worn by creators, freelancers, and digital nomads — anyone who needs to leap before they're sure. It's not just a token of action, but of **momentum** in uncertain terrain.`,
+      
+      // Metadata for Amulet 3
+      metadata: {
+        identifier: "AMULET-003",
+        period: "Ancient",
+        culture: "Central Asian",
+        origin: "Silk Road",
+        material: "Birdbone, Brass",
+        technique: "Carved, Etched",
+        function: "Speed, Courage",
+        context: "Warrior, Dancer"
+      }
     },
 
     4: {
@@ -54,9 +90,21 @@ document.addEventListener("DOMContentLoaded", () => {
   Each NFT amulet is unique, carrying its own magical properties and protective energies. Some are designed to shield against digital negativity, others to amplify creative energy, and some to attract abundance in the virtual marketplace. They represent the bridge between ancient mystical practices and modern technological innovation.`,
       use: `NFT amulets work by creating a sacred digital space around your online presence. When you own an NFT amulet, you're not just holding a digital asset — you're carrying a piece of protective magic that travels with you through the digital realm.
  
-  These amulets can be displayed in your digital wallet, used as profile pictures, or integrated into your online platforms. They serve as reminders of your digital sovereignty and protect your creative energy from being drained by the constant demands of online life.
+  These amulets amulets can be displayed in your digital wallet, used as profile pictures, or integrated into your online platforms. They serve as reminders of your digital sovereignty and protect your creative energy from being drained by the constant demands of online life.
  
-  In the modern world of social media, content creation, and digital commerce, the NFT amulet represents a new form of spiritual protection — one that understands the unique challenges and opportunities of our digital age.`
+  In the modern world of social media, content creation, and digital commerce, the NFT amulet represents a new form of spiritual protection — one that understands the unique challenges and opportunities of our digital age.`,
+      
+      // Metadata for Amulet 4
+      metadata: {
+        identifier: "AMULET-004",
+        period: "Digital Age",
+        culture: "Digital",
+        origin: "Blockchain",
+        material: "Cryptographic Data",
+        technique: "Smart Contract",
+        function: "Digital Protection",
+        context: "Online, Virtual"
+      }
     },
 
     5: {
@@ -70,7 +118,19 @@ document.addEventListener("DOMContentLoaded", () => {
  
   This amulet is particularly powerful for content creators, streamers, and competitive gamers. It can help maintain focus during long gaming sessions, enhance strategic thinking, and provide protection against the negative aspects of online gaming culture.
  
-  In the modern world where virtual and physical realities increasingly overlap, the RPG amulet serves as a bridge between these realms, helping you navigate both with confidence and magical protection.`
+  In the modern world where virtual and physical realities increasingly overlap, the RPG amulet serves as a bridge between these realms, helping you navigate both with confidence and magical protection.`,
+      
+      // Metadata for Amulet 5
+      metadata: {
+        identifier: "AMULET-005",
+        period: "Modern",
+        culture: "Gaming",
+        origin: "Digital Culture",
+        material: "Mixed Media",
+        technique: "Digital Design",
+        function: "Gaming Enhancement",
+        context: "Entertainment, Virtual"
+      }
     }
   };
 
@@ -83,14 +143,32 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentAmuletId = null;
   let currentTab = 'short';
 
-  amuletCards.forEach(card => {
-    card.addEventListener('click', () => {
-      amuletCards.forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
-      currentAmuletId = card.getAttribute('data-id');
+  // === НОВАЯ ЛОГИКА ВЫБОРА АМУЛЕТОВ ===
+  
+  // Функция для выбора амулета
+  function selectAmulet(cardId) {
+    // Убираем выделение со всех карточек
+    amuletCards.forEach(card => {
+      card.classList.remove('selected');
+    });
+    
+    // Находим нужную карточку и выделяем её
+    const targetCard = document.querySelector(`[data-id="${cardId}"]`);
+    if (targetCard) {
+      targetCard.classList.add('selected');
+      currentAmuletId = cardId;
       
-      // Сохраняем текущий уровень пользователя
-      const userType = localStorage.getItem('magicUserType');
+      // Обновляем описание
+      if (amuletDescBox) {
+        amuletDescBox.classList.add('active');
+        amuletDescBox.style.display = '';
+        if (amuletDescText && amuletData[currentAmuletId]) {
+          amuletDescText.textContent = amuletData[currentAmuletId]['short'] || '✨ Amulet selected';
+        }
+      }
+      
+      // Обновляем вкладки
+      const userType = localStorage.getItem('magicUserType') || 'beginner';
       let amuletType = 'short';
       if (userType === 'casual') amuletType = 'full';
       if (userType === 'expert') amuletType = 'use';
@@ -100,15 +178,49 @@ document.addEventListener("DOMContentLoaded", () => {
       const activeTab = document.querySelector(`.amulet-tab[data-type="${amuletType}"]`);
       if (activeTab) activeTab.classList.add('active');
       
-      if (amuletDescBox) {
-        amuletDescBox.classList.add('active');
-        amuletDescBox.style.display = '';
-        amuletDescText.textContent = amuletData[currentAmuletId][currentTab];
+      // Обновляем метаданные если панель открыта
+      const metadataSection = document.getElementById('amulet-metadata-section');
+      if (metadataSection && metadataSection.classList.contains('open')) {
+        updateAmuletMetadata(currentAmuletId);
       }
+    }
+  }
+  
+  // Проверяем параметр artifact в URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const artifactId = urlParams.get('artifact');
+  
+  if (artifactId) {
+    // Есть параметр artifact - выбираем нужный амулет
+    const artifactToCardMap = {
+      'VICTORIAN-001': '3',      // Victorian Crystal Ball -> amulet3
+      'ARTDECO-001': '1',       // Art Deco Amulet -> amulet1
+      'AMULET-TURKISH-001': '2' // Turkish Evil Eye -> amulet2
+    };
+    
+    const cardId = artifactToCardMap[artifactId];
+    if (cardId) {
+      // Используем setTimeout чтобы убедиться что DOM загружен
+      setTimeout(() => {
+        selectAmulet(cardId);
+      }, 50);
+    }
+  } else {
+    // Нет параметра - выбираем первый амулет
+    setTimeout(() => {
+      selectAmulet('1');
+    }, 100);
+  }
+  
+  // Обработчики кликов по карточкам
+  amuletCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const cardId = card.getAttribute('data-id');
+      selectAmulet(cardId);
     });
   });
 
-  // === Инициализация приветственного текста для блока амулетов ===
+  // === Инициализация приветственного текста ===
   if (amuletDescText) amuletDescText.textContent = '🧿 Choose an amulet to reveal its energy...';
 
   amuletTabs.forEach(tab => {
@@ -358,6 +470,125 @@ document.addEventListener("DOMContentLoaded", () => {
       placeholder.remove();
     });
   });
+
+  // === МЕТАДАННЫЕ АМУЛЕТОВ ===
+  function displayAmuletMetadata(amuletId) {
+    const amulet = amuletData[amuletId];
+    
+    if (!amulet) {
+      return `
+        <div class="metadata-error">
+          <p>No amulet found for ID: ${amuletId}</p>
+          <p>Available IDs: ${Object.keys(amuletData).join(', ')}</p>
+        </div>
+      `;
+    }
+    
+    if (!amulet.metadata) {
+      return `
+        <div class="metadata-error">
+          <p>Amulet found but no metadata available.</p>
+          <p>Amulet keys: ${Object.keys(amulet).join(', ')}</p>
+        </div>
+      `;
+    }
+    
+    const metadata = amulet.metadata;
+    
+    const metadataHTML = `
+      <div class="metadata-grid">
+        <div class="metadata-item">
+          <span class="metadata-label">Identifier:</span>
+          <span class="metadata-value">${metadata.identifier || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Period:</span>
+          <span class="metadata-value">${metadata.period || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Culture:</span>
+          <span class="metadata-value">${metadata.culture || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Origin:</span>
+          <span class="metadata-value">${metadata.origin || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Material:</span>
+          <span class="metadata-value">${metadata.material || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Technique:</span>
+          <span class="metadata-value">${metadata.technique || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Function:</span>
+          <span class="metadata-value">${metadata.function || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Context:</span>
+          <span class="metadata-value">${metadata.context || 'N/A'}</span>
+        </div>
+      </div>
+    `;
+    
+    return metadataHTML;
+  }
+
+  function updateAmuletMetadata(amuletId) {
+    const metadataContainer = document.getElementById('amulet-metadata');
+    
+    if (metadataContainer) {
+      // Show loading state briefly for smooth transition
+      metadataContainer.innerHTML = '<div class="metadata-loading">Loading metadata...</div>';
+      
+      // Small delay for smooth animation
+      setTimeout(() => {
+        const metadataHTML = displayAmuletMetadata(amuletId);
+        metadataContainer.innerHTML = metadataHTML;
+        
+
+      }, 100);
+    } else {
+      console.error('Metadata container not found!');
+    }
+  }
+
+  function toggleAmuletMetadataSection() {
+    const section = document.getElementById('amulet-metadata-section');
+    const toggleBtn = document.getElementById('amulet-metadata-toggle');
+    
+    if (section.classList.contains('open')) {
+      // Close section
+      section.classList.remove('open');
+      toggleBtn.classList.remove('active');
+    } else {
+      // Open section
+      section.classList.add('open');
+      toggleBtn.classList.add('active');
+      
+      // Update metadata for current amulet
+      if (currentAmuletId) {
+        updateAmuletMetadata(currentAmuletId);
+      } else {
+        // Show message if no amulet is selected
+        const metadataContainer = document.getElementById('amulet-metadata');
+        if (metadataContainer) {
+          metadataContainer.innerHTML = `
+            <div class="metadata-error">
+              <p>Please select an amulet first to view its metadata.</p>
+            </div>
+          `;
+        }
+      }
+    }
+  }
+
+  // === ОБРАБОТЧИКИ СОБЫТИЙ ДЛЯ МЕТАДАННЫХ ===
+  const metadataToggle = document.getElementById('amulet-metadata-toggle');
+  if (metadataToggle) {
+    metadataToggle.addEventListener('click', toggleAmuletMetadataSection);
+  }
 });
 
 // === Автоподстановка режима Таро по выбору пользователя ===
@@ -386,4 +617,5 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // === Тема теперь управляется theme-switcher.js ===
 
- 
+// === МЕТАДАННЫЕ АМУЛЕТОВ ===
+// Функции объявлены внутри DOMContentLoaded выше

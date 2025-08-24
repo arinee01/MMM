@@ -19,13 +19,35 @@ const themeTexts = {
 
 const artifacts = [
     {
-      title: "Egyptian Scarab (2000 BCE)",
+      // Dublin Core Metadata
+      title: "Egyptian Scarab Amulet",
+      creator: "Ancient Egyptian Artisans",
+      date: "2000 BCE",
+      type: "Protective Amulet",
+      format: "Faience",
+      identifier: "SCARAB-001",
+      
+      // CIDOC-CRM Metadata
+      period: "Middle Kingdom",
+      culture: "Ancient Egyptian",
+      origin: "Egypt",
+      material: "Faience, Stone",
+      technique: "Carved, Inscribed",
+      function: "Protection, Rebirth",
+      context: "Funerary",
+      
+      // Narrative Path Classification
+      narrativePaths: ["Chronological", "Cross-Cultural"],
+      
+      // Display Properties
       image: "images/objects/scarab.jpg",
       audio: "audio/scarab.mp3",
       background: "images/backgrounds/bg_scarab.webp",
       era: "ancient",
       eraPeriod: "Ancient Egypt (2000 BCE)",
       eraDescription: "Mysticism and Symbolism of the Ancient World",
+      
+      // Three-tier Content System
       texts: {
         brief: "Long ago, in the land of golden sand and mighty pyramids, Egyptian children would find beetle-shaped charms placed in tombs and treasure boxes. These were magical scarabs! They believed the scarab could roll the sun through the sky and help people be reborn like the morning light.",
         medium: "Did you know the scarab beetle was like a superhero in ancient Egypt? People thought it had magical powers to protect the soul after death. Scarabs were carved with special symbols and placed with mummies to help them in the afterlife. One fun fact: the beetle was linked to a sun god named Khepri, who was believed to roll the sun across the sky every day!",
@@ -33,13 +55,35 @@ const artifacts = [
       }
     },
     {
-      title: "Slavic Protective Doll (1000 CE)",
+      // Dublin Core Metadata
+      title: "Slavic Protective Doll (Motanka)",
+      creator: "Slavic Folk Artisans",
+      date: "1000 CE",
+      type: "Protective Doll",
+      format: "Textile",
+      identifier: "MOTANKA-001",
+      
+      // CIDOC-CRM Metadata
+      period: "Medieval",
+      culture: "Slavic",
+      origin: "Eastern Europe",
+      material: "Cloth, Thread, Natural Materials",
+      technique: "Hand-sewn, Knotted",
+      function: "Protection, Fertility",
+      context: "Domestic, Ritual",
+      
+      // Narrative Path Classification
+      narrativePaths: ["Chronological", "Cross-Cultural"],
+      
+      // Display Properties
       image: "images/objects/slavic_doll.jpg",
       audio: "audio/slavic.mp3",
       background: "images/backgrounds/slavic.webp",
       era: "medieval",
       eraPeriod: "Medieval Europe (1000 CE)",
       eraDescription: "Folk Magic and Protective Traditions",
+      
+      // Three-tier Content System
       texts: {
         brief: "In an old Slavic village, grandmothers would make dolls from cloth with no faces. They told children that if a doll had a face, a spirit might sneak inside! So, these faceless dolls became special guardians, protecting families from bad dreams and scary things.",
         medium: "This doll, called a 'motanka,' wasn't just a toy—it was a magical charm! Women would tie it with colorful threads and fill it with good wishes for health and happiness. The doll had no face because people believed this kept evil spirits away. Fun fact: motanki were often given to brides or babies for protection and luck.",
@@ -47,13 +91,35 @@ const artifacts = [
       }
     },
     {
-      title: "Mexican Ojo de Venado (1600 CE)",
+      // Dublin Core Metadata
+      title: "Mexican Ojo de Venado",
+      creator: "Nahua Indigenous Artisans",
+      date: "1600 CE",
+      type: "Protective Amulet",
+      format: "Seed, Thread",
+      identifier: "OJO-001",
+      
+      // CIDOC-CRM Metadata
+      period: "Colonial",
+      culture: "Nahua-Mexican",
+      origin: "Mesoamerica",
+      material: "Mucuna pruriens seed, Red yarn",
+      technique: "Strung, Woven",
+      function: "Protection, Evil Eye",
+      context: "Personal, Domestic",
+      
+      // Narrative Path Classification
+      narrativePaths: ["Chronological", "Cross-Cultural"],
+      
+      // Display Properties
       image: "images/objects/ojo_venado.jpg",
       audio: "audio/mexico.mp3",
       background: "images/backgrounds/ojo_venado.webp",
       era: "renaissance",
       eraPeriod: "Renaissance Era (1600 CE)",
       eraDescription: "Mysticism and Symbolism of the Renaissance Era",
+      
+      // Three-tier Content System
       texts: {
         brief: "A long time ago in Mexico, children wore bracelets with a little brown bean and red thread. It was called the 'deer's eye' and it could protect you from bad looks! They said it could sense jealousy and bounce it away like magic.",
         medium: "The 'ojo de venado' is made from a seed that looks like an eye—called the deer's eye. It's worn by children and even adults to protect from the evil eye, a belief shared across many cultures. The bright red thread is said to confuse bad energy and keep you safe! This charm is still popular in Mexico today.",
@@ -61,13 +127,35 @@ const artifacts = [
       }
     },
     {
-      title: "Ægishjálmr (Helm of Awe) (1700 CE)",
+      // Dublin Core Metadata
+      title: "Ægishjálmr (Helm of Awe)",
+      creator: "Icelandic Folk Magicians",
+      date: "1700 CE",
+      type: "Magical Symbol",
+      format: "Manuscript, Carved",
+      identifier: "AEGISH-001",
+      
+      // CIDOC-CRM Metadata
+      period: "Early Modern",
+      culture: "Icelandic",
+      origin: "Iceland",
+      material: "Parchment, Wood, Metal",
+      technique: "Drawn, Carved, Inscribed",
+      function: "Protection, Intimidation",
+      context: "Magical, Martial",
+      
+      // Narrative Path Classification
+      narrativePaths: ["Chronological", "Cross-Cultural"],
+      
+      // Display Properties
       image: "images/objects/aegishjalmr.jpg",
       audio: "audio/helm.mp3",
       background: "images/backgrounds/aegishjalmr.webp",
       era: "renaissance",
       eraPeriod: "Renaissance Era (1700 CE)",
       eraDescription: "Mysticism and Symbolism of the Renaissance Era",
+      
+      // Three-tier Content System
       texts: {
         brief: "Long ago, Norse warriors painted mysterious symbols on their helmets. They believed these shapes gave them the strength of giants and scared away their enemies! The most famous one was the Helm of Awe—it looked like a snowflake with power inside.",
         medium: "The Helm of Awe, or Ægishjálmr, is a magical symbol from Norse mythology. It was drawn or worn by warriors to feel brave and protected. People believed it gave the wearer the power to strike fear in enemies. Fun fact: it appears in ancient spellbooks called grimoires!",
@@ -75,13 +163,35 @@ const artifacts = [
       }
     },
     {
-      title: "St. Benedict Medal (1800 CE)",
+      // Dublin Core Metadata
+      title: "St. Benedict Medal",
+      creator: "Benedictine Monks",
+      date: "1800 CE",
+      type: "Protective Medal",
+      format: "Metal",
+      identifier: "BENEDICT-001",
+      
+      // CIDOC-CRM Metadata
+      period: "Early Modern",
+      culture: "Christian",
+      origin: "Europe",
+      material: "Silver, Bronze",
+      technique: "Stamped, Inscribed",
+      function: "Protection, Exorcism",
+      context: "Religious, Personal",
+      
+      // Narrative Path Classification
+      narrativePaths: ["Chronological", "Cross-Cultural"],
+      
+      // Display Properties
       image: "images/objects/st_benedict.jpg",
       audio: "audio/benedict.mp3",
       background: "images/backgrounds/st_benedict.webp",
       era: "renaissance",
       eraPeriod: "Renaissance Era (1800 CE)",
       eraDescription: "Mysticism and Symbolism of the Renaissance Era",
+      
+      // Three-tier Content System
       texts: {
         brief: "Imagine a shiny coin with secret letters and a kind monk's picture. That's the St. Benedict Medal! People wore it to stay safe, like having a guardian angel in their pocket to chase away scary things.",
         medium: "This medal shows Saint Benedict and has Latin letters that stand for powerful prayers. People keep it at home or wear it to feel protected from harm. Fun fact: it's also used during blessings to keep away sickness or danger!",
@@ -89,13 +199,35 @@ const artifacts = [
       }
     },
     {
-      title: "Japanese Omamori (1900 CE)",
+      // Dublin Core Metadata
+      title: "Japanese Omamori",
+      creator: "Shinto and Buddhist Priests",
+      date: "1900 CE",
+      type: "Protective Amulet",
+      format: "Silk, Paper",
+      identifier: "OMAMORI-001",
+      
+      // CIDOC-CRM Metadata
+      period: "Modern",
+      culture: "Japanese",
+      origin: "Japan",
+      material: "Silk, Paper, Thread",
+      technique: "Hand-sewn, Inscribed",
+      function: "Protection, Blessing",
+      context: "Religious, Personal",
+      
+      // Narrative Path Classification
+      narrativePaths: ["Chronological", "Cross-Cultural"],
+      
+      // Display Properties
       image: "images/objects/omamori.jpg",
       audio: "audio/japan.mp3",
       background: "images/backgrounds/omamori.webp",
       era: "modern",
       eraPeriod: "Modern Era (1900 CE)",
       eraDescription: "Contemporary Spirituality and Digital Age",
+      
+      // Three-tier Content System
       texts: {
         brief: "In Japan, kids visit temples and get tiny colorful pouches called omamori. Inside is a secret wish or prayer that helps you do well in school, stay healthy, or be safe on trips. But don't open it—or the magic might disappear!",
         medium: "Omamori are little silk pouches sold at temples. Each one has a special prayer for things like love, safety, or success. They're changed every year to keep their power strong. Did you know there are omamori for pets and cell phones too?",
@@ -103,13 +235,35 @@ const artifacts = [
       }
     },
     {
-      title: "Bantu Tribal Fetish (1950 CE)",
+      // Dublin Core Metadata
+      title: "Bantu Tribal Fetish",
+      creator: "Bantu Artisans",
+      date: "1950 CE",
+      type: "Ritual Object",
+      format: "Mixed Media",
+      identifier: "BANTU-001",
+      
+      // CIDOC-CRM Metadata
+      period: "Modern",
+      culture: "Bantu",
+      origin: "Central Africa",
+      material: "Wood, Metal, Feathers, Shells",
+      technique: "Carved, Assembled",
+      function: "Healing, Justice, Protection",
+      context: "Ritual, Community",
+      
+      // Narrative Path Classification
+      narrativePaths: ["Chronological", "Cross-Cultural"],
+      
+      // Display Properties
       image: "images/objects/bantu_fetish.jpg",
       audio: "audio/bantu.mp3",
       background: "images/backgrounds/bantu_fetish.webp",
       era: "modern",
       eraPeriod: "Modern Era (1950 CE)",
       eraDescription: "Contemporary Spirituality and Digital Age",
+      
+      // Three-tier Content System
       texts: {
         brief: "Imagine a little wooden statue with feathers and shells. In some African villages, children believed these figures could talk to ancestors and protect people from harm. If you listened closely, maybe you'd hear whispers of ancient magic.",
         medium: "This ritual object, called a fetish, was used by Bantu-speaking peoples in Central Africa. It was believed to carry spirits and was used in healing and justice. Fun fact: some fetishes had nails hammered into them to 'activate' their powers!",
@@ -117,13 +271,35 @@ const artifacts = [
       }
     },
     {
-      title: "Korean Shamanic Knife (1970 CE)",
+      // Dublin Core Metadata
+      title: "Korean Shamanic Knife",
+      creator: "Korean Metalworkers",
+      date: "1970 CE",
+      type: "Ritual Tool",
+      format: "Metal",
+      identifier: "KOREAN-001",
+      
+      // CIDOC-CRM Metadata
+      period: "Modern",
+      culture: "Korean",
+      origin: "Korea",
+      material: "Steel, Brass",
+      technique: "Forged, Polished",
+      function: "Purification, Spirit Communication",
+      context: "Shamanic, Ritual",
+      
+      // Narrative Path Classification
+      narrativePaths: ["Chronological", "Cross-Cultural"],
+      
+      // Display Properties
       image: "images/objects/korean_knife.jpg",
       audio: "audio/korean.mp3",
       background: "images/backgrounds/korean_knife.webp",
       era: "modern",
       eraPeriod: "Modern Era (1970 CE)",
       eraDescription: "Contemporary Spirituality and Digital Age",
+      
+      // Three-tier Content System
       texts: {
         brief: "In Korean fairy tales, brave shamans hold shiny knives that cut away bad spirits. They dance and sing while waving the blade like a wand to protect people from darkness.",
         medium: "This ritual knife, called a kal, is used by shamans (mudang) during ceremonies. They wave it in the air to clear away negative energy and call on the spirits. These ceremonies are called 'gut' and include dancing, singing, and offerings!",
@@ -131,13 +307,35 @@ const artifacts = [
       }
     },
     {
-      title: "RPG Magic Amulet (2005 CE)",
+      // Dublin Core Metadata
+      title: "RPG Magic Amulet",
+      creator: "Game Developers",
+      date: "2005 CE",
+      type: "Digital Artifact",
+      format: "Game Asset",
+      identifier: "RPG-001",
+      
+      // CIDOC-CRM Metadata
+      period: "Digital Age",
+      culture: "Gaming",
+      origin: "Virtual World",
+      material: "Digital Data",
+      technique: "3D Modeling, Programming",
+      function: "Gameplay Enhancement, Immersion",
+      context: "Entertainment, Virtual",
+      
+      // Narrative Path Classification
+      narrativePaths: ["Chronological", "Modern Magic"],
+      
+      // Display Properties
       image: "images/objects/rpg_amulet.jpg",
       audio: "audio/rdf.mp3",
       background: "images/backgrounds/rpg_amulet.webp",
       era: "modern",
       eraPeriod: "Modern Era (2005 CE)",
       eraDescription: "Contemporary Spirituality and Digital Age",
+      
+      // Three-tier Content System
       texts: {
         brief: "In video games, magic amulets sparkle and glow. When your character wears one, they might jump higher, fight better, or become invisible! It's like a digital treasure full of hidden powers.",
         medium: "Magic amulets in RPG games help characters become stronger or safer. They're based on myths and legends but turned into game rewards. Did you know many of them are inspired by real historical charms?",
@@ -145,17 +343,111 @@ const artifacts = [
       }
     },
     {
-      title: "NFT Digital Amulet (2023 CE)",
+      // Dublin Core Metadata
+      title: "NFT Digital Amulet",
+      creator: "Digital Artists",
+      date: "2023 CE",
+      type: "Digital Artifact",
+      format: "Blockchain Token",
+      identifier: "NFT-001",
+      
+      // CIDOC-CRM Metadata
+      period: "Digital Age",
+      culture: "Digital",
+      origin: "Internet",
+      material: "Cryptographic Data",
+      technique: "Blockchain Minting",
+      function: "Digital Ownership, Status",
+      context: "Online, Virtual",
+      
+      // Narrative Path Classification
+      narrativePaths: ["Chronological", "Modern Magic"],
+      
+      // Display Properties
       image: "images/objects/nft_qr.jpg",
       audio: "audio/nft.mp3",
       background: "images/backgrounds/nft_qr.webp",
       era: "modern",
       eraPeriod: "Modern Era (2023 CE)",
       eraDescription: "Contemporary Spirituality and Digital Age",
+      
+      // Three-tier Content System
       texts: {
         brief: "Imagine a magical picture that lives on the internet! People buy and sell these digital treasures called NFTs. Some believe they bring good luck or special powers, just like ancient amulets, but in the digital world.",
         medium: "NFTs (Non-Fungible Tokens) are unique digital items stored on the blockchain. Some people treat them like modern amulets, believing they bring luck or represent special meaning. They can be art, music, or even virtual land!",
         long: "NFTs represent a contemporary reimagining of amuletic function within digital economies. As unique cryptographic tokens on blockchain networks, they embody scarcity and ownership in virtual spaces. Their cultural significance extends beyond financial speculation to include identity expression, community membership, and symbolic value. Scholars in digital anthropology examine how these objects fulfill traditional amuletic functions—protection, status, and meaning—in online environments."
+      }
+    },
+    {
+      // Dublin Core Metadata
+      title: "Victorian Crystal Ball",
+      creator: "Victorian Glassmakers",
+      date: "1880 CE",
+      type: "Divination Tool",
+      format: "Glass",
+      identifier: "VICTORIAN-001",
+      
+      // CIDOC-CRM Metadata
+      period: "Victorian",
+      culture: "British",
+      origin: "England",
+      material: "Crystal, Glass",
+      technique: "Blown, Polished",
+      function: "Divination, Scrying",
+      context: "Spiritual, Entertainment",
+      
+      // Narrative Path Classification
+      narrativePaths: ["Chronological", "Cross-Cultural"],
+      
+      // Display Properties
+      image: "images/amulets/amulet3.webp",
+      audio: "audio/scarab.mp3", // Placeholder audio
+      background: "images/backgrounds/victorian2.webp",
+      era: "renaissance",
+      eraPeriod: "Victorian Era (1880 CE)",
+      eraDescription: "Victorian Spiritualism and Mysticism",
+      
+      // Three-tier Content System
+      texts: {
+        brief: "In Victorian times, people would gaze into shiny crystal balls to see the future! It was like having a magical window that could show you what might happen tomorrow.",
+        medium: "Crystal balls were popular during the Victorian era for fortune-telling and spiritualism. People believed they could see visions of the future or communicate with spirits by staring into the clear glass. They were often used in séances!",
+        long: "The Victorian crystal ball represents the intersection of scientific curiosity and spiritual belief during the 19th century. As spiritualism gained popularity, crystal balls became central to divination practices and séance performances. Their use reflects both the era's fascination with the supernatural and its technological innovations in glassmaking. Historical accounts document their role in both private spiritual practice and public entertainment, contributing to the broader cultural movement of Victorian mysticism."
+      }
+    },
+    {
+      // Dublin Core Metadata
+      title: "Art Deco Amulet",
+      creator: "Art Deco Designers",
+      date: "1925 CE",
+      type: "Decorative Amulet",
+      format: "Mixed Media",
+      identifier: "ARTDECO-001",
+      
+      // CIDOC-CRM Metadata
+      period: "Art Deco",
+      culture: "International",
+      origin: "Europe/America",
+      material: "Metal, Enamel, Gemstones",
+      technique: "Cast, Enameled, Set",
+      function: "Decoration, Status",
+      context: "Fashion, Personal",
+      
+      // Narrative Path Classification
+      narrativePaths: ["Chronological", "Modern Magic"],
+      
+      // Display Properties
+      image: "images/amulets/amulet1.webp",
+      audio: "audio/scarab.mp3", // Placeholder audio
+      background: "images/backgrounds/artdeco2.webp",
+      era: "modern",
+      eraPeriod: "Art Deco Era (1925 CE)",
+      eraDescription: "Art Deco Design and Modern Aesthetics",
+      
+      // Three-tier Content System
+      texts: {
+        brief: "Art Deco amulets are beautiful jewelry pieces with geometric shapes and bright colors. They were popular in the 1920s and made people feel modern and stylish!",
+        medium: "These amulets feature the distinctive Art Deco style with bold geometric patterns, bright enamel colors, and precious metals. They were worn as fashion statements and symbols of the modern age. Many incorporated ancient symbols with contemporary design!",
+        long: "Art Deco amulets exemplify the movement's synthesis of ancient symbolism and modern design principles. Characterized by geometric forms, bold colors, and luxurious materials, they reflect the era's optimism and technological progress. Designers drew inspiration from Egyptian, African, and Asian art while creating distinctly contemporary pieces. These objects demonstrate how traditional amuletic functions were reinterpreted through modernist aesthetics, serving both decorative and symbolic purposes in early 20th-century society."
       }
     }
   ];
@@ -205,8 +497,110 @@ const artifacts = [
   }
 }
 
+  // === METADATA DISPLAY FUNCTIONS ===
+  function displayArtifactMetadata(artifact) {
+    console.log('Displaying metadata for artifact:', artifact);
+    
+    // Проверяем, есть ли у артефакта метаданные
+    if (!artifact.identifier && !artifact.period && !artifact.culture) {
+      console.warn('Artifact missing metadata fields:', artifact);
+      return `
+        <div class="metadata-error">
+          <p>Metadata not available for this artifact.</p>
+          <p>Please check the artifact configuration.</p>
+        </div>
+      `;
+    }
+    
+    const metadataHTML = `
+      <div class="metadata-grid">
+        <div class="metadata-item">
+          <span class="metadata-label">Identifier:</span>
+          <span class="metadata-value">${artifact.identifier || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Period:</span>
+          <span class="metadata-value">${artifact.period || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Culture:</span>
+          <span class="metadata-value">${artifact.culture || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Origin:</span>
+          <span class="metadata-value">${artifact.origin || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Material:</span>
+          <span class="metadata-value">${artifact.material || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Technique:</span>
+          <span class="metadata-value">${artifact.technique || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Function:</span>
+          <span class="metadata-value">${artifact.function || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Context:</span>
+          <span class="metadata-value">${artifact.context || 'N/A'}</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Narrative Paths:</span>
+          <span class="metadata-value">${artifact.narrativePaths ? artifact.narrativePaths.join(', ') : 'N/A'}</span>
+        </div>
+      </div>
+    `;
+    
+    console.log('Generated metadata HTML:', metadataHTML);
+    return metadataHTML;
+  }
+
+  // === METADATA SECTION FUNCTIONS ===
+  function toggleMetadataSection() {
+    const section = document.getElementById('metadata-section');
+    const toggleBtn = document.getElementById('metadata-toggle');
+    
+    console.log('Toggle metadata section:', section, toggleBtn);
+    console.log('Section classes before:', section ? section.className : 'Section not found');
+    
+    if (section.classList.contains('open')) {
+      // Close section
+      section.classList.remove('open');
+      toggleBtn.classList.remove('active');
+      console.log('Metadata section closed');
+    } else {
+      // Open section
+      section.classList.add('open');
+      toggleBtn.classList.add('active');
+      console.log('Metadata section opened');
+      console.log('Section classes after:', section.className);
+      
+      // Проверяем, есть ли метаданные для текущего артефакта
+      const currentArtifact = artifacts[currentIndex];
+      console.log('Current artifact for metadata:', currentArtifact);
+      
+      if (currentArtifact) {
+        updateMetadataDisplay(currentArtifact);
+      }
+    }
+  }
+
   // === ARTIFACT DISPLAY FUNCTIONS ===
   function updateArtifactDisplay() {
+    // Check if we have an artifact parameter in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const artifactId = urlParams.get('artifact');
+    
+    // If artifact parameter exists, find and show that artifact
+    if (artifactId) {
+      const artifactIndex = artifacts.findIndex(artifact => artifact.identifier === artifactId);
+      if (artifactIndex !== -1) {
+        currentIndex = artifactIndex;
+      }
+    }
+    
     const artifact = artifacts[currentIndex];
     const artifactImage = document.getElementById('artifact-image');
     const artifactBackground = document.getElementById('artifact-background');
@@ -231,8 +625,33 @@ const artifacts = [
       audio.load();
     }
     
+
+    
+    // Update metadata display
+    updateMetadataDisplay(artifact);
+    
+    // Update timeline
     updateTimeline();
     updateText();
+  }
+  
+  function updateMetadataDisplay(artifact) {
+    const metadataContainer = document.getElementById('artifact-metadata');
+    console.log('Updating metadata display:', artifact, metadataContainer);
+    
+    if (metadataContainer) {
+      // Show loading state briefly for smooth transition
+      metadataContainer.innerHTML = '<div class="metadata-loading">Loading metadata...</div>';
+      
+      // Small delay for smooth animation
+      setTimeout(() => {
+        const metadataHTML = displayArtifactMetadata(artifact);
+        console.log('Generated metadata HTML:', metadataHTML);
+        metadataContainer.innerHTML = metadataHTML;
+      }, 100);
+    } else {
+      console.error('Metadata container not found!');
+    }
   }
 
   // === AUDIO FUNCTIONS ===
@@ -282,6 +701,16 @@ const artifacts = [
   }
 
   // === EVENT LISTENERS ===
+  // Metadata section toggle
+  document.getElementById("metadata-toggle").addEventListener("click", () => {
+    toggleMetadataSection();
+    
+    // Отслеживаем прогресс для системы достижений
+    if (window.progressSystem) {
+      window.progressSystem.updatePathProgress('chrono', 'metadata_interaction');
+    }
+  });
+
   document.getElementById("artifact-image").addEventListener("click", (e) => {
     e.stopPropagation();
     e.target.classList.toggle("enlarged");
@@ -352,6 +781,11 @@ const artifacts = [
   window.setTextLength = function (length) {
     currentTextLength = length;
     updateText();
+    
+    // Update QR code when text length changes
+    if (window.generateQRCode) {
+      window.generateQRCode();
+    }
     
     // Отслеживаем прогресс для системы достижений
     if (window.progressSystem) {

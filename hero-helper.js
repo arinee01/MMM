@@ -72,7 +72,6 @@ function createHeroHelper() {
     <div class="hero-questions">
       <!-- Кнопки с вопросами будут добавлены динамически -->
     </div>
-    <textarea class="hero-helper-input" placeholder="Or type your own question..." rows="2"></textarea>
   `;
   
   // Создаем контейнер
@@ -101,19 +100,7 @@ function createHeroHelper() {
     }
   });
   
-  // Обработка ввода
-  const input = helperPanel.querySelector('.hero-helper-input');
-  input.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      const message = input.value.trim();
-      if (message) {
-        addUserMessage(message);
-        input.value = '';
-        setTimeout(() => addHeroResponse(message), 1000);
-      }
-    }
-  });
+
   
   // Создаем кнопки с вопросами для начальной темы
   setTimeout(() => {
