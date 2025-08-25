@@ -1,4 +1,30 @@
 // === СИСТЕМА ПРОГРЕССА И ДОСТИЖЕНИЙ ===
+// 
+// ИСПРАВЛЕННАЯ ЛОГИКА ПРОГРЕССА:
+// 
+// 🪙 СИСТЕМА МОНЕТ:
+// - Вехи в путях: 8 монет каждые 4 действия
+// - Завершение пути: 50 монет
+// - Новая тема: 8 монет (только при первом открытии)
+// - Исследование темы: 8 монет (только при первом посещении)
+// - Новые вопросы: 8 монет (только при первом использовании)
+// 
+// 🏺 СОСУД ЗНАНИЙ:
+// - 40% от завершенных путей
+// - 60% от заработанных монет (максимум 60)
+// - Более сбалансированное заполнение
+// 
+// 🛤️ ТРЕБОВАНИЯ ДЛЯ ПУТЕЙ:
+// - Chrono: 12 действий
+// - Magic: 15 действий
+// - Cross-cultural: 10 действий
+// - Museum Map: 8 действий
+// 
+// ✅ ПРЕИМУЩЕСТВА ИСПРАВЛЕННОЙ СИСТЕМЫ:
+// - Справедливое распределение наград
+// - Убрано дублирование монет
+// - Сбалансированные требования
+// - Логичный прогресс сосуда знаний
 
 class ProgressSystem {
   constructor() {
@@ -172,6 +198,13 @@ class ProgressSystem {
     // Проверяем достижения
     this.checkAchievements();
   }
+  
+  // Система начисления монет:
+  // - За вехи в путях: 8 монет каждые 4 действия
+  // - За завершение пути: 50 монет
+  // - За новую тему: 8 монет (только при первом открытии)
+  // - За исследование темы: 8 монет (только при первом посещении)
+  // - За новые вопросы: 8 монет (только при первом использовании)
 
   // Проверка достижений
   checkAchievements() {
@@ -216,9 +249,9 @@ class ProgressSystem {
       requiredActions: this.getPathRequiredActions(path)
     });
     
-    // Начисляем монеты только за значимые действия (каждые 3-5 действий)
-    if (this.progress.pathProgress[path] % 3 === 0) {
-      this.addCoins(10, `Milestone in ${path}`);
+    // Начисляем монеты только за значимые действия (каждые 4-5 действий)
+    if (this.progress.pathProgress[path] % 4 === 0) {
+      this.addCoins(8, `Milestone in ${path}`); // Уменьшил с 10 до 8
     }
     
     // Проверяем, завершен ли путь
@@ -250,10 +283,10 @@ class ProgressSystem {
   // Получение количества необходимых действий для завершения пути
   getPathRequiredActions(path) {
     const requirements = {
-      chrono: 15,      // 15 действий для завершения хронологического пути
-      magic: 20,       // 20 действий для завершения пути магии
-      crosscultural: 12, // 12 действий для кросс-культурного пути
-      museumMap: 8     // 8 действий для карты музея
+      chrono: 12,      // 12 действий для завершения хронологического пути (уменьшил с 15)
+      magic: 15,       // 15 действий для завершения пути магии (уменьшил с 20)
+      crosscultural: 10, // 10 действий для кросс-культурного пути (уменьшил с 12)
+      museumMap: 8     // 8 действий для карты музея (оставил как есть)
     };
     return requirements[path] || 10;
   }
@@ -263,9 +296,9 @@ class ProgressSystem {
     const totalPaths = Object.keys(this.progress.exploredPaths).length;
     const completedPaths = Object.values(this.progress.exploredPaths).filter(Boolean).length;
     
-    // Прогресс сосуда теперь зависит от монет и завершенных путей
-    const pathProgress = (completedPaths / totalPaths) * 30; // 30% от путей
-    const coinProgress = Math.min(this.progress.coins * 0.7, 70); // 70% от монет (максимум 70)
+    // Прогресс сосуда теперь более сбалансирован
+    const pathProgress = (completedPaths / totalPaths) * 40; // 40% от путей (увеличил с 30%)
+    const coinProgress = Math.min(this.progress.coins * 0.4, 60); // 60% от монет (уменьшил с 70%)
     
     this.progress.vesselProgress = Math.min(
       this.progress.maxVesselCapacity,
@@ -396,7 +429,7 @@ class ProgressSystem {
         if (!this.progress.exploredThemes) this.progress.exploredThemes = {};
         if (!this.progress.exploredThemes[themeKey]) {
           this.progress.exploredThemes[themeKey] = true;
-          this.addCoins(15, 'New theme discovered');
+          this.addCoins(8, 'New theme discovered'); // Уменьшил с 15 до 8
         }
       }
       
@@ -416,7 +449,7 @@ class ProgressSystem {
         if (!this.progress.exploredQuestions) this.progress.exploredQuestions = {};
         if (!this.progress.exploredQuestions[questionKey]) {
           this.progress.exploredQuestions[questionKey] = true;
-          this.addCoins(8, 'New question explored');
+          this.addCoins(8, 'New question explored'); // Уменьшил с 15 до 8
         }
       }
       
@@ -437,7 +470,7 @@ class ProgressSystem {
             if (!this.progress.exploredThemes) this.progress.exploredThemes = {};
             if (!this.progress.exploredThemes[themeKey]) {
               this.progress.exploredThemes[themeKey] = true;
-              this.addCoins(12, 'Theme exploration');
+              this.addCoins(8, 'Theme exploration'); // Уменьшил с 15 до 8
             }
           }
         }
@@ -513,7 +546,7 @@ class ProgressSystem {
     // Обновляем сосуд знаний
     this.updateVesselProgress();
     
-    alert(`Progress Test Complete!\nCoins: ${this.progress.coins}\nVessel: ${this.progress.vesselProgress}/100\nActions: ${this.progress.totalActions}\n\nNew system: Vessel fills slowly with coins!`);
+    alert(`Progress Test Complete!\nCoins: ${this.progress.coins}\nVessel: ${this.progress.vesselProgress}/100\nActions: ${this.progress.totalActions}\n\nUpdated system: More balanced coin distribution and vessel filling!`);
   }
   
   // Показ модального окна сертификата

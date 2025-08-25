@@ -27,8 +27,13 @@
   <header class="navbar">
     <div class="container">
       <a href="index.html" class="logo">EVERYDAY MAGIC</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav>
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-links">
           <li><a href="index.html#home">Home</a></li>
           <li><a href="museum-map.html">Museum</a></li>
           <li><a href="disclaimer.html">Disclaimer</a></li>
@@ -38,6 +43,20 @@
       </nav>
     </div>
   </header>
+
+  <!-- Новое мобильное меню -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-content">
+      <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="museum-map.html">Museum</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+      </ul>
+    </div>
+  </div>
 
   <section class="hero-experience-combined" id="crosscultural">
     <div class="hero-content-wrapper">
@@ -59,6 +78,13 @@
           <!-- Интерактивная карта мира с амулетами -->
           <div id="amulet-map" style="width: 100%; max-width: 900px; height: 480px; margin: 0 auto 2.5rem auto; border-radius: 18px; border: 2px solid var(--gold); box-shadow: 0 0 12px rgba(245,231,195,0.12);"></div>
           <p style="color:var(--gold);text-align:center;margin-top:-1.5rem;margin-bottom:2rem;">Interactive Map: Click on amulets to learn more</p>
+          
+          <!-- Альтернативный контент для мобильных устройств -->
+          <div class="mobile-content">
+            <h2>Cross-Cultural Journey</h2>
+            <p>Explore the rich traditions of protective symbols and amulets across different civilizations. From Slavic protective dolls to Turkish evil eye beads, discover how cultures around the world have developed unique ways to protect against harm and bring good fortune.</p>
+            <p>On mobile devices, you can explore the interactive map above to learn about different amulets and their cultural significance. Each dot represents a unique artifact with its own story and protective properties.</p>
+          </div>
           
           <!-- Основные истории -->
           <div class="book-container">
@@ -826,6 +852,78 @@ Even today, the image of the scarab endures. It's found in museums, jewelry, fil
   <script src="progress-system.js"></script>
   <script src="perf-helpers.js"></script>
   
-
+  <!-- Мобильное меню -->
+  <script>
+    // Мобильное меню
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileNavClose = document.getElementById('mobile-nav-close');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+      const body = document.body;
+      
+      console.log('DOM загружен, элементы:', {
+        mobileMenuToggle: mobileMenuToggle,
+        mobileNav: mobileNav,
+        mobileNavClose: mobileNavClose
+      });
+      
+      // Открытие мобильного меню
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Открытие мобильного меню');
+          
+          mobileMenuToggle.classList.add('active');
+          mobileNav.classList.add('active');
+          body.classList.add('menu-open');
+        });
+      }
+      
+      // Закрытие мобильного меню по кнопке
+      if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Закрытие мобильного меню по кнопке');
+          
+          closeMobileMenu();
+        });
+      }
+      
+      // Закрытие мобильного меню по клику на ссылку
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          console.log('Клик по ссылке мобильного меню');
+          closeMobileMenu();
+        });
+      });
+      
+      // Закрытие мобильного меню по клику вне меню
+      mobileNav.addEventListener('click', function(e) {
+        if (e.target === mobileNav) {
+          console.log('Клик вне мобильного меню');
+          closeMobileMenu();
+        }
+      });
+      
+      // Закрытие мобильного меню по Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+          console.log('Нажата клавиша Escape');
+          closeMobileMenu();
+        }
+      });
+      
+      // Функция закрытия мобильного меню
+      function closeMobileMenu() {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        body.classList.remove('menu-open');
+        console.log('Мобильное меню закрыто');
+      }
+    });
+  </script>
 </body>
 </html> 

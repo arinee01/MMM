@@ -34,8 +34,13 @@
   <header class="navbar">
     <div class="container">
       <a href="index.html" class="logo">EVERYDAY MAGIC</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav>
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-links">
           <li><a href="index.html#home">Home</a></li>
           <li><a href="museum-map.html">Museum</a></li>
           <li><a href="disclaimer.html">Disclaimer</a></li>
@@ -46,10 +51,21 @@
     </div>
   </header>
 
+  <!-- Новое мобильное меню -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-content">
+      <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="museum-map.html">Museum</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+      </ul>
+    </div>
+  </div>
 
-
-
-<section class="intro-hero-section">
+  <section class="intro-hero-section">
     <div class="intro-hero-overlay">
       <h1 class="intro-title">Amulets Reimagined</h1>
     </div>
@@ -320,6 +336,78 @@
   <script src="perf-helpers.js"></script>
   <script src="magic.js"></script>
   
-
+  <!-- Мобильное меню -->
+  <script>
+    // Мобильное меню
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileNavClose = document.getElementById('mobile-nav-close');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+      const body = document.body;
+      
+      console.log('DOM загружен, элементы:', {
+        mobileMenuToggle: mobileMenuToggle,
+        mobileNav: mobileNav,
+        mobileNavClose: mobileNavClose
+      });
+      
+      // Открытие мобильного меню
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Открытие мобильного меню');
+          
+          mobileMenuToggle.classList.add('active');
+          mobileNav.classList.add('active');
+          body.classList.add('menu-open');
+        });
+      }
+      
+      // Закрытие мобильного меню по кнопке
+      if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Закрытие мобильного меню по кнопке');
+          
+          closeMobileMenu();
+        });
+      }
+      
+      // Закрытие мобильного меню по клику на ссылку
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          console.log('Клик по ссылке мобильного меню');
+          closeMobileMenu();
+        });
+      });
+      
+      // Закрытие мобильного меню по клику вне меню
+      mobileNav.addEventListener('click', function(e) {
+        if (e.target === mobileNav) {
+          console.log('Клик вне мобильного меню');
+          closeMobileMenu();
+        }
+      });
+      
+      // Закрытие мобильного меню по Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+          console.log('Нажата клавиша Escape');
+          closeMobileMenu();
+        }
+      });
+      
+      // Функция закрытия мобильного меню
+      function closeMobileMenu() {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        body.classList.remove('menu-open');
+        console.log('Мобильное меню закрыто');
+      }
+    });
+  </script>
 </body>
 </html>

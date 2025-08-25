@@ -1,5 +1,67 @@
 // === JS из chrono.html ===
-// === JS из chrono.html ===
+
+// Инициализация мобильного меню
+document.addEventListener('DOMContentLoaded', function() {
+  const burgerMenu = document.getElementById('burger-menu');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const navMenu = document.querySelector('.nav-links');
+  const overlay = document.querySelector('.mobile-menu-overlay');
+  const body = document.body;
+  
+  // Добавляем обработчик для бургер-меню
+  if (burgerMenu) {
+    burgerMenu.addEventListener('click', function() {
+      burgerMenu.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      
+      if (overlay) {
+        overlay.classList.toggle('active');
+      }
+      
+      // Блокируем скролл при открытом меню
+      if (navMenu.classList.contains('active')) {
+        body.classList.add('menu-open');
+      } else {
+        body.classList.remove('menu-open');
+      }
+    });
+  }
+  
+  // Добавляем обработчики для ссылок навигации
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Закрываем мобильное меню
+      burgerMenu.classList.remove('active');
+      navMenu.classList.remove('active');
+      if (overlay) {
+        overlay.classList.remove('active');
+      }
+      body.classList.remove('menu-open');
+    });
+  });
+  
+  // Закрытие меню при клике на оверлей
+  if (overlay) {
+    overlay.addEventListener('click', function() {
+      burgerMenu.classList.remove('active');
+      navMenu.classList.remove('active');
+      overlay.classList.remove('active');
+      body.classList.remove('menu-open');
+    });
+  }
+  
+  // Закрытие меню при нажатии Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+      burgerMenu.classList.remove('active');
+      navMenu.classList.remove('active');
+      if (overlay) {
+        overlay.classList.remove('active');
+      }
+      body.classList.remove('menu-open');
+    }
+  });
+});
 
 // Тематические тексты для intro-text
 const themeTexts = {
@@ -377,78 +439,6 @@ const artifacts = [
         medium: "NFTs (Non-Fungible Tokens) are unique digital items stored on the blockchain. Some people treat them like modern amulets, believing they bring luck or represent special meaning. They can be art, music, or even virtual land!",
         long: "NFTs represent a contemporary reimagining of amuletic function within digital economies. As unique cryptographic tokens on blockchain networks, they embody scarcity and ownership in virtual spaces. Their cultural significance extends beyond financial speculation to include identity expression, community membership, and symbolic value. Scholars in digital anthropology examine how these objects fulfill traditional amuletic functions—protection, status, and meaning—in online environments."
       }
-    },
-    {
-      // Dublin Core Metadata
-      title: "Victorian Crystal Ball",
-      creator: "Victorian Glassmakers",
-      date: "1880 CE",
-      type: "Divination Tool",
-      format: "Glass",
-      identifier: "VICTORIAN-001",
-      
-      // CIDOC-CRM Metadata
-      period: "Victorian",
-      culture: "British",
-      origin: "England",
-      material: "Crystal, Glass",
-      technique: "Blown, Polished",
-      function: "Divination, Scrying",
-      context: "Spiritual, Entertainment",
-      
-      // Narrative Path Classification
-      narrativePaths: ["Chronological", "Cross-Cultural"],
-      
-      // Display Properties
-      image: "images/amulets/amulet3.webp",
-      audio: "audio/scarab.mp3", // Placeholder audio
-      background: "images/backgrounds/victorian2.webp",
-      era: "renaissance",
-      eraPeriod: "Victorian Era (1880 CE)",
-      eraDescription: "Victorian Spiritualism and Mysticism",
-      
-      // Three-tier Content System
-      texts: {
-        brief: "In Victorian times, people would gaze into shiny crystal balls to see the future! It was like having a magical window that could show you what might happen tomorrow.",
-        medium: "Crystal balls were popular during the Victorian era for fortune-telling and spiritualism. People believed they could see visions of the future or communicate with spirits by staring into the clear glass. They were often used in séances!",
-        long: "The Victorian crystal ball represents the intersection of scientific curiosity and spiritual belief during the 19th century. As spiritualism gained popularity, crystal balls became central to divination practices and séance performances. Their use reflects both the era's fascination with the supernatural and its technological innovations in glassmaking. Historical accounts document their role in both private spiritual practice and public entertainment, contributing to the broader cultural movement of Victorian mysticism."
-      }
-    },
-    {
-      // Dublin Core Metadata
-      title: "Art Deco Amulet",
-      creator: "Art Deco Designers",
-      date: "1925 CE",
-      type: "Decorative Amulet",
-      format: "Mixed Media",
-      identifier: "ARTDECO-001",
-      
-      // CIDOC-CRM Metadata
-      period: "Art Deco",
-      culture: "International",
-      origin: "Europe/America",
-      material: "Metal, Enamel, Gemstones",
-      technique: "Cast, Enameled, Set",
-      function: "Decoration, Status",
-      context: "Fashion, Personal",
-      
-      // Narrative Path Classification
-      narrativePaths: ["Chronological", "Modern Magic"],
-      
-      // Display Properties
-      image: "images/amulets/amulet1.webp",
-      audio: "audio/scarab.mp3", // Placeholder audio
-      background: "images/backgrounds/artdeco2.webp",
-      era: "modern",
-      eraPeriod: "Art Deco Era (1925 CE)",
-      eraDescription: "Art Deco Design and Modern Aesthetics",
-      
-      // Three-tier Content System
-      texts: {
-        brief: "Art Deco amulets are beautiful jewelry pieces with geometric shapes and bright colors. They were popular in the 1920s and made people feel modern and stylish!",
-        medium: "These amulets feature the distinctive Art Deco style with bold geometric patterns, bright enamel colors, and precious metals. They were worn as fashion statements and symbols of the modern age. Many incorporated ancient symbols with contemporary design!",
-        long: "Art Deco amulets exemplify the movement's synthesis of ancient symbolism and modern design principles. Characterized by geometric forms, bold colors, and luxurious materials, they reflect the era's optimism and technological progress. Designers drew inspiration from Egyptian, African, and Asian art while creating distinctly contemporary pieces. These objects demonstrate how traditional amuletic functions were reinterpreted through modernist aesthetics, serving both decorative and symbolic purposes in early 20th-century society."
-      }
     }
   ];
 
@@ -499,7 +489,6 @@ const artifacts = [
 
   // === METADATA DISPLAY FUNCTIONS ===
   function displayArtifactMetadata(artifact) {
-    console.log('Displaying metadata for artifact:', artifact);
     
     // Проверяем, есть ли у артефакта метаданные
     if (!artifact.identifier && !artifact.period && !artifact.culture) {
@@ -553,7 +542,6 @@ const artifacts = [
       </div>
     `;
     
-    console.log('Generated metadata HTML:', metadataHTML);
     return metadataHTML;
   }
 
@@ -562,24 +550,17 @@ const artifacts = [
     const section = document.getElementById('metadata-section');
     const toggleBtn = document.getElementById('metadata-toggle');
     
-    console.log('Toggle metadata section:', section, toggleBtn);
-    console.log('Section classes before:', section ? section.className : 'Section not found');
-    
     if (section.classList.contains('open')) {
       // Close section
       section.classList.remove('open');
       toggleBtn.classList.remove('active');
-      console.log('Metadata section closed');
     } else {
       // Open section
       section.classList.add('open');
       toggleBtn.classList.add('active');
-      console.log('Metadata section opened');
-      console.log('Section classes after:', section.className);
       
       // Проверяем, есть ли метаданные для текущего артефакта
       const currentArtifact = artifacts[currentIndex];
-      console.log('Current artifact for metadata:', currentArtifact);
       
       if (currentArtifact) {
         updateMetadataDisplay(currentArtifact);
@@ -637,7 +618,6 @@ const artifacts = [
   
   function updateMetadataDisplay(artifact) {
     const metadataContainer = document.getElementById('artifact-metadata');
-    console.log('Updating metadata display:', artifact, metadataContainer);
     
     if (metadataContainer) {
       // Show loading state briefly for smooth transition
@@ -646,7 +626,6 @@ const artifacts = [
       // Small delay for smooth animation
       setTimeout(() => {
         const metadataHTML = displayArtifactMetadata(artifact);
-        console.log('Generated metadata HTML:', metadataHTML);
         metadataContainer.innerHTML = metadataHTML;
       }, 100);
     } else {

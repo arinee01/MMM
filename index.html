@@ -23,8 +23,13 @@
   <header class="navbar">
     <div class="container">
       <a href="#" class="logo">EVERYDAY MAGIC</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav>
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="museum-map.html">Museum</a></li>
           <li><a href="disclaimer.html">Disclaimer</a></li>
@@ -34,6 +39,20 @@
       </nav>
     </div>
   </header>
+
+  <!-- Новое мобильное меню -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-content">
+      <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+      <ul class="mobile-nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="museum-map.html">Museum</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+      </ul>
+    </div>
+  </div>
 
   <section class="moon-overlay">
     <div class="moon-container">
@@ -68,15 +87,15 @@
         <div class="user-types">
           <div class="user-card" onclick="selectUser('beginner')" data-user="beginner">
             <img src="images/icons/ICONchildren.png" alt="Beginner">
-            <p>BEGINNER</p>
+            <p data-text="BEGINNER">BEGINNER</p>
           </div>
           <div class="user-card" onclick="selectUser('casual')" data-user="casual">
             <img src="images/icons/ICONgeneral.png" alt="Casual">
-            <p>CASUAL</p>
+            <p data-text="CASUAL">CASUAL</p>
           </div>
           <div class="user-card" onclick="selectUser('expert')" data-user="expert">
             <img src="images/icons/ICONexpert.png" alt="Expert">
-            <p>EXPERT</p>
+            <p data-text="EXPERT">EXPERT</p>
           </div>
         </div>
       </div>
@@ -207,5 +226,6 @@
     <script src="hero-helper.js"></script>
     <script src="progress-system.js"></script>
     <script src="index.js"></script>
+    
   </body>
 </html>

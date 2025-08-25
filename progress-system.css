@@ -28,6 +28,8 @@
   transition: all 0.3s ease;
   z-index: 1000;
   box-shadow: 0 2px 24px 0 rgba(244, 228, 188, 0.2), 0 2px 24px rgba(0, 0, 0, 0.18);
+  /* Обеспечиваем точное выравнивание */
+  transform: translateX(0);
 }
 
 .progress-btn:hover {
@@ -979,5 +981,68 @@
   .certificate-hint {
     margin-top: 0;
     margin-left: 0;
+  }
+} 
+
+/* Скрываем альтернативный контент на десктопных устройствах */
+@media (min-width: 769px) {
+  .mobile-content {
+    display: none;
+  }
+}
+
+/* === МОБИЛЬНЫЕ СТИЛИ ДЛЯ КНОПОК === */
+@media (max-width: 768px) {
+  /* Выравниваем кнопки на мобильных устройствах */
+  .progress-btn {
+    left: 20px !important;
+    transform: translateX(0) !important;
+    width: 55px !important;
+    height: 55px !important;
+  }
+  
+  .hero-helper {
+    left: 20px !important;
+    transform: translateX(0) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Для средних экранов */
+  .progress-btn {
+    width: 52px !important;
+    height: 52px !important;
+  }
+  
+  .hero-helper-btn {
+    width: 52px !important;
+    height: 52px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Для очень маленьких экранов */
+  .progress-btn {
+    left: 15px !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .hero-helper {
+    left: 15px !important;
+    transform: translateX(0) !important;
+  }
+  
+  .hero-helper-btn {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  /* Адаптируем панель прогресса */
+  .progress-container {
+    width: 90vw !important;
+    max-width: 320px !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(0.9) !important;
   }
 } 

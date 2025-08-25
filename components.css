@@ -536,7 +536,7 @@ body.theme-late20c .tarot-card:hover {
 
 .moon-text {
   font-family: 'QomariahArabic', var(--magic-font), cursive;
-  font-size: 7vw;
+  font-size: 9vw;
   font-weight: 600;
   text-align: center;
   position: absolute;
@@ -556,7 +556,7 @@ body.theme-late20c .tarot-card:hover {
 
 .moon-subtitle {
   font-family: var(--ui-font);
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--text-soft);
   text-align: center;

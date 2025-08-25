@@ -678,6 +678,11 @@
   <header class="navbar">
     <div class="container">
       <a href="index.html" class="logo">EVERYDAY MAGIC</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
@@ -690,14 +695,18 @@
     </div>
   </header>
 
-  <!-- Navigation Buttons -->
-  <div class="navigation-buttons">
-    <a href="about.html" class="nav-btn">
-      <i class="fas fa-chevron-left"></i>
-    </a>
-    <a href="index.html" class="nav-btn">
-      <i class="fas fa-chevron-right"></i>
-    </a>
+  <!-- Новое мобильное меню -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-content">
+      <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="museum-map.html">Museum</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+      </ul>
+    </div>
   </div>
 
   <!-- Main Content -->
@@ -1374,17 +1383,18 @@ AMULET-DIGITAL-001,NFT QR Code,Digital Culture,2020-2025 CE,Modern Artifact,Digi
             </div>
 
             <h3>Progress Tracking & Gamification System</h3>
+            <p><strong>🔄 Recently Updated:</strong> The progress system has been optimized for better balance and fair reward distribution.</p>
             <p>
-              Our museum implements an advanced gamification system that transforms the traditional museum visit into an engaging, interactive experience with multiple reward mechanisms and progress tracking across all aspects of the exhibition. The coin system serves as the primary reward mechanism, encouraging active engagement with exhibition content. Users earn coins through various activities: 10 coins for every 3-5 significant actions within a path, 50 coins for completing entire paths, 15 coins for discovering new themes, 12 coins for theme exploration, and 8 coins for exploring new questions with virtual assistants. The system intelligently tracks user interactions to prevent duplicate rewards, ensuring fair and balanced progression. Coins are displayed prominently in the progress interface and contribute significantly to the knowledge vessel progression, creating a tangible sense of achievement and advancement.
+              Our museum implements an advanced gamification system that transforms the traditional museum visit into an engaging, interactive experience with multiple reward mechanisms and progress tracking across all aspects of the exhibition. The coin system serves as the primary reward mechanism, encouraging active engagement with exhibition content. Users earn coins through various activities: 8 coins for every 4 significant actions within a path, 50 coins for completing entire paths, 8 coins for discovering new themes, 8 coins for theme exploration, and 8 coins for exploring new questions with virtual assistants. The system intelligently tracks user interactions to prevent duplicate rewards, ensuring fair and balanced progression. Coins are displayed prominently in the progress interface and contribute significantly to the knowledge vessel progression, creating a tangible sense of achievement and advancement.
             </p>
             <p>
-              The knowledge vessel represents the user's overall progress through the exhibition, filling based on two key factors: path completion (30% of total capacity) and coin accumulation (70% of total capacity). Each path has specific completion requirements: Chronological Path requires 15 actions, Magic Path requires 20 actions, Cross-Cultural Path requires 12 actions, and Museum Map requires 8 actions. Path completion is tracked through various user interactions including artifact exploration, audio engagement, theme switching, navigation, and content level changes. The vessel's visual representation provides immediate feedback on progress, with smooth animations and real-time updates that enhance the user experience.
+              The knowledge vessel represents the user's overall progress through the exhibition, filling based on two key factors: path completion (40% of total capacity) and coin accumulation (60% of total capacity). Each path has specific completion requirements: Chronological Path requires 12 actions, Magic Path requires 15 actions, Cross-Cultural Path requires 10 actions, and Museum Map requires 8 actions. Path completion is tracked through various user interactions including artifact exploration, audio engagement, theme switching, navigation, and content level changes. The vessel's visual representation provides immediate feedback on progress, with smooth animations and real-time updates that enhance the user experience.
             </p>
             <p>
               Upon reaching 100% vessel capacity, users unlock access to an official certificate of completion, making this the first online museum exhibition to offer formal recognition of cultural heritage education. The certificate system includes a personalized form where users enter their name, generating a professional document that validates their completion of the comprehensive exhibition experience. This feature transforms the digital visit into an accredited learning experience, adding significant academic value and encouraging deeper engagement with the content. The certificate serves as both a personal achievement and a professional credential for cultural heritage education.
             </p>
             <p>
-              The system implements sophisticated achievement tracking across multiple dimensions including path exploration, theme discovery, artifact interaction, and user engagement patterns. Achievements are awarded for milestones such as completing 10 actions, discovering new themes, and fully exploring exhibition paths. The achievement system maintains a history of the last 10 accomplishments, providing users with a comprehensive record of their museum journey. Each achievement includes descriptive text and visual indicators, creating a sense of progression and accomplishment that motivates continued exploration.
+              The system implements sophisticated achievement tracking across multiple dimensions including path exploration, theme discovery, artifact interaction, and user engagement patterns. Achievements are awarded for milestones such as completing 10 actions, discovering new themes, and fully exploring exhibition paths. The achievement system maintains a history of the last 10 accomplishments, providing users with a comprehensive record of their museum journey. Each achievement includes descriptive text and visual indicators, creating a sense of progression and accomplishment that motivates continued exploration. The system has been recently updated to provide more balanced and fair reward distribution, ensuring that users feel motivated without feeling overwhelmed by excessive rewards.
             </p>
             <p>
               All progress is tracked in real-time with immediate visual feedback through the floating progress interface. The system monitors user interactions across all exhibition elements including navigation buttons, theme switches, artifact interactions, audio controls, and content level changes. Progress data is automatically saved to localStorage, ensuring persistence across browser sessions and device changes. The interface provides comprehensive statistics including total coins earned, vessel completion percentage, explored paths count, and total actions taken, giving users complete visibility into their exhibition progress and achievements.
@@ -1864,6 +1874,77 @@ AMULET-DIGITAL-001,NFT QR Code,Digital Culture,2020-2025 CE,Modern Artifact,Digi
   <!-- Progress System -->
   <div id="progress-container"></div>
   <script>
+    // Мобильное меню
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileNavClose = document.getElementById('mobile-nav-close');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+      const body = document.body;
+      
+      console.log('DOM загружен, элементы:', {
+        mobileMenuToggle: mobileMenuToggle,
+        mobileNav: mobileNav,
+        mobileNavClose: mobileNavClose
+      });
+      
+      // Открытие мобильного меню
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Открытие мобильного меню');
+          
+          mobileMenuToggle.classList.add('active');
+          mobileNav.classList.add('active');
+          body.classList.add('menu-open');
+        });
+      }
+      
+      // Закрытие мобильного меню по кнопке
+      if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Закрытие мобильного меню по кнопке');
+          
+          closeMobileMenu();
+        });
+      }
+      
+      // Закрытие мобильного меню по клику на ссылку
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          console.log('Клик по ссылке мобильного меню');
+          closeMobileMenu();
+        });
+      });
+      
+      // Закрытие мобильного меню по клику вне меню
+      mobileNav.addEventListener('click', function(e) {
+        if (e.target === mobileNav) {
+          console.log('Клик вне мобильного меню');
+          closeMobileMenu();
+        }
+      });
+      
+      // Закрытие мобильного меню по Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+          console.log('Нажата клавиша Escape');
+          closeMobileMenu();
+        }
+      });
+      
+      // Функция закрытия мобильного меню
+      function closeMobileMenu() {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        body.classList.remove('menu-open');
+        console.log('Мобильное меню закрыто');
+      }
+    });
+
     // Инициализация прогресс-системы
     document.addEventListener('DOMContentLoaded', function() {
       if (typeof initializeProgressSystem === 'function') {

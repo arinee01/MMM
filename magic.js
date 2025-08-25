@@ -1,3 +1,66 @@
+// Инициализация мобильного меню
+document.addEventListener('DOMContentLoaded', function() {
+  const burgerMenu = document.getElementById('burger-menu');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const navMenu = document.querySelector('.nav-links');
+  const overlay = document.querySelector('.mobile-menu-overlay');
+  const body = document.body;
+  
+  // Добавляем обработчик для бургер-меню
+  if (burgerMenu) {
+    burgerMenu.addEventListener('click', function() {
+      burgerMenu.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      
+      if (overlay) {
+        overlay.classList.toggle('active');
+      }
+      
+      // Блокируем скролл при открытом меню
+      if (navMenu.classList.contains('active')) {
+        body.classList.add('menu-open');
+      } else {
+        body.classList.remove('menu-open');
+      }
+    });
+  }
+  
+  // Добавляем обработчики для ссылок навигации
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Закрываем мобильное меню
+      burgerMenu.classList.remove('active');
+      navMenu.classList.remove('active');
+      if (overlay) {
+        overlay.classList.remove('active');
+      }
+      body.classList.remove('menu-open');
+    });
+  });
+  
+  // Закрытие меню при клике на оверлей
+  if (overlay) {
+    overlay.addEventListener('click', function() {
+      burgerMenu.classList.remove('active');
+      navMenu.classList.remove('active');
+      overlay.classList.remove('active');
+      body.classList.remove('menu-open');
+    });
+  }
+  
+  // Закрытие меню при нажатии Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+      burgerMenu.classList.remove('active');
+      navMenu.classList.remove('active');
+      if (overlay) {
+        overlay.classList.remove('active');
+      }
+      body.classList.remove('menu-open');
+    }
+  });
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   // 🧿 Amulet Text Data
   const amuletData = {
@@ -146,49 +209,63 @@ document.addEventListener("DOMContentLoaded", () => {
   // === НОВАЯ ЛОГИКА ВЫБОРА АМУЛЕТОВ ===
   
   // Функция для выбора амулета
-  function selectAmulet(cardId) {
-    // Убираем выделение со всех карточек
-    amuletCards.forEach(card => {
-      card.classList.remove('selected');
-    });
+  function selectAmulet(amuletId) {
+    if (!amuletData[amuletId]) return;
     
-    // Находим нужную карточку и выделяем её
-    const targetCard = document.querySelector(`[data-id="${cardId}"]`);
-    if (targetCard) {
-      targetCard.classList.add('selected');
-      currentAmuletId = cardId;
-      
-      // Обновляем описание
-      if (amuletDescBox) {
-        amuletDescBox.classList.add('active');
-        amuletDescBox.style.display = '';
-        if (amuletDescText && amuletData[currentAmuletId]) {
-          amuletDescText.textContent = amuletData[currentAmuletId]['short'] || '✨ Amulet selected';
-        }
-      }
-      
-      // Обновляем вкладки
-      const userType = localStorage.getItem('magicUserType') || 'beginner';
-      let amuletType = 'short';
-      if (userType === 'casual') amuletType = 'full';
-      if (userType === 'expert') amuletType = 'use';
-      
-      currentTab = amuletType;
-      amuletTabs.forEach(tab => tab.classList.remove('active'));
-      const activeTab = document.querySelector(`.amulet-tab[data-type="${amuletType}"]`);
-      if (activeTab) activeTab.classList.add('active');
-      
-      // Обновляем метаданные если панель открыта
-      const metadataSection = document.getElementById('amulet-metadata-section');
-      if (metadataSection && metadataSection.classList.contains('open')) {
-        updateAmuletMetadata(currentAmuletId);
-      }
+    console.log('Выбран амулет:', amuletId);
+    console.log('Текущий уровень пользователя:', localStorage.getItem('magicUserType'));
+    
+    currentAmuletId = amuletId;
+    amuletCards.forEach(card => card.classList.remove('selected'));
+    const selectedCard = document.querySelector(`[data-id="${amuletId}"]`);
+    if (selectedCard) selectedCard.classList.add('selected');
+    
+    // Обновляем описание
+    if (amuletDescBox) {
+      amuletDescBox.classList.add('active');
+      amuletDescBox.style.display = '';
+    }
+    
+    // Обновляем вкладки
+    const userType = localStorage.getItem('magicUserType') || 'beginner';
+    let amuletType = 'short';
+    if (userType === 'casual') amuletType = 'full';
+    if (userType === 'expert') amuletType = 'use';
+    
+    currentTab = amuletType;
+    amuletTabs.forEach(tab => tab.classList.remove('active'));
+    const activeTab = document.querySelector(`.amulet-tab[data-type="${amuletType}"]`);
+    if (activeTab) {
+      activeTab.classList.add('active');
+      console.log('Установлена активная вкладка:', amuletType, 'для уровня:', userType);
+    }
+    
+    // Обновляем текст в соответствии с активной вкладкой
+    if (amuletDescText) {
+      amuletDescText.textContent = amuletData[currentAmuletId][amuletType] || '✨ No details available.';
+      console.log('Обновлен текст для вкладки:', amuletType);
+    }
+    
+    // Принудительно обновляем текст для уровня пользователя
+    updateTextForUserLevel();
+    
+    // Обновляем метаданные если панель открыта
+    const metadataSection = document.getElementById('amulet-metadata-section');
+    if (metadataSection && metadataSection.classList.contains('open')) {
+      updateAmuletMetadata(currentAmuletId);
     }
   }
   
   // Проверяем параметр artifact в URL
   const urlParams = new URLSearchParams(window.location.search);
   const artifactId = urlParams.get('artifact');
+  const userTypeFromUrl = urlParams.get('userType');
+  
+  // Если есть параметр userType в URL, устанавливаем его
+  if (userTypeFromUrl) {
+    localStorage.setItem('magicUserType', userTypeFromUrl);
+    console.log('Уровень пользователя установлен из URL:', userTypeFromUrl);
+  }
   
   if (artifactId) {
     // Есть параметр artifact - выбираем нужный амулет
@@ -209,6 +286,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Нет параметра - выбираем первый амулет
     setTimeout(() => {
       selectAmulet('1');
+      // Дополнительно обновляем текст после выбора амулета
+      setTimeout(updateTextForUserLevel, 150);
     }, 100);
   }
   
@@ -223,6 +302,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // === Инициализация приветственного текста ===
   if (amuletDescText) amuletDescText.textContent = '🧿 Choose an amulet to reveal its energy...';
 
+  // Функция для принудительного обновления текста в соответствии с уровнем пользователя
+  function updateTextForUserLevel() {
+    if (!currentAmuletId || !amuletDescText) return;
+    
+    const userType = localStorage.getItem('magicUserType') || 'beginner';
+    let amuletType = 'short';
+    if (userType === 'casual') amuletType = 'full';
+    if (userType === 'expert') amuletType = 'use';
+    
+    const text = amuletData[currentAmuletId][amuletType];
+    if (text) {
+      amuletDescText.textContent = text;
+      console.log('Принудительно обновлен текст для уровня:', userType, 'вкладка:', amuletType);
+    }
+  }
+
   amuletTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       if (!currentAmuletId) return;
@@ -235,6 +330,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (currentTab === 'full') userType = 'casual';
       if (currentTab === 'use') userType = 'expert';
       localStorage.setItem('magicUserType', userType);
+      
+      console.log('Переключена вкладка:', currentTab, 'уровень пользователя:', userType);
       
       amuletDescText.textContent = amuletData[currentAmuletId][currentTab] || '✨ No details available.';
     });

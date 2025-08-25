@@ -69,7 +69,17 @@ document.addEventListener('DOMContentLoaded', function() {
 // Функция навигации с сохранением темы
 function navigateWithTheme(url) {
   const currentTheme = localStorage.getItem('museumTheme') || 'theme-1500';
+  const currentUserType = localStorage.getItem('magicUserType') || 'beginner';
+  
+  // Сохраняем текущую тему
   localStorage.setItem('museumTheme', currentTheme);
+  
+  // Добавляем параметр пользователя к URL если это страница magic.html
+  if (url.includes('magic.html')) {
+    const separator = url.includes('?') ? '&' : '?';
+    url += `${separator}userType=${currentUserType}`;
+  }
+  
   window.location.href = url;
 }
 

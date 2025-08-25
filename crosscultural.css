@@ -1923,3 +1923,50 @@
   margin: 0.5rem 0;
   font-size: 1rem;
 }
+
+/* === МОБИЛЬНЫЕ СТИЛИ === */
+@media (max-width: 768px) {
+  /* Скрываем книгу на мобильных устройствах */
+  .book-container {
+    display: none !important;
+  }
+  
+  /* Показываем альтернативный контент для мобильных устройств */
+  .mobile-content {
+    display: block;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  
+  .mobile-content h2 {
+    color: var(--gold);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-content p {
+    color: var(--gold);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  /* Адаптируем карту для мобильных устройств */
+  #amulet-map {
+    width: 100% !important;
+    height: 300px !important;
+    margin: 1rem 0 !important;
+  }
+  
+  /* Адаптируем навигационные кнопки */
+  .navigation-buttons {
+    display: none !important;
+  }
+}
+
+/* Скрываем альтернативный контент на десктопных устройствах */
+@media (min-width: 769px) {
+  .mobile-content {
+    display: none;
+  }
+}

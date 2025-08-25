@@ -230,6 +230,8 @@ body.theme-late20c p {
   z-index: 1000;
   cursor: pointer;
   transition: all 0.3s ease;
+  /* Обеспечиваем точное выравнивание */
+  transform: translateX(0);
 }
 
 .hero-helper-btn {
@@ -1149,12 +1151,20 @@ body[class*="theme-"] .user-card[data-user="expert"] p::before {
 /* Скрываем оригинальные тексты */
 body[class*="theme-"] .user-card p {
   font-size: 0;
+  color: transparent;
+  visibility: hidden;
+  position: absolute;
+  left: -9999px;
 }
 
 body[class*="theme-"] .user-card p::before {
   font-size: 0.9rem;
   display: block;
   font-weight: 500;
+  color: var(--theme-accent);
+  visibility: visible;
+  position: static;
+  left: auto;
 }
 
 /* === РАЗНЫЕ ВАРИАНТЫ РАСПОЛОЖЕНИЯ ДЛЯ КАЖДОЙ ТЕМЫ === */
@@ -1305,19 +1315,7 @@ body.theme-early20c .user-card img {
   margin-top: 20px;
 }
 
-body.theme-early20c .user-card p {
-  position: absolute;
-  bottom: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  z-index: 2;
-  font-size: 0.9rem;
-  color: var(--theme-accent);
-  text-shadow: 0 0 10px var(--theme-accent);
-  font-weight: 600;
-  letter-spacing: 1px;
-}
+
 
 /* ТЕМА ПОЗДНЕГО XX ВЕКА: Горизонтальная линия */
 body.theme-late20c .user-types {
@@ -1682,3 +1680,118 @@ body[class*="theme-"] .theme-fab:hover {
   transform: scale(1.1) !important;
   box-shadow: 0 4px 20px rgba(245, 231, 195, 0.3) !important;
 } 
+
+body.theme-early20c .user-card p {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 2;
+  font-size: 0;
+  color: transparent;
+  visibility: hidden;
+}
+
+body.theme-early20c .user-card[data-user="beginner"] p::before {
+  content: var(--experience-beginner);
+  font-size: 0.9rem;
+  color: var(--theme-accent);
+  text-shadow: 0 0 10px var(--theme-accent);
+  font-weight: 600;
+  letter-spacing: 1px;
+  visibility: visible;
+  position: static;
+  left: auto;
+}
+
+body.theme-early20c .user-card[data-user="casual"] p::before {
+  content: var(--experience-casual);
+  font-size: 0.9rem;
+  color: var(--theme-accent);
+  text-shadow: 0 0 10px var(--theme-accent);
+  font-weight: 600;
+  letter-spacing: 1px;
+  visibility: visible;
+  position: static;
+  left: auto;
+}
+
+body.theme-early20c .user-card[data-user="expert"] p::before {
+  content: var(--experience-expert);
+  font-size: 0.9rem;
+  color: var(--theme-accent);
+  text-shadow: 0 0 10px var(--theme-accent);
+  font-weight: 600;
+  letter-spacing: 1px;
+  visibility: visible;
+  position: static;
+  left: auto;
+}
+
+/* Скрываем альтернативный контент на десктопных устройствах */
+@media (min-width: 769px) {
+  .mobile-content {
+    display: none;
+  }
+}
+
+/* === МОБИЛЬНЫЕ СТИЛИ ДЛЯ КНОПОК === */
+@media (max-width: 768px) {
+  /* Выравниваем кнопки на мобильных устройствах */
+  .hero-helper {
+    left: 20px !important;
+    transform: translateX(0) !important;
+  }
+  
+  .hero-helper-btn {
+    width: 55px !important;
+    height: 55px !important;
+  }
+  
+  .hero-helper-btn img {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  
+  .hero-helper-panel {
+    left: 20px !important;
+    width: 280px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Для средних экранов */
+  .hero-helper-btn {
+    width: 52px !important;
+    height: 52px !important;
+  }
+  
+  .hero-helper-btn img {
+    width: 33px !important;
+    height: 33px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Для очень маленьких экранов */
+  .hero-helper {
+    left: 15px !important;
+  }
+  
+  .hero-helper-btn {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .hero-helper-btn img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  .hero-helper-panel {
+    left: 15px !important;
+    width: 260px !important;
+    max-width: calc(100vw - 30px) !important;
+  }
+}

@@ -1,6 +1,67 @@
 // === MUSEUM MAP JAVASCRIPT ===
 
-console.log('Museum map JavaScript loaded!');
+// Инициализация мобильного меню
+document.addEventListener('DOMContentLoaded', function() {
+  const burgerMenu = document.getElementById('burger-menu');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const navMenu = document.querySelector('.nav-links');
+  const overlay = document.querySelector('.mobile-menu-overlay');
+  const body = document.body;
+  
+  // Добавляем обработчик для бургер-меню
+  if (burgerMenu) {
+    burgerMenu.addEventListener('click', function() {
+      burgerMenu.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      
+      if (overlay) {
+        overlay.classList.toggle('active');
+      }
+      
+      // Блокируем скролл при открытом меню
+      if (navMenu.classList.contains('active')) {
+        body.classList.add('menu-open');
+      } else {
+        body.classList.remove('menu-open');
+      }
+    });
+  }
+  
+  // Добавляем обработчики для ссылок навигации
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Закрываем мобильное меню
+      burgerMenu.classList.remove('active');
+      navMenu.classList.remove('active');
+      if (overlay) {
+        overlay.classList.remove('active');
+      }
+      body.classList.remove('menu-open');
+    });
+  });
+  
+  // Закрытие меню при клике на оверлей
+  if (overlay) {
+    overlay.addEventListener('click', function() {
+      burgerMenu.classList.remove('active');
+      navMenu.classList.remove('active');
+      overlay.classList.remove('active');
+      body.classList.remove('menu-open');
+    });
+  }
+  
+  // Закрытие меню при нажатии Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+      burgerMenu.classList.remove('active');
+      navMenu.classList.remove('active');
+      if (overlay) {
+        overlay.classList.remove('active');
+      }
+      body.classList.remove('menu-open');
+    }
+  });
+});
 
 let currentFloor = 0;
 const totalFloors = 3;
