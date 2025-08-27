@@ -30,6 +30,7 @@
   box-shadow: 0 2px 24px 0 rgba(244, 228, 188, 0.2), 0 2px 24px rgba(0, 0, 0, 0.18);
   /* Обеспечиваем точное выравнивание */
   transform: translateX(0);
+  padding: 4px;
 }
 
 .progress-btn:hover {
@@ -38,8 +39,13 @@
 }
 
 .progress-btn-icon {
-  font-size: 2rem;
-  margin-bottom: 2px;
+  font-size: 2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 !important;
+  line-height: 1 !important;
+  margin: 0 !important;
 }
 
 .progress-btn-coins {
@@ -51,6 +57,7 @@
   border-radius: 10px;
   min-width: 30px;
   text-align: center;
+  margin-top: 2px;
 }
 
 /* Панель прогресса */
@@ -989,9 +996,46 @@
   .mobile-content {
     display: none;
   }
+  
+  /* Обеспечиваем стабильное позиционирование иконки на больших экранах */
+  .progress-btn-icon {
+    font-size: 2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  /* Для 4K и очень больших экранов */
+  .progress-btn-icon {
+    font-size: 2.2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
 }
 
 /* === МОБИЛЬНЫЕ СТИЛИ ДЛЯ КНОПОК === */
+@media (max-width: 1024px) {
+  /* Для планшетов и средних экранов */
+  .progress-btn-icon {
+    font-size: 1.9rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+}
+
 @media (max-width: 768px) {
   /* Выравниваем кнопки на мобильных устройствах */
   .progress-btn {
@@ -1001,9 +1045,23 @@
     height: 55px !important;
   }
   
+  .progress-btn-icon {
+    font-size: 1.8rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+  
   .hero-helper {
     left: 20px !important;
     transform: translateX(0) !important;
+  }
+  
+  .hero-helper-btn img {
+    object-position: center 20% !important;
   }
 }
 
@@ -1014,9 +1072,23 @@
     height: 52px !important;
   }
   
+  .progress-btn-icon {
+    font-size: 1.7rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+  
   .hero-helper-btn {
     width: 52px !important;
     height: 52px !important;
+  }
+  
+  .hero-helper-btn img {
+    object-position: center 20% !important;
   }
 }
 
@@ -1028,6 +1100,16 @@
     height: 50px !important;
   }
   
+  .progress-btn-icon {
+    font-size: 1.6rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+  
   .hero-helper {
     left: 15px !important;
     transform: translateX(0) !important;
@@ -1036,6 +1118,10 @@
   .hero-helper-btn {
     width: 50px !important;
     height: 50px !important;
+  }
+  
+  .hero-helper-btn img {
+    object-position: center 20% !important;
   }
   
   /* Адаптируем панель прогресса */

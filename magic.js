@@ -413,43 +413,116 @@ document.addEventListener("DOMContentLoaded", () => {
     "13_15": "Passion will guide your next bold move. Is there a creative idea you've been ignoring?",
     "14_17": "Emotional clarity is arriving — let go of fear. Maybe it's time to say what you've been holding back.",
     "11_14": "Past choices are echoing forward — listen closely. Someone from your past may still carry a piece of your present.",
-    "15_16": "You're being protected more than you realize. But it’s also time to learn how to protect your boundaries yourself.",
+    "15_16": "You're being protected more than you realize. But it's also time to learn how to protect your boundaries yourself.",
     "16_11": "Healing begins with telling yourself the truth. What are you avoiding that actually wants to heal you?",
     "13_16": "Your creativity holds the solution to a practical problem. It feels like your life needs more art, music, or play right now.",
-    "12_16": "You must release control to find real momentum. Rest is not quitting — it’s trusting timing.",
+    "12_16": "You must release control to find real momentum. Rest is not quitting — it's trusting timing.",
     "14_15": "Relationships deepen when vulnerability is shared. It might be time to reach out — not with answers, but with presence.",
-    "15_17": "Timing is everything — wait for the door to open. There’s no need to rush what’s quietly forming.",
+    "15_17": "Timing is everything — wait for the door to open. There's no need to rush what's quietly forming.",
     "11_17": "Something hidden is ready to reveal itself. Are you giving it enough space to surface?",
     "13_14": "Let go of comparison — your path is entirely your own. No one else has your rhythm.",
-    "16_12": "You’re carrying too much that isn’t yours. Ground yourself and leave the tough decision for later — clarity will come.",
+    "16_12": "You're carrying too much that isn't yours. Ground yourself and leave the tough decision for later — clarity will come.",
     "14_16": "Patterns repeat until they're understood. This is your moment to choose differently.",
     "12_17": "It feels like you're missing a spark — have you considered bringing something playful into your life? Maybe… a guinea pig?",
-    "1_16": "Your body may be asking for rest — listen. You’re not a machine, you’re a cycle.",
-    "3_17": "You might be underestimating how strong your intuition is. Start trusting those nudges — they’re not random.",
-    "4_12": "You’ve been holding space for others — but what about you? It might be time to set a gentle boundary.",
+    "1_16": "Your body may be asking for rest — listen. You're not a machine, you're a cycle.",
+    "3_17": "You might be underestimating how strong your intuition is. Start trusting those nudges — they're not random.",
+    "4_12": "You've been holding space for others — but what about you? It might be time to set a gentle boundary.",
     "1_2": "A new cycle is beginning — balance inner and outer goals. It might be time to talk to someone close — they have something important to share.",
     "2_3": "Now is the time to make the leap you've been avoiding. You don't need to feel ready to begin.",
     "2_5": "A message you've been waiting for will arrive soon. But only if you're quiet enough to hear it.",
     "3_5": "Passion will guide your next bold move. Is there a creative idea you've been ignoring?",
     "4_7": "Emotional clarity is arriving — let go of fear. Maybe it's time to say what you've been holding back.",
     "1_4": "Past choices are echoing forward — listen closely. Someone from your past may still carry a piece of your present.",
-    "5_6": "You're being protected more than you realize. But it’s also time to learn how to protect your boundaries yourself.",
+    "5_6": "You're being protected more than you realize. But it's also time to learn how to protect your boundaries yourself.",
     "6_1": "Healing begins with telling yourself the truth. What are you avoiding that actually wants to heal you?",
     "3_6": "Your creativity holds the solution to a practical problem. It feels like your life needs more art, music, or play right now.",
-    "2_6": "You must release control to find real momentum. Rest is not quitting — it’s trusting timing.",
+    "2_6": "You must release control to find real momentum. Rest is not quitting — it's trusting timing.",
     "4_5": "Relationships deepen when vulnerability is shared. It might be time to reach out — not with answers, but with presence.",
-    "5_7": "Timing is everything — wait for the door to open. There’s no need to rush what’s quietly forming.",
+    "5_7": "Timing is everything — wait for the door to open. There's no need to rush what's quietly forming.",
     "1_7": "Something hidden is ready to reveal itself. Are you giving it enough space to surface?",
     "3_4": "Let go of comparison — your path is entirely your own. No one else has your rhythm.",
-    "6_2": "You’re carrying too much that isn’t yours. Ground yourself and leave the tough decision for later — clarity will come.",
+    "6_2": "You're carrying too much that isn't yours. Ground yourself and leave the tough decision for later — clarity will come.",
     "4_6": "Patterns repeat until they're understood. This is your moment to choose differently.",
     "2_7": "It feels like you're missing a spark — have you considered bringing something playful into your life? Maybe… a guinea pig?",
-    "11_6": "Your body may be asking for rest — listen. You’re not a machine, you’re a cycle.",
-    "13_7": "You might be underestimating how strong your intuition is. Start trusting those nudges — they’re not random.",
-    "14_2": "You’ve been holding space for others — but what about you? It might be time to set a gentle boundary.",
-
-    default: "The universe is shifting around you..."
-  };
+    "11_6": "Your body may be asking for rest — listen. You're not a machine, you're a cycle.",
+    "13_7": "You might be underestimating how strong your intuition is. Start trusting those nudges — they're not random.",
+    "14_2": "You've been holding space for others — but what about you? It might be time to set a gentle boundary.",
+    
+    // Дополнительные соединения для большего разнообразия
+    "1_3": "Wisdom comes from unexpected places today. Keep your heart open to new perspectives.",
+    "1_5": "A long-awaited breakthrough is near. Trust the process that's been unfolding.",
+    "1_6": "Your inner strength is greater than you know. This is a time to stand firm in your truth.",
+    "2_4": "Creativity flows freely now. Express yourself without holding back.",
+    "2_8": "A journey begins with a single step. What small action can you take today?",
+    "3_8": "Your voice has power. Speak your truth with confidence and compassion.",
+    "4_8": "Balance is the key to harmony. Find the middle path between extremes.",
+    "5_8": "Opportunity knocks softly. Listen for the gentle whispers of possibility.",
+    "6_8": "Transformation is happening within. Embrace the changes that are emerging.",
+    "7_8": "Your dreams are closer than they appear. Keep moving forward with faith.",
+    "8_9": "A cycle is completing. Celebrate your achievements and prepare for what's next.",
+    "9_10": "New beginnings are on the horizon. Trust the fresh energy that's arriving.",
+    "10_11": "Your intuition is sharp today. Follow those inner knowing feelings.",
+    "11_13": "Magic happens in the spaces between. Find time for stillness and reflection.",
+    "13_17": "Your creativity is a gift to the world. Share it generously.",
+    "14_18": "Love surrounds you in unexpected ways. Open your heart to receive it.",
+    "15_18": "Your wisdom is needed. Someone is looking to you for guidance.",
+    "16_17": "Healing comes through connection. Reach out to those who care about you.",
+    "17_18": "A door is opening. Walk through it with courage and curiosity.",
+    "18_19": "Your potential is limitless. Dream bigger than you ever have before.",
+    "19_20": "The universe is conspiring in your favor. Trust the synchronicities.",
+    "20_21": "Your story is still being written. What chapter do you want to create next?",
+    "21_22": "Transformation is your superpower. Embrace the changes that are calling you.",
+    
+    // Специальные соединения для магических карт
+    "1_11": "Ancient wisdom speaks through you today. Trust the knowledge that flows naturally.",
+    "2_12": "Your intuition is a compass. Follow it without question.",
+    "3_13": "Creative energy surges through you. Channel it into something beautiful.",
+    "4_14": "Emotional healing is available. Be gentle with yourself and others.",
+    "5_15": "Protection surrounds you. You are safe to explore and grow.",
+    "6_16": "Your boundaries are sacred. Honor them with love and firmness.",
+    "7_17": "Timing is perfect. Trust the rhythm of your own unfolding.",
+    "8_18": "Your dreams are valid. Pursue them with passion and persistence.",
+    "9_19": "New chapters await. Turn the page with excitement and hope.",
+    "10_20": "Your journey is unique. No one else can walk your path.",
+    "11_21": "Magic is real. Believe in the impossible and watch it manifest.",
+    "12_22": "Your potential is infinite. There are no limits to what you can become.",
+    
+    // Соединения для карт масти кубков (чаши)
+    "1_4": "Love flows freely in your life. Open your heart to receive it.",
+    "4_7": "Emotional clarity brings peace. Trust your feelings and intuition.",
+    "7_10": "Your relationships deepen through vulnerability. Share your truth.",
+    "10_13": "Spiritual growth accelerates. Your soul is expanding rapidly.",
+    "13_16": "Healing happens through connection. Reach out to loved ones.",
+    "16_19": "Your compassion heals others. Your kindness matters.",
+    "19_22": "Love is the answer to every question. Choose love in all things.",
+    
+    // Соединения для карт масти мечей
+    "2_5": "Your mind is sharp and clear. Trust your intellectual insights.",
+    "5_8": "Communication flows easily. Speak your truth with confidence.",
+    "8_11": "Your thoughts create your reality. Choose them wisely.",
+    "11_14": "Mental clarity brings breakthroughs. Trust your reasoning.",
+    "14_17": "Your words have power. Use them to uplift and inspire.",
+    "17_20": "Intellectual growth is rapid. Your mind is expanding.",
+    "20_23": "Wisdom comes through study and reflection. Keep learning.",
+    
+    // Соединения для карт масти пентаклей
+    "3_6": "Abundance flows to you naturally. Trust in prosperity.",
+    "6_9": "Your material needs are met. Focus on gratitude.",
+    "9_12": "Financial wisdom grows. Trust your practical instincts.",
+    "12_15": "Your resources multiply. Share your abundance generously.",
+    "15_18": "Success is inevitable. Keep moving forward with confidence.",
+    "18_21": "Your wealth includes more than money. Count your blessings.",
+    "21_24": "Prosperity surrounds you. Open your arms to receive it.",
+    
+    // Соединения для карт масти жезлов
+    "4_7": "Your energy is boundless. Channel it into creative projects.",
+    "7_10": "Passion drives your success. Follow what excites you.",
+    "10_13": "Your creativity knows no limits. Express yourself fully.",
+    "13_16": "Inspiration flows constantly. Trust your creative impulses.",
+    "16_19": "Your enthusiasm is contagious. Spread your positive energy.",
+    "19_22": "Your fire never goes out. Keep it burning bright.",
+    "22_25": "Transformation is your gift. Embrace the changes you create."
+};
 
   tarotCards.forEach(card => {
     card.addEventListener("click", () => {
@@ -468,10 +541,44 @@ document.addEventListener("DOMContentLoaded", () => {
             resultBox.textContent = result;
             resultBox.style.display = "block";
           }
+          
+          // Показываем кнопку сброса только если есть результат
+          const resetBtn = document.getElementById('tarot-reset-btn');
+          if (resetBtn && result) {
+            resetBtn.style.display = 'inline-block';
+            // Добавляем небольшую задержку для плавной анимации
+            setTimeout(() => {
+              resetBtn.classList.add('show');
+            }, 100);
+          }
         }, 500);
       }
     });
   });
+
+  // Обработчик для кнопки сброса гадания
+  const resetBtn = document.getElementById('tarot-reset-btn');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      // Сбрасываем все карты
+      tarotCards.forEach(card => card.classList.remove("flipped"));
+      
+      // Очищаем массив выбранных карт
+      drawnCards.length = 0;
+      
+      // Скрываем результат
+      if (resultBox) {
+        resultBox.textContent = "";
+        resultBox.style.display = "none";
+      }
+      
+      // Скрываем кнопку сброса с анимацией
+      resetBtn.classList.remove('show');
+      setTimeout(() => {
+        resetBtn.style.display = 'none';
+      }, 300);
+    });
+  }
 
   window.addEventListener("beforeunload", () => {
     drawnCards.length = 0;
@@ -479,6 +586,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (resultBox) {
       resultBox.textContent = "";
       resultBox.style.display = "none";
+    }
+    
+    // Скрываем кнопку сброса
+    const resetBtn = document.getElementById('tarot-reset-btn');
+    if (resetBtn) {
+      resetBtn.classList.remove('show');
+      resetBtn.style.display = 'none';
     }
   });
 

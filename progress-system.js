@@ -37,29 +37,34 @@ class ProgressSystem {
   // Загрузка прогресса из localStorage
   loadProgress() {
     const saved = localStorage.getItem('museumProgress');
-    return saved ? JSON.parse(saved) : {
-      coins: 0,
-      vesselProgress: 0,
-      maxVesselCapacity: 100,
-      exploredPaths: {
-        chrono: false,
-        magic: false,
-        crosscultural: false,
-        museumMap: false
-      },
-      pathProgress: {
-        chrono: 0,
-        magic: 0,
-        crosscultural: 0,
-        museumMap: 0
-      },
-      exploredThemes: {},
-      exploredQuestions: {},
-      achievements: [],
-      totalActions: 0,
-      certificateEarned: false,
-      userName: ''
-    };
+    if (saved) {
+      return JSON.parse(saved);
+    } else {
+      // Первое посещение - даем 12 монет стартового бонуса
+      return {
+        coins: 12,
+        vesselProgress: 0,
+        maxVesselCapacity: 100,
+        exploredPaths: {
+          chrono: false,
+          magic: false,
+          crosscultural: false,
+          museumMap: false
+        },
+        pathProgress: {
+          chrono: 0,
+          magic: 0,
+          crosscultural: 0,
+          museumMap: 0
+        },
+        exploredThemes: {},
+        exploredQuestions: {},
+        achievements: [],
+        totalActions: 0,
+        certificateEarned: false,
+        userName: ''
+      };
+    }
   }
 
   // Сохранение прогресса в localStorage

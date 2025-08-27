@@ -734,6 +734,7 @@
               <li><a href="#design-system">Design System</a></li>
               <li><a href="#design-principles">Design Principles & Rationale</a></li>
               <li><a href="#technical-implementation">Technical Implementation</a></li>
+              <li><a href="#tarot-system">Tarot Card System</a></li>
               <li><a href="#technical-decisions">Technical Decisions & Architecture Rationale</a></li>
               <li><a href="#accessibility">Accessibility & Performance</a></li>
               <li><a href="#credits">Credits & Licenses</a></li>
@@ -790,7 +791,7 @@
               <li><strong>Homepage:</strong> Introduction to mystical traditions, user type selection, and path overview</li>
               <li><strong>Chronological Path:</strong> Historical evolution of magical beliefs from ancient times to modern technology</li>
               <li><strong>Cross-Cultural Path:</strong> Comparison of magical traditions across different civilizations</li>
-              <li><strong>Modern Magic Path:</strong> Contemporary magical practices and digital spirituality</li>
+              <li><strong>Modern Magic Path:</strong> Contemporary magical practices and digital spirituality, featuring an interactive tarot card reading system with 82 unique predictions based on traditional card suit symbolism, and a comprehensive amulet collection with three-tier content adaptation (Beginner, Casual, Expert levels)</li>
               <li><strong>Museum Map:</strong> Interactive visualization of artifact locations and spatial relationships</li>
               <li><strong>About & Documentation:</strong> Project information and technical details</li>
             </ul>
@@ -817,6 +818,17 @@
             <h3>Audio Guide System</h3>
             <p>
               Our audio guide system features carefully curated voices that represent different aspects of mystical knowledge and storytelling. We deliberately chose voices that embody wisdom and experience, making visitors feel as if they're being guided by ancient guardians of knowledge.
+            </p>
+
+            <h3>Interactive Tarot System</h3>
+            <p>
+              The Modern Magic Path features an innovative interactive tarot card reading system that combines traditional divination practices with modern web technology. This system represents a unique digital interpretation of tarot that maintains authenticity while embracing contemporary user experience design.
+            </p>
+            <p>
+              The tarot system implements a sophisticated two-card reading mechanism with 82 unique predictions based on authentic tarot symbolism and traditional card suit meanings. Each prediction is carefully crafted to reflect the mystical properties of the four fundamental suits: Cups (emotions and relationships), Swords (intellect and communication), Pentacles (material matters and prosperity), and Wands (creativity and energy). The system's academic foundation draws from established tarot literature, particularly Rachel Pollack's "Seventy-Eight Degrees of Wisdom: A Book of Tarot," ensuring that our digital experience honors traditional divination practices while leveraging modern interactive technology.
+            </p>
+            <p>
+              Advanced JavaScript architecture manages card selection, state tracking, and prediction generation through intelligent algorithms that create meaningful combinations. The system features smooth 3D card flipping animations, responsive design adaptations, and a sophisticated reset mechanism that allows users to perform multiple readings without page refresh. This creates an authentic tarot experience that serves both as entertainment and as a tool for personal reflection and spiritual exploration.
             </p>
             
             <h4>Audio Guide Voices</h4>
@@ -1666,6 +1678,47 @@ AMULET-DIGITAL-001,NFT QR Code,Digital Culture,2020-2025 CE,Modern Artifact,Digi
             
             <p>The project implements a sophisticated JavaScript architecture with eight specialized modules that work together to create a seamless interactive experience. The theme-switcher.js provides advanced theme management with localStorage persistence, dynamic switching, and cross-page theme synchronization. The progress-system.js implements a comprehensive gamification engine with progress tracking, achievement systems, and sophisticated data management using localStorage. The crosscultural.js handles complex interactive content management, user experience logic, and dynamic content adaptation. The magic.js manages intricate magic path functionality with interactive elements and mystical animations. Additional modules include chrono.js for chronological timeline features and historical progression, museum-map.js for interactive 3D-like navigation and spatial relationships, hero-helper.js for advanced animation utilities and performance optimization, and local-ai.js for intelligent content generation and user assistance.</p>
 
+            <h4>Local AI System & Virtual Assistant Technology</h4>
+            <p>Our museum implements an innovative local AI system through local-ai.js that provides intelligent user assistance without requiring external API calls or internet connectivity. This system represents a sophisticated approach to user experience enhancement through local intelligence and contextual awareness.</p>
+
+            <h5>Local AI Architecture & Implementation</h5>
+            <p>The local AI system operates entirely within the browser environment, utilizing advanced JavaScript patterns and intelligent content management to provide contextual assistance:</p>
+            <ul>
+              <li><strong>Context-Aware Responses:</strong> The system analyzes user location within the museum (current path, theme, artifact) and provides relevant assistance based on their current exploration context. This creates a personalized guidance experience that adapts to user progress and interests.</li>
+              <li><strong>Intelligent Content Generation:</strong> Rather than using pre-written static responses, the system dynamically generates contextual suggestions, explanations, and guidance based on user behavior patterns, current theme selection, and exploration history stored in localStorage.</li>
+              <li><strong>Progressive Assistance Levels:</strong> The AI adapts its assistance depth based on user expertise level (Beginner, Casual, Expert), providing more detailed explanations for novices while offering advanced insights for experienced users.</li>
+              <li><strong>Behavioral Pattern Recognition:</strong> The system tracks user interaction patterns to identify areas where assistance might be beneficial, proactively offering help for complex features or suggesting unexplored content areas.</li>
+            </ul>
+
+            <h5>Virtual Assistant Integration & Functionality</h5>
+            <p>The virtual assistant system seamlessly integrates with our four mystical guides, each providing specialized assistance in their area of expertise:</p>
+            <ul>
+              <li><strong>Eleanor Whitmore (Victorian Mystic):</strong> Provides guidance on 19th-century spiritual practices, Victorian occultism, and the intersection of science and mysticism. Her assistance focuses on historical context and cultural significance of artifacts from the Industrial Revolution period.</li>
+              <li><strong>Maestro Lorenzo di Firenze (Renaissance Scholar):</strong> Offers expertise in Renaissance magic, alchemical traditions, and classical knowledge revival. His guidance emphasizes the intellectual and philosophical aspects of mystical traditions during the 15th-17th centuries.</li>
+              <li><strong>Maya (Ancient Wisdom Keeper):</strong> Specializes in prehistoric and ancient magical traditions, earth-based spirituality, and primal protective practices. Her assistance focuses on the origins and fundamental principles of mystical traditions.</li>
+              <li><strong>Petr III (Slavic Mystic):</strong> Provides expertise in Slavic magical traditions, folk beliefs, and Eastern European spiritual practices. His guidance emphasizes cultural diversity and regional variations in mystical traditions.</li>
+            </ul>
+
+            <h5>Technical Implementation & Performance</h5>
+            <p>The local AI system demonstrates several advanced technical achievements:</p>
+            <ul>
+              <li><strong>Zero-Latency Responses:</strong> By operating entirely locally, the system provides instant assistance without network delays or API response times, creating a seamless user experience.</li>
+              <li><strong>Offline Functionality:</strong> The system works completely offline, making it ideal for museum environments where internet connectivity might be limited or unreliable.</li>
+              <li><strong>Memory-Efficient Processing:</strong> Advanced JavaScript optimization techniques ensure minimal memory footprint while maintaining sophisticated AI-like behavior patterns.</li>
+              <li><strong>Scalable Content Management:</strong> The modular architecture allows easy addition of new assistance patterns, response types, and contextual triggers without affecting system performance.</li>
+            </ul>
+
+            <h5>User Experience & Accessibility Features</h5>
+            <p>The virtual assistant system enhances accessibility and user engagement through several innovative features:</p>
+            <ul>
+              <li><strong>Proactive Guidance:</strong> The system anticipates user needs and offers assistance before users realize they need help, creating a more intuitive exploration experience.</li>
+              <li><strong>Multilingual Support Preparation:</strong> The architecture is designed to support multiple languages, with content structures that can easily accommodate internationalization for global museum audiences.</li>
+              <li><strong>Adaptive Learning:</strong> The system learns from user interactions to improve assistance quality over time, creating a personalized experience that becomes more helpful with continued use.</li>
+              <li><strong>Contextual Navigation:</strong> Virtual assistants can guide users to related content, suggest exploration paths, and help users discover connections between different artifacts and traditions.</li>
+            </ul>
+
+            <p>This sophisticated local AI implementation demonstrates how advanced user experience can be achieved through intelligent local processing, creating a museum experience that feels genuinely intelligent and responsive while maintaining complete privacy and offline functionality.</p>
+
             <p>Advanced JavaScript features showcase modern web development techniques including sophisticated local storage management with data persistence across sessions and browser restarts. The dynamic content loading system implements an intelligent three-tier information display (Beginner, Casual, Expert) that responds to user selections in real-time without page reloads. The event-driven architecture utilizes advanced event delegation patterns, proper memory management, and efficient DOM manipulation techniques. The comprehensive progress system implements a sophisticated achievement tracking mechanism with coins, knowledge vessel progression, and dynamic achievement unlocking throughout the user journey.</p>
 
             <h3>Responsive Design & Layout System</h3>
@@ -1707,7 +1760,42 @@ AMULET-DIGITAL-001,NFT QR Code,Digital Culture,2020-2025 CE,Modern Artifact,Digi
 
             <p>The chronological path implements a sophisticated interactive timeline system with dynamic theme-aware content adaptation. The system features intelligent artifact progression through historical eras (Ancient Egypt to Modern Technology) with real-time theme switching that updates intro texts and visual elements based on user preferences. Advanced audio integration includes progress tracking for achievement systems, while the interactive timeline markers provide seamless navigation between different historical periods. The implementation showcases advanced event handling with proper event delegation, memory management, and cross-module communication through the global progress system.</p>
 
-            <p>The magic path features an innovative tarot card system with sophisticated card drawing mechanics and intelligent prediction algorithms. The system implements a unique two-card reading system with 40+ custom predictions based on card combinations, creating a personalized mystical experience. Advanced amulet interactions include three-tier content adaptation (short, full, use) that dynamically adjusts based on user expertise level, with sophisticated state management and localStorage persistence. The tarot system demonstrates advanced JavaScript patterns including event-driven architecture, state management, and complex data structures for mystical content delivery.</p>
+            <p>The magic path features an innovative tarot card system with sophisticated card drawing mechanics and intelligent prediction algorithms. The system implements a unique two-card reading system with 82 custom predictions based on card combinations, creating a personalized mystical experience. Advanced amulet interactions include three-tier content adaptation (short, full, use) that dynamically adjusts based on user expertise level, with sophisticated state management and localStorage persistence. The tarot system demonstrates advanced JavaScript patterns including event-driven architecture, state management, and complex data structures for mystical content delivery.</p>
+
+            <h4 id="tarot-system">Tarot Card System: Advanced JavaScript Implementation</h4>
+            <p>The tarot card system represents a sophisticated implementation of interactive card reading mechanics with deep mystical symbolism integration. Our JavaScript architecture follows advanced patterns that create an authentic divination experience while maintaining high code quality and performance.</p>
+
+            <h5>Core JavaScript Architecture & Logic Flow</h5>
+            <p>The tarot system implements a sophisticated event-driven architecture with the following core components:</p>
+            <ul>
+              <li><strong>Card Selection Logic:</strong> The system tracks user interactions through a <code>drawnCards</code> array, preventing over-selection and ensuring exactly two cards are drawn for each reading. Each card maintains its state through CSS class manipulation (<code>flipped</code> class) and data attributes (<code>data-card</code>).</li>
+              <li><strong>Prediction Algorithm:</strong> Our system implements an intelligent prediction engine that generates readings based on card combinations. The algorithm creates unique keys by combining card numbers (e.g., "11_12", "12_11") and searches through an extensive prediction database of 82 unique combinations, ensuring diverse and meaningful readings.</li>
+              <li><strong>State Management:</strong> The system maintains reading state through multiple mechanisms: DOM manipulation for visual feedback, array tracking for logical state, and localStorage integration for session persistence. This creates a robust, fault-tolerant system that handles edge cases gracefully.</li>
+              <li><strong>Reset Functionality:</strong> Advanced reset mechanics allow users to start new readings without page refresh. The system implements smooth animations for card flipping, result clearing, and button state management, creating a seamless user experience.</li>
+            </ul>
+
+            <h5>Mystical Symbolism & Card Suit Integration</h5>
+            <p>Our tarot system is not based on random predictions but incorporates authentic tarot symbolism and traditional card suit meanings. The prediction database is structured around four fundamental suits, each representing different aspects of human experience:</p>
+            <ul>
+              <li><strong>Cups (Chalices):</strong> Representing emotions, relationships, and spiritual matters. Predictions in this category focus on love, intuition, and emotional healing, drawing from traditional tarot interpretations of the Cups suit.</li>
+              <li><strong>Swords:</strong> Symbolizing intellect, communication, and mental clarity. These predictions emphasize mental processes, decision-making, and intellectual growth, reflecting the analytical nature of the Swords suit.</li>
+              <li><strong>Pentacles (Coins):</strong> Associated with material matters, prosperity, and practical concerns. Predictions here focus on abundance, financial wisdom, and tangible achievements, honoring the earth element of the Pentacles suit.</li>
+              <li><strong>Wands:</strong> Representing creativity, energy, and passion. These predictions emphasize creative expression, personal power, and transformative energy, capturing the fire element of the Wands suit.</li>
+            </ul>
+
+            <h5>Academic Foundation & Research Basis</h5>
+            <p>Our tarot system is grounded in academic research and traditional tarot scholarship. The prediction algorithms and card interpretations draw from established tarot literature, particularly influenced by the comprehensive work of Rachel Pollack in "Seventy-Eight Degrees of Wisdom: A Book of Tarot" (1980, 1997), which provides detailed analysis of tarot symbolism and the psychological aspects of card reading. This academic foundation ensures that our digital tarot experience maintains authenticity while embracing modern interactive technology.</p>
+
+            <h5>Technical Implementation Details</h5>
+            <p>The JavaScript implementation showcases several advanced programming patterns:</p>
+            <ul>
+              <li><strong>Event Delegation:</strong> Card click events are handled through a centralized event system that manages multiple card instances efficiently, preventing memory leaks and ensuring consistent behavior.</li>
+              <li><strong>Asynchronous Processing:</strong> The system uses <code>setTimeout</code> for smooth animations and user experience timing, creating natural reading flow that mimics traditional tarot practices.</li>
+              <li><strong>Data Structure Optimization:</strong> The prediction database uses a key-value object structure for O(1) lookup performance, while maintaining readability and easy maintenance for future expansions.</li>
+              <li><strong>Responsive State Management:</strong> The reset functionality demonstrates advanced state synchronization between visual elements, data structures, and user interface components.</li>
+            </ul>
+
+            <p>This sophisticated implementation creates an authentic tarot experience that honors traditional divination practices while leveraging modern web technologies for enhanced user engagement and accessibility.</p>
 
             <p>The cross-cultural path implements a sophisticated Leaflet.js interactive world map with custom marker systems and responsive design adaptations. The system features intelligent marker sizing based on device capabilities (375px to desktop), with custom popup content that adapts to screen dimensions. Advanced storytelling mechanics include three-tier narrative content (brief, medium, long) with intelligent user level detection and dynamic content switching. The implementation showcases advanced responsive design patterns, custom icon creation, and sophisticated content management systems for cross-cultural exploration.</p>
 
@@ -1721,6 +1809,74 @@ AMULET-DIGITAL-001,NFT QR Code,Digital Culture,2020-2025 CE,Modern Artifact,Digi
             <p>The chronological path implements sophisticated CSS with advanced timeline visualization and comprehensive theme-aware styling systems. The interactive timeline features custom markers with dynamic active states, smooth transitions, and theme-specific color schemes that adapt to four distinct historical periods. Advanced artifact display includes crystal-like containers with backdrop-filter blur effects, smooth image zoom animations with fadeInZoom keyframes, and sophisticated hover effects with multi-layered box-shadows and glow effects. The responsive design system implements intelligent breakpoint strategies with mobile-first approach, while theme-specific styling includes custom fonts (Cinzel for Renaissance, Josefin Sans for Art Deco, Orbitron for Digital Age) and dynamic color palettes that maintain accessibility standards across all visual variations.</p>
 
             <p>The magic path showcases advanced CSS with sophisticated tarot card systems and innovative amulet interaction designs. The floating theme switcher implements fixed positioning with backdrop-filter blur effects and smooth scale transformations. Advanced amulet cards feature intelligent rotation transforms (data-id specific rotations), sophisticated hover states with scale animations, and custom glow effects using CSS custom properties and box-shadow layering. The amulet description system implements smooth opacity transitions with transform animations, backdrop-filter blur effects, and sophisticated gradient backgrounds. Interactive elements include custom button states with hover animations, smooth transitions, and intelligent state management through CSS classes and pseudo-elements.</p>
+
+            <h4>Tarot Card Visual System: Advanced CSS Implementation</h4>
+            <p>The tarot card system demonstrates sophisticated CSS techniques that create an immersive and authentic card reading experience. Our visual implementation goes beyond simple card flipping to create a truly magical interaction.</p>
+
+            <h5>Card Flipping Mechanics & 3D Transforms</h5>
+            <p>The tarot cards implement advanced 3D transformation techniques that create realistic card flipping animations:</p>
+            <ul>
+              <li><strong>3D Card Structure:</strong> Each card uses <code>transform-style: preserve-3d</code> with nested front and back elements, creating authentic depth perception during rotation animations.</li>
+              <li><strong>Smooth Flipping Animation:</strong> Cards implement <code>transform: rotateY(180deg)</code> transitions with <code>cubic-bezier(0.4, 0.0, 0.2, 1)</code> easing for natural, physics-based movement that mimics real card handling.</li>
+              <li><strong>Perspective Management:</strong> The card container uses <code>perspective: 1000px</code> to create realistic 3D space, while individual cards maintain proper depth through <code>backface-visibility: hidden</code> for clean visual transitions.</li>
+            </ul>
+
+            <h5>Interactive State Management & Visual Feedback</h5>
+            <p>The system provides sophisticated visual feedback that enhances user engagement and creates intuitive interaction patterns:</p>
+            <ul>
+              <li><strong>Selection State Visualization:</strong> Selected cards maintain visual distinction through persistent <code>flipped</code> class states, with smooth transitions that prevent jarring visual changes.</li>
+              <li><strong>Hover Effects & Micro-interactions:</strong> Cards feature subtle hover animations including <code>transform: scale(1.05)</code> and enhanced shadows, creating responsive feedback that guides user interaction.</li>
+              <li><strong>Result Display Animation:</strong> The prediction result appears with smooth <code>opacity</code> and <code>transform</code> transitions, creating a sense of revelation that enhances the mystical experience.</li>
+            </ul>
+
+            <h5>Reset Button System & Advanced Interactions</h5>
+            <p>The reset functionality demonstrates sophisticated CSS state management and user experience design:</p>
+            <ul>
+              <li><strong>Dynamic Button States:</strong> The reset button uses <code>display: none</code> to <code>display: inline-block</code> transitions with smooth opacity animations for professional appearance/disappearance effects.</li>
+              <li><strong>Theme-Aware Styling:</strong> Button colors and effects automatically adapt to the selected theme using CSS custom properties and theme-specific selectors, maintaining visual consistency across all historical periods.</li>
+              <li><strong>Responsive Design Integration:</strong> Button sizing and positioning adapt to different screen sizes through intelligent breakpoint management, ensuring optimal usability across all devices.</li>
+            </ul>
+
+            <h5>Performance Optimization & Accessibility</h5>
+            <p>Our CSS implementation prioritizes both performance and accessibility:</p>
+            <ul>
+              <li><strong>Hardware Acceleration:</strong> All animations use <code>transform</code> and <code>opacity</code> properties to leverage GPU acceleration, ensuring smooth 60fps animations even on lower-end devices.</li>
+              <li><strong>Reduced Motion Support:</strong> The system respects user preferences for reduced motion through <code>@media (prefers-reduced-motion: reduce)</code> queries, providing accessible alternatives for users with motion sensitivity.</li>
+              <li><strong>Focus Management:</strong> Interactive elements maintain proper focus states and keyboard navigation support, ensuring the tarot experience is accessible to all users regardless of input method.</li>
+            </ul>
+
+            <p>This comprehensive CSS implementation creates a tarot system that not only functions flawlessly but also provides a visually stunning and accessible experience that honors the mystical tradition while embracing modern web standards.</p>
+
+            <!-- Примеры карточек таро для визуализации -->
+            <div class="tarot-demo-section" style="text-align: center; margin: 3rem 0; padding: 2rem; background: rgba(0, 0, 0, 0.1); border-radius: 15px; border: 1px solid rgba(191, 167, 106, 0.2);">
+              <h5 style="color: var(--gold); margin-bottom: 1.5rem; font-size: 1.2rem;">Tarot Card Examples</h5>
+              <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <!-- Карточка 1: The Fool -->
+                <div class="tarot-demo-card" style="width: 100px; height: 160px; perspective: 1000px; cursor: pointer; margin: 0.5rem;">
+                  <div class="card-inner" style="position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d;">
+                    <div class="card-front" style="position: absolute; width: 100%; height: 100%; background-image: url('images/cards/card3-back.webp'); background-size: cover; background-position: center; border-radius: 6px; border: 2px solid var(--gold); backface-visibility: hidden;"></div>
+                    <div class="card-back" style="position: absolute; width: 100%; height: 100%; background-image: url('images/cards/taro_card1-front.webp'); background-size: cover; background-position: center; border-radius: 6px; border: 2px solid var(--gold); backface-visibility: hidden; transform: rotateY(180deg);"></div>
+                  </div>
+                </div>
+
+                <!-- Карточка 2: The Moon -->
+                <div class="tarot-demo-card" style="width: 100px; height: 160px; perspective: 1000px; cursor: pointer; margin: 0.5rem;">
+                  <div class="card-inner" style="position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d;">
+                    <div class="card-front" style="position: absolute; width: 100%; height: 100%; background-image: url('images/cards/card3-back.webp'); background-size: cover; background-position: center; border-radius: 6px; border: 2px solid var(--gold); backface-visibility: hidden;"></div>
+                    <div class="card-back" style="position: absolute; width: 100%; height: 100%; background-image: url('images/cards/taro_card2-front.webp'); background-size: cover; background-position: center; border-radius: 6px; border: 2px solid var(--gold); backface-visibility: hidden; transform: rotateY(180deg);"></div>
+                  </div>
+                </div>
+
+                <!-- Карточка 3: The Sun -->
+                <div class="tarot-demo-card" style="width: 100px; height: 160px; perspective: 1000px; cursor: pointer; margin: 0.5rem;">
+                  <div class="card-inner" style="position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d;">
+                    <div class="card-front" style="position: absolute; width: 100%; height: 100%; background-image: url('images/cards/card3-back.webp'); background-size: cover; background-position: center; border-radius: 6px; border: 2px solid var(--gold); backface-visibility: hidden;"></div>
+                    <div class="card-back" style="position: absolute; width: 100%; height: 100%; background-image: url('images/cards/taro_card3-front.webp'); background-size: cover; background-position: center; border-radius: 6px; border: 2px solid var(--gold); backface-visibility: hidden; transform: rotateY(180deg);"></div>
+                  </div>
+                </div>
+              </div>
+              <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #ccc; font-style: italic;">Interactive tarot cards demonstrating the sophisticated 3D flipping mechanics and mystical symbolism integration</p>
+            </div>
 
             <p>The cross-cultural path demonstrates cutting-edge CSS with sophisticated 3D book effects and advanced layout systems. The book container implements CSS perspective (1500px) with transform-style: preserve-3d for authentic 3D rendering. Advanced book effects include realistic spine rendering with gradient backgrounds, folded corner effects using CSS triangles, bookmark elements with custom positioning, and sophisticated page shadows using multiple box-shadow layers. The spread system features smooth opacity and visibility transitions with cubic-bezier easing functions. Advanced responsive design includes intelligent breakpoint management, custom scrollbar styling, and sophisticated backdrop-filter implementations. The system showcases advanced CSS techniques including pseudo-elements for decorative effects, complex gradient backgrounds, and sophisticated animation timing functions.</p>
 
@@ -1950,6 +2106,37 @@ AMULET-DIGITAL-001,NFT QR Code,Digital Culture,2020-2025 CE,Modern Artifact,Digi
       if (typeof initializeProgressSystem === 'function') {
         initializeProgressSystem();
       }
+    });
+  </script>
+
+  <script src="magic.js"></script>
+  
+  <!-- Интерактивность для демонстрационных карточек таро -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Добавляем интерактивность для демонстрационных карточек таро
+      const demoCards = document.querySelectorAll('.tarot-demo-card');
+      
+      demoCards.forEach(card => {
+        card.addEventListener('click', function() {
+          const cardInner = this.querySelector('.card-inner');
+          if (cardInner.style.transform === 'rotateY(180deg)') {
+            cardInner.style.transform = 'rotateY(0deg)';
+          } else {
+            cardInner.style.transform = 'rotateY(180deg)';
+          }
+        });
+        
+        // Добавляем hover эффект
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'scale(1.05)';
+          this.style.transition = 'transform 0.3s ease';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'scale(1)';
+        });
+      });
     });
   </script>
 </body>

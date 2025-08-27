@@ -1,5 +1,92 @@
 /* === СИСТЕМА ТЕМ === */
 
+/* === ФИКСИРОВАННЫЕ СТИЛИ ДЛЯ КНОПКИ ПРОГРЕССА ВО ВСЕХ ТЕМАХ === */
+.progress-btn {
+  position: fixed !important;
+  top: 190px !important;
+  left: 30px !important;
+  width: 60px !important;
+  height: 60px !important;
+  background: rgba(30, 30, 30, 0.78) !important;
+  border: 2px solid var(--gold, #F4E4BC) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  z-index: 1000 !important;
+  box-shadow: 0 2px 24px 0 rgba(244, 228, 188, 0.2), 0 2px 24px rgba(0, 0, 0, 0.18) !important;
+  transform: translateX(0) !important;
+  padding: 4px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+}
+
+.progress-btn:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 32px 0 rgba(244, 228, 188, 0.3), 0 4px 32px rgba(0, 0, 0, 0.25) !important;
+}
+
+body[class*="theme-"] .progress-btn:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 32px 0 rgba(244, 228, 188, 0.3), 0 4px 32px rgba(0, 0, 0, 0.25) !important;
+}
+
+.progress-btn-icon {
+  font-size: 2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  overflow: visible !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.progress-btn-coins {
+  font-size: 0.9rem !important;
+  font-weight: bold !important;
+  color: var(--gold, #F4E4BC) !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  padding: 2px 8px !important;
+  border-radius: 10px !important;
+  min-width: 30px !important;
+  text-align: center !important;
+  margin-top: 2px !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+/* === СТИЛИ ДЛЯ АКТИВНОЙ КНОПКИ ТЕМЫ === */
+body[class*="theme-"] .theme-panel button.active {
+  background: rgba(245, 231, 195, 0.25) !important;
+  border-color: #f5e7c3 !important;
+  color: #2c1810 !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(245, 231, 195, 0.3) !important;
+  transform: translateX(0) !important;
+}
+
+body[class*="theme-"] .theme-panel button.active:hover {
+  background: rgba(245, 231, 195, 0.3) !important;
+  transform: translateX(0) !important;
+  box-shadow: 0 3px 12px rgba(245, 231, 195, 0.4) !important;
+}
+
 /* === ТЕМА 1500-1600: РЕНЕССАНС/МИСТИКА === */
 body.theme-1500 {
   --theme-bg: url('images/backgrounds/parchment.jpg') repeat center top;
@@ -28,6 +115,59 @@ body.theme-1500 {
   
   /* Цвет подсветки для таро карт */
   --accent-glow: rgba(218, 165, 32, 0.8);
+}
+
+/* Универсальные стили для кнопки прогресса во всех темах */
+body[class*="theme-"] .progress-btn {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  top: 190px !important;
+  left: 30px !important;
+}
+
+body[class*="theme-"] .progress-btn-icon {
+  font-size: 2rem !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+
+body[class*="theme-"] .progress-btn-coins {
+  font-size: 0.9rem !important;
+  font-weight: bold !important;
+  color: var(--gold, #F4E4BC) !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  padding: 2px 8px !important;
+  border-radius: 10px !important;
+  min-width: 30px !important;
+  text-align: center !important;
+  margin-top: 2px !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+/* Универсальные стили для hover эффектов во всех темах */
+body[class*="theme-"] .progress-btn-icon:hover {
+  transform: none !important;
+}
+
+body[class*="theme-"] .progress-btn-coins:hover {
+  transform: none !important;
 }
 
 /* === ТЕМА XIX ВЕК: ВИКТОРИАНСКАЯ === */
@@ -253,10 +393,11 @@ body.theme-late20c p {
 }
 
 .hero-helper-btn img {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 20%;
   display: block;
 }
 
@@ -879,6 +1020,7 @@ body.theme-late20c .book-spread[data-story="egyptian"] .main-image {
   .hero-helper-btn img {
     width: 32px;
     height: 32px;
+    object-position: center 20%;
   }
   
   .hero-helper-panel {
@@ -916,6 +1058,7 @@ body.theme-late20c .book-spread[data-story="egyptian"] .main-image {
   .hero-helper-btn img {
     width: 28px;
     height: 28px;
+    object-position: center 20%;
   }
   
   .hero-helper-panel {
@@ -954,6 +1097,7 @@ body.theme-late20c .book-spread[data-story="egyptian"] .main-image {
   .hero-helper-btn img {
     width: 36px;
     height: 36px;
+    object-position: center 20%;
   }
   
   .hero-helper-panel {
@@ -990,6 +1134,7 @@ body.theme-late20c .book-spread[data-story="egyptian"] .main-image {
   .hero-helper-btn img {
     width: 34px;
     height: 34px;
+    object-position: center 20%;
   }
   
   .hero-helper-panel {
@@ -1026,6 +1171,7 @@ body.theme-late20c .book-spread[data-story="egyptian"] .main-image {
   .hero-helper-btn img {
     width: 34px;
     height: 34px;
+    object-position: center 20%;
   }
   
   .hero-helper-panel {
@@ -1069,6 +1215,7 @@ body.theme-late20c .book-spread[data-story="egyptian"] .main-image {
     height: 34px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center 20%;
   }
   
   .hero-helper-panel {
@@ -1105,6 +1252,7 @@ body.theme-late20c .book-spread[data-story="egyptian"] .main-image {
   .hero-helper-btn img {
     width: 34px;
     height: 34px;
+    object-position: center 20%;
   }
   
   .hero-helper-panel {
@@ -1201,17 +1349,19 @@ body.theme-1500 .user-card::before {
   z-index: 1;
 }
 
-/* Активное состояние для темы 1500 */
+/* Отключаем базовые стили active-user для темы 1500-1800 */
 body.theme-1500 .user-card.active-user {
-  border-color: #D4AF37;
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
-  transform: scale(1.1);
+  border-color: #D4AF37 !important;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3) !important;
+  transform: scale(1.02) !important;
+  position: relative !important;
 }
 
 body.theme-1500 .user-card.active-user::after {
-  border-color: #D4AF37;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  display: none !important;
 }
+
+
 
 /* ТЕМА XIX ВЕКА: Квадратная сетка 3x1 */
 body.theme-19c .user-types {
@@ -1246,16 +1396,11 @@ body.theme-19c .user-card::before {
   z-index: 1;
 }
 
-/* Активное состояние для темы XIX века */
+/* Активное состояние для темы XIX века - аккуратная подсветка */
 body.theme-19c .user-card.active-user {
-  border-color: #d3b261;
-  box-shadow: 0 0 25px rgba(211, 178, 97, 0.7);
-  transform: scale(1.05);
-}
-
-body.theme-19c .user-card.active-user::after {
-  border-color: #d3b261;
-  box-shadow: 0 0 15px rgba(211, 178, 97, 0.5);
+  border-color: #d3b261 !important;
+  box-shadow: 0 0 12px rgba(211, 178, 97, 0.4) !important;
+  transform: scale(1.02) !important;
 }
 
 /* ТЕМА РАННЕГО XX ВЕКА: Геометрические формы */
@@ -1293,17 +1438,11 @@ body.theme-early20c .user-card::before {
   width: 141.4%;
 }
 
-/* Активное состояние для темы раннего XX века */
+/* Активное состояние для темы раннего XX века - аккуратная подсветка */
 body.theme-early20c .user-card.active-user {
-  border-color: #58c5c5;
-  box-shadow: 0 0 35px rgba(88, 197, 197, 0.8);
-  transform: rotate(45deg) scale(1.1);
-}
-
-body.theme-early20c .user-card.active-user::after {
-  border-color: #58c5c5;
-  box-shadow: 0 0 20px rgba(88, 197, 197, 0.6);
-  transform: rotate(-45deg);
+  border-color: #58c5c5 !important;
+  box-shadow: 0 0 12px rgba(88, 197, 197, 0.4) !important;
+  transform: rotate(45deg) scale(1.02) !important;
 }
 
 body.theme-early20c .user-card img {
@@ -1350,16 +1489,11 @@ body.theme-late20c .user-card::before {
   z-index: 1;
 }
 
-/* Активное состояние для темы позднего XX века */
+/* Активное состояние для темы позднего XX века - аккуратная подсветка */
 body.theme-late20c .user-card.active-user {
-  border-color: #00FFFF;
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
-  transform: scale(1.08);
-}
-
-body.theme-late20c .user-card.active-user::after {
-  border-color: #00FFFF;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  border-color: #00FFFF !important;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.4) !important;
+  transform: scale(1.02) !important;
 }
 
 /* Общие стили для всех карточек */
@@ -1734,29 +1868,31 @@ body.theme-early20c .user-card[data-user="expert"] p::before {
   .mobile-content {
     display: none;
   }
+  
+  /* Обеспечиваем стабильное позиционирование кнопки прогресса на больших экранах */
+  .progress-btn {
+    top: 190px !important;
+    left: 30px !important;
+    width: 60px !important;
+    height: 60px !important;
+  }
+  
+  .progress-btn-icon {
+    font-size: 2rem !important;
+  }
 }
 
-/* === МОБИЛЬНЫЕ СТИЛИ ДЛЯ КНОПОК === */
-@media (max-width: 768px) {
-  /* Выравниваем кнопки на мобильных устройствах */
-  .hero-helper {
-    left: 20px !important;
-    transform: translateX(0) !important;
+@media (max-width: 1024px) and (min-width: 769px) {
+  /* Для планшетов */
+  .progress-btn-icon {
+    font-size: 1.9rem !important;
   }
-  
-  .hero-helper-btn {
-    width: 55px !important;
-    height: 55px !important;
-  }
-  
-  .hero-helper-btn img {
-    width: 35px !important;
-    height: 35px !important;
-  }
-  
-  .hero-helper-panel {
-    left: 20px !important;
-    width: 280px !important;
+}
+
+@media (min-width: 1920px) {
+  /* Для 4K и очень больших экранов */
+  .progress-btn-icon {
+    font-size: 2.2rem !important;
   }
 }
 
@@ -1770,6 +1906,7 @@ body.theme-early20c .user-card[data-user="expert"] p::before {
   .hero-helper-btn img {
     width: 33px !important;
     height: 33px !important;
+    object-position: center 20%;
   }
 }
 
@@ -1787,6 +1924,7 @@ body.theme-early20c .user-card[data-user="expert"] p::before {
   .hero-helper-btn img {
     width: 30px !important;
     height: 30px !important;
+    object-position: center 20%;
   }
   
   .hero-helper-panel {
@@ -1794,4 +1932,151 @@ body.theme-early20c .user-card[data-user="expert"] p::before {
     width: 260px !important;
     max-width: calc(100vw - 30px) !important;
   }
+}
+
+/* === СТИЛИ ДЛЯ БОЛЬШИХ ЭКРАНОВ === */
+@media (min-width: 769px) {
+  .mobile-content {
+    display: none;
+  }
+  
+  /* Обеспечиваем стабильное позиционирование кнопки прогресса на больших экранах */
+  body[class*="theme-"] .progress-btn {
+    top: 190px !important;
+    left: 30px !important;
+    width: 60px !important;
+    height: 60px !important;
+  }
+  
+  body[class*="theme-"] .progress-btn-icon {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  /* Для планшетов */
+  body[class*="theme-"] .progress-btn-icon {
+    font-size: 1.9rem !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  /* Для 4K и очень больших экранов */
+  body[class*="theme-"] .progress-btn-icon {
+    font-size: 2.2rem !important;
+  }
+}
+
+/* === МОБИЛЬНЫЕ СТИЛИ ДЛЯ КНОПОК === */
+@media (max-width: 768px) {
+  /* Выравниваем кнопки на мобильных устройствах */
+  .progress-btn {
+    left: 20px !important;
+    width: 55px !important;
+    height: 55px !important;
+  }
+  
+  .progress-btn-icon {
+    font-size: 1.8rem !important;
+  }
+  
+  .hero-helper {
+    left: 20px !important;
+    transform: translateX(0) !important;
+  }
+  
+  .hero-helper-btn {
+    width: 55px !important;
+    height: 55px !important;
+  }
+  
+  .hero-helper-btn img {
+    width: 35px !important;
+    height: 35px !important;
+    object-position: center 20%;
+  }
+  
+  .hero-helper-panel {
+    left: 20px !important;
+    width: 280px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Для средних экранов */
+  .progress-btn {
+    width: 52px !important;
+    height: 52px !important;
+  }
+  
+  .progress-btn-icon {
+    font-size: 1.7rem !important;
+  }
+  
+  .hero-helper-btn {
+    width: 52px !important;
+    height: 52px !important;
+  }
+  
+  .hero-helper-btn img {
+    width: 33px !important;
+    height: 33px !important;
+    object-position: center 20%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Для очень маленьких экранов */
+  .progress-btn {
+    left: 15px !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .progress-btn-icon {
+    font-size: 1.6rem !important;
+  }
+  
+  .hero-helper {
+    left: 15px !important;
+  }
+  
+  .hero-helper-btn {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .hero-helper-btn img {
+    width: 30px !important;
+    height: 30px !important;
+    object-position: center 20%;
+  }
+  
+  .hero-helper-panel {
+    left: 15px !important;
+    width: 260px !important;
+    max-width: calc(100vw - 30px) !important;
+  }
+}
+
+body[class*="theme-"] .theme-panel button:hover {
+  background: rgba(245, 231, 195, 0.1) !important;
+  transform: translateX(5px) !important;
+}
+
+/* Активное состояние кнопки темы - заливка светло-золотого цвета */
+body[class*="theme-"] .theme-panel button.active {
+  background: rgba(245, 231, 195, 0.25) !important;
+  border-color: #f5e7c3 !important;
+  color: #2c1810 !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(245, 231, 195, 0.3) !important;
+  transform: translateX(0) !important;
+}
+
+/* Hover эффект для активной кнопки - без движения */
+body[class*="theme-"] .theme-panel button.active:hover {
+  background: rgba(245, 231, 195, 0.3) !important;
+  transform: translateX(0) !important;
+  box-shadow: 0 3px 12px rgba(245, 231, 195, 0.4) !important;
 }
